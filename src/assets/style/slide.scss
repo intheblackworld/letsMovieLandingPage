@@ -1,0 +1,39 @@
+.slide {
+  .slide-img {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: all 0.5s;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+
+  .btn-group {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 10px;
+
+    img {
+      width: 28px;
+      cursor: pointer;
+    }
+  }
+
+  .left-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+
+  .right-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+}

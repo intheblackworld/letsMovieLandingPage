@@ -1,0 +1,40 @@
+span,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: "Noto Sans TC" !important;
+  font-weight: 300 !important;
+  letter-spacing: 1px !important;
+  line-height: 1.5 !important;
+}
+
+h2 {
+  font-family: 'DFPingJuStd';
+  margin: 0;
+  font-weight: normal;
+}
+h3 {
+  font-family: 'Noto Serif TC', serif !important;
+  margin: 0;
+  font-weight: bold !important;
+}
+
+p {
+  // font-family: 'Noto Sans TC', serif;
+  font-family: "Noto Sans TC" !important;
+  margin: 0;
+}
+
+/* animate css */
+
+/* font */
+@font-face {
+  font-family: DFPingJuStd;
+  src: url('~@/assets/font/DFPingJuStd-W7.otf?#iefix')
+      format('embedded-opentype'),
+    url('~@/assets/font/DFPingJuStd-W7.otf');
+}

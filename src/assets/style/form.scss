@@ -1,0 +1,108 @@
+@import './variableColor.scss';
+
+.el-select {
+  margin-left: 21px;
+}
+
+.el-input__inner {
+  width: 310px !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  font-size: 16px !important;
+  border-radius: 0 !important;
+  border: $order_input_border;
+  background: $order_input_bg;
+  color: $order_input_color;
+
+  &:focus {
+    border: $order_input_focus_border;
+  }
+}
+.el-select-dropdown__item.selected {
+  color: $order_input_selected_color;
+}
+
+.el-textarea {
+  width: 420px !important;
+  height: 100% !important;
+  .el-textarea__inner {
+    height: 100% !important;
+    border-radius: 0 !important;
+    color: $order_input_color;
+    padding-top: 10px !important;
+    font-size: 16px !important;
+    border: $order_input_border;
+    background: $order_input_bg;
+  }
+}
+
+.el-checkbox__label {
+  p {
+    font-size: 14px;
+    color: $order_check_desc_color;
+  }
+
+  span {
+    color: $order_check_span_color;
+    text-decoration: underline;
+  }
+}
+
+.form-submit {
+  width: 320px !important;
+  height: 72px !important;
+  // opacity: 0 !important;
+  border-radius: 0 !important;
+  font-size: 20px !important;
+  background-color: $order_submit_bg;
+  margin: 0 auto !important;
+  margin-top: 20px !important;
+  transition: all 0.3s !important;
+  color: $order_submit_color;
+  // z-index: 10;
+  border: none !important;
+
+  &.is-disabled {
+    background-color: $order_sumbit_disable_bg;
+  }
+
+  svg {
+    margin-right: 15px;
+  }
+}
+
+
+/* 螢幕尺寸標準 */
+/* 手機尺寸 */
+@media only screen and (max-width: 767px) {
+  .el-input__inner {
+    width: 100% !important;
+  }
+
+  .el-textarea .el-textarea__inner {
+    width: 100% !important;
+    height: 120px !important;
+  }
+
+  .el-select {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .checkbox {
+    margin-top: 0;
+    white-space: nowrap;
+
+    label {
+      padding-left: 28px !important;
+      line-height: 20px !important;
+    }
+  }
+
+  .form-submit {
+    width: 90% !important;
+    margin-top: 10px !important;
+    font-size: 16px !important;
+    margin: 0 auto !important;
+  }
+}

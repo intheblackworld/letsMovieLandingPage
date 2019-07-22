@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.png">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!--SEO meta-->
+    <meta
+      name="title"
+      content="<%= htmlWebpackPlugin.options.metaTitle %>"
+    />
+    <meta
+      name="description"
+      content="<%= htmlWebpackPlugin.options.metaDescription %>"
+    />
+    <meta
+      name="keywords"
+      content="<%= htmlWebpackPlugin.options.metaKeywords %>"
+    />
+    <meta
+      property="og:title"
+      content="<%= htmlWebpackPlugin.options.ogMetaTitle %>"
+    />
+    <meta property="og:type" content="<%= htmlWebpackPlugin.options.ogMetaType %>" />
+    <meta
+      property="og:description"
+      content="<%= htmlWebpackPlugin.options.ogMetaDescription %>"
+    />
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but vue-house doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v3.2&appId=542185515968935&autoLogAppEvents=1"></script>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
