@@ -20,7 +20,12 @@ import {
   faTimes,
   faPhone,
   faPen,
-  faMapMarkerAlt
+  faMapMarkerAlt,
+  faIdCard,
+  faExclamationTriangle,
+  faRobot,
+  faMale,
+  faFemale,
 } from '@fortawesome/free-solid-svg-icons'
 
 import { faFacebookMessenger, faFacebookF } from '@fortawesome/free-brands-svg-icons'
@@ -34,6 +39,11 @@ library.add(faPen)
 library.add(faFacebookMessenger)
 library.add(faFacebookF)
 library.add(faMapMarkerAlt)
+library.add(faIdCard)
+library.add(faExclamationTriangle)
+library.add(faRobot)
+library.add(faMale)
+library.add(faFemale)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueSvgIcon, {

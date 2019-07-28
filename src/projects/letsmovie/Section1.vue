@@ -7,7 +7,7 @@
       v-scroll-reveal.reset="$fadeInUp()"
     >
       <!-- div.mask.fullscr -->
-      <div class="container">
+      <div class="container flex-c">
         <!-- <img class="slogan" v-scroll-reveal.reset="$fadeInUp()" src="./title.png" /> -->
         <div class="content">
           <p v-scroll-reveal.reset="$fadeInUp(0)" class="title">女生免費看電影</p>
@@ -21,6 +21,9 @@
 <style lang="scss" scoped>
 .bg {
   background-image: url('./s1_bg.png');
+  background-attachment: fixed;
+  background-position: center center; /* 圖像置中 */
+  background-size: cover;
 }
 .container {
   width: 920px;
@@ -34,9 +37,7 @@
   }
 
   .content {
-    position: absolute;
-    bottom: 40%;
-    right: -100px;
+    margin-top: -10%;
     text-align: left;
     color: #fff;
 
@@ -58,6 +59,7 @@
       font-size: 20px;
       color: #444;
       background-color: #fff;
+      font-weight: normal;
       width: 170px;
       height: 55px;
       float: right;
@@ -102,14 +104,6 @@
   width: 100%;
   height: auto;
 
-  .slogan {
-    position: relative;
-    left: auto;
-    top: auto;
-    width: 257px;
-    margin-bottom: 30px;
-  }
-
   .content {
     position: relative;
     bottom: auto;
@@ -120,8 +114,8 @@
     .title {
       color: #fff;
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-      font-size: 23px;
-      margin-bottom: 100px;
+      font-size: 28px;
+      margin-bottom: 20px;
     }
 
     .sub-title {
@@ -131,6 +125,12 @@
 
     p {
       font-size: 14px;
+    }
+
+    a {
+      float: none;
+      margin: 0 auto;
+      margin-top: 20px;
     }
   }
 }

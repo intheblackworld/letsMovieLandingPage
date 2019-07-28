@@ -219,28 +219,6 @@ export default {
     return {
       isMobile,
       loading: true,
-      slideList: [
-        {
-          src: require('./s8_img1.png'),
-          title: '大觀天下',
-          desc: '林口第一環<br /> 黃金軸線 王者建築',
-        },
-        {
-          src: require('./s8_img2.png'),
-          title: '南方沐林',
-          desc: '林口莊園特區<br /> 首購新家園',
-        },
-        {
-          src: require('./s8_img3.png'),
-          title: '世界心',
-          desc: '林口第一環<br /> 文北大道 景觀建築',
-        },
-        {
-          src: require('./s8_img4.png'),
-          title: '親愛的House',
-          desc: '林口核心環<br /> 23層摩天精品建築',
-        },
-      ],
     }
   },
 
