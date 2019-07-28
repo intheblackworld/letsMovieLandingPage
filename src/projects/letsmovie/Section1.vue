@@ -100,6 +100,9 @@
 
 /* 手機尺寸 */
 @media only screen and (max-width: 767px) {
+  .bg {
+    background-image: url('./s1_bg_m.png');
+  }
   .container {
   width: 100%;
   height: auto;

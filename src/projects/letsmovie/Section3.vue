@@ -122,6 +122,9 @@
 
 /* 手機尺寸 */
 @media only screen and (max-width: 767px) {
+  .section3 {
+    background-image: url('./s3_bg_m.png');
+  }
   .container {
     width: 100vw;
     padding: 0 10px;
