@@ -102,6 +102,7 @@
 @media only screen and (max-width: 767px) {
   .bg {
     background-image: url('./s1_bg_m.png');
+    background-attachment: scroll;
   }
   .container {
   width: 100%;

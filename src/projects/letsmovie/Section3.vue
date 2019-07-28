@@ -124,6 +124,7 @@
 @media only screen and (max-width: 767px) {
   .section3 {
     background-image: url('./s3_bg_m.png');
+    background-attachment: scroll;
   }
   .container {
     width: 100vw;
