@@ -1,33 +1,81 @@
 <template>
   <div class="section5 pt-40 pb-30">
     <div class="container">
-      <p class="title flex-c" v-scroll-reveal.reset="!isMobile ? $fadeInUp() : $fadeInUp()">你可能想問</p>
+      <p
+        class="title flex-c"
+        data-aos="fade-up"
+        data-aos-offset="50"
+        data-aos-delay="0"
+        data-aos-duration="1500"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >你可能想問</p>
       <div class="flex-jb wrap">
-        <div class="desc mb-30" v-scroll-reveal.reset="!isMobile ? $fadeInLeft(200) : $fadeIn()">
+        <div
+          class="desc mb-30"
+          data-aos="fade-left"
+          data-aos-offset="50"
+          data-aos-delay="200"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <p class="question flex-ac">
             <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
           </p>
           <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
         </div>
-        <div class="desc mb-30" v-scroll-reveal.reset="!isMobile ? $fadeInRight(200) : $fadeIn()">
+        <div
+          class="desc mb-30"
+          data-aos="fade-right"
+          data-aos-offset="50"
+          data-aos-delay="200"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <p class="question flex-ac">
             <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
           </p>
           <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
         </div>
-        <div class="desc mb-30" v-scroll-reveal.reset="!isMobile ? $fadeInLeft(200) : $fadeIn()">
+        <div
+          class="desc mb-30"
+          data-aos="fade-left"
+          data-aos-offset="50"
+          data-aos-delay="200"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <p class="question flex-ac">
             <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
           </p>
           <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
         </div>
-        <div class="desc mb-30" v-scroll-reveal.reset="!isMobile ? $fadeInRight(200) : $fadeIn()">
+        <div
+          class="desc mb-30"
+          data-aos="fade-right"
+          data-aos-offset="50"
+          data-aos-delay="200"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <p class="question flex-ac">
             <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
           </p>
           <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
         </div>
-        <div class="desc mb-30" v-scroll-reveal.reset="!isMobile ? $fadeInLeft(200) : $fadeIn()">
+        <div
+          class="desc mb-30"
+          data-aos="fade-left"
+          data-aos-offset="50"
+          data-aos-delay="200"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <p class="question flex-ac">
             <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
           </p>
@@ -153,7 +201,7 @@ export default {
   data() {
     return {
       isMobile,
-      loading: true
+      loading: true,
     }
   },
 

@@ -1,12 +1,6 @@
 <template>
   <div class="default">
     default
-    <!-- <img
-        v-scroll-reveal.reset="$fadeInLeft(delay, duration)"
-        src="./s2_tree_left.png"
-        alt
-        class="absolute tree-left"
-    />-->
   </div>
 </template>
 <style lang="scss" scoped>

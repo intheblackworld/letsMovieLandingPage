@@ -17,16 +17,38 @@
           一切其實可以很自然，就像認識了很久的老朋友。
           最後有禮貌的互道聲晚安，在心底給自己一聲歡呼。
         慶幸緣分，其實沒那麼難。-->
-        <div v-scroll-reveal.reset="$fadeInUp()">
+        <div
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="0"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <span class="blue">一個人</span>去電影院有多孤獨，
-          那兩個人去看電影就有<span class="pink">多幸福</span>。
+          那兩個人去看電影就有
+          <span class="pink">多幸福</span>。
           <br />
           <br />
         </div>
-        <div v-scroll-reveal.reset="$fadeInUp(300)">
+        <div
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="300"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <span class="big">來 Lets Movie，遇見你的新緣分</span>
         </div>
-        <div v-scroll-reveal.reset="$fadeInUp(600)">
+        <div
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="600"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <div class="btn flex-c m-auto">開始配對</div>
         </div>
       </div>

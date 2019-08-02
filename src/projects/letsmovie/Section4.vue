@@ -3,24 +3,61 @@
     <div class="container">
       <p
         class="title flex-c m-auto"
-        v-scroll-reveal.reset="!isMobile ? $fadeInUp(0) : $fadeInUp()"
+        data-aos="fade-up"
+        data-aos-offset="50"
+        data-aos-delay="0"
+        data-aos-duration="1500"
+        data-aos-mirror="true"
+        data-aos-once="false"
       >安心的理由</p>
       <div class="graph flex-ac flex-jb">
-        <div class="flex-c" v-scroll-reveal.reset="$fadeInRight()">
+        <div
+          class="flex-c"
+          data-aos="fade-right"
+          data-aos-offset="50"
+          data-aos-delay="0"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <span class="radar male"></span>
           <font-awesome-icon icon="male" class="male" />
         </div>
-        <div class="flex-c" v-scroll-reveal.reset="$fadeInUp(400)">
+        <div
+          class="flex-c"
+          data-aos="fade"
+          data-aos-offset="50"
+          data-aos-delay="400"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <span class="radar robot"></span>
           <font-awesome-icon icon="robot" class="robot" />
         </div>
-        <div class="flex-c" v-scroll-reveal.reset="$fadeInLeft()">
+        <div
+          class="flex-c"
+          data-aos="fade-left"
+          data-aos-offset="50"
+          data-aos-delay="400"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <span class="radar female"></span>
           <font-awesome-icon icon="female" class="female" />
         </div>
       </div>
 
-      <div class="desc" v-scroll-reveal.reset="$fadeInUp(600)">
+      <div
+        class="desc"
+        data-aos="fade-up"
+        data-aos-offset="50"
+        data-aos-delay="600"
+        data-aos-duration="1500"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >
         為了讓你們能
         <span class="pink">更放心地</span>使用我們的服務，我們的配對機制
         <br />能讓你們傳送的訊息都藉由
@@ -30,14 +67,30 @@
         <br />
       </div>
 
-      <div class="card" v-scroll-reveal.reset="$fadeInUp(800)">
+      <div
+        class="card"
+        data-aos="fade-up"
+        data-aos-offset="50"
+        data-aos-delay="800"
+        data-aos-duration="1500"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >
         <font-awesome-icon icon="id-card" class="card" />
         <p>
           註冊時採取實名認證以及年齡驗證
           <br />避免詐騙等狀況發生
         </p>
       </div>
-      <div class="warning" v-scroll-reveal.reset="$fadeInUp(1000)">
+      <div
+        class="warning"
+        data-aos="fade-up"
+        data-aos-offset="50"
+        data-aos-delay="1000"
+        data-aos-duration="1500"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >
         <font-awesome-icon icon="exclamation-triangle" />
         <p v-if="!isMobile">
           請在配對成功後出去看電影的時候

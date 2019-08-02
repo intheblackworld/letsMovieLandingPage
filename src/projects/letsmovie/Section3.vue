@@ -4,18 +4,50 @@
       <div class="container flex-ja wrap">
         <div class="content flex-c">
           <div>
-            <p v-scroll-reveal.reset="$fadeInUp()" class="title mb-20">配對流程</p>
-            <p class="sub-title" v-scroll-reveal.reset="$fadeInUp(300)">
+            <p
+              data-aos="fade-up"
+              data-aos-offset="50"
+              data-aos-delay="0"
+              data-aos-duration="1500"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              class="title mb-20"
+            >配對流程</p>
+            <p
+              class="sub-title"
+              data-aos="fade-up"
+              data-aos-offset="50"
+              data-aos-delay="300"
+              data-aos-duration="1500"
+              data-aos-mirror="true"
+              data-aos-once="false"
+            >
               我們在背後用了超級複雜的技術
               <br />只為了讓你有最好的交友體驗
               <br />
             </p>
-            <div v-scroll-reveal.reset="$fadeInUp(500)" v-if="!isMobile">
+            <div
+              data-aos="fade-up"
+              data-aos-offset="50"
+              data-aos-delay="500"
+              data-aos-duration="1500"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              v-if="!isMobile"
+            >
               <div class="btn border flex-c">現在就開始配對</div>
             </div>
           </div>
         </div>
-        <div class="content" v-scroll-reveal.reset="$fadeInUp(300)">
+        <div
+          class="content"
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="300"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
           <div class="slide bg-cover">
             <div class="flex-ac flex-jb dot-group">
               <div
@@ -27,13 +59,20 @@
             </div>
           </div>
           <p class="desc">{{slideList[slideIndex]}}</p>
-          <div v-scroll-reveal.reset="$fadeInUp(500)" v-if="isMobile">
+          <div
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="500"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            v-if="isMobile"
+          >
             <div class="btn border flex-c show-in-mobile">現在就開始配對</div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <img v-scroll-reveal.reset="$fadeIn()" src="./s3_bg.png" alt="心天畝的圖片" class="bg" /> -->
   </div>
 </template>
 <style lang="scss" scoped>
@@ -220,7 +259,7 @@ export default {
         '2. 根據我們給出的選項，填寫你的個人資料',
         '3. 女生填寫自己想要的時段，以及電影',
         '4. 男生則可以選擇我們推薦配對成功率高的時段',
-        '5. 配對成功後，喬好電影跟電影院，就可以準備約會了！',
+        '5. 配對成功後，喬好電影院跟詳細時間，就可以準備約會了！',
       ],
     }
   },

@@ -1,9 +1,23 @@
 <template>
   <div class="mask">
-    <section v-scroll-reveal.reset="$fadeInUp()">
+    <section
+      data-aos="fade-up"
+      data-aos-offset="50"
+      data-aos-delay="0"
+      data-aos-duration="1500"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <icon class="icon" :data="vueIcon" />
     </section>
-    <section v-scroll-reveal.reset="$fadeInUp()">
+    <section
+      data-aos="fade-up"
+      data-aos-offset="50"
+      data-aos-delay="300"
+      data-aos-duration="1500"
+      data-aos-mirror="true"
+      data-aos-once="false"
+    >
       <p>
         請將裝置轉至橫式
         <br />體驗最佳瀏覽方式

@@ -2,23 +2,34 @@
   <div class="section2">
     <!-- 背景圖覽家仔 -->
     <div class="container flex-c">
-      <!-- <img
-        v-scroll-reveal.reset="$fadeInLeft(700, 2500)"
-        src="./s2_tree_left.png"
-        alt
-        class="absolute tree-left"
-      />
-      <img
-        v-scroll-reveal.reset="$fadeInRight(700, 2500)"
-        src="./s2_tree_right.png"
-        alt
-        class="absolute tree-right"
-      />-->
       <div class="content">
-        <p class="title flex-c" v-scroll-reveal.reset="$fadeInUp(0)">擺脫你的無效社交</p>
+        <p
+          class="title flex-c"
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="0"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >擺脫你的無效社交</p>
         <div>
-          <p v-scroll-reveal.reset="$fadeInUp(300)" class="sub-title">交朋友不是靠滑的</p>
-          <p v-scroll-reveal.reset="$fadeInUp(300)">
+          <p
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="300"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            class="sub-title"
+          >交朋友不是靠滑的</p>
+          <p
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="300"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             說真的，我們不想讓你掛在線上，往左滑，往右滑，往右滑，往左滑…
             好不容易配對成功之後，才發現，那個人已讀不回，這個人不太會回
             這個人是尬聊魔人，那個人聊天總不正經，我們不願意你把時間浪費在這
@@ -26,8 +37,23 @@
           </p>
         </div>
         <div class="second">
-          <p v-scroll-reveal.reset="$fadeInUp(500)" class="sub-title">時間，請花在美好的事物上</p>
-          <p v-scroll-reveal.reset="$fadeInUp(500)">
+          <p
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="500"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            class="sub-title"
+          >時間，請花在美好的事物上</p>
+          <p
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="500"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >
             認識不同領域的人，拓展交友的圈子
             <br />為你的生活注入點刺激
             <br />直接碰面看場電影，有了共同話題
@@ -35,20 +61,17 @@
           </p>
         </div>
         <img
-          v-scroll-reveal.reset="$fadeInRight(700, 2500)"
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="700"
+          data-aos-duration="2000"
+          data-aos-mirror="true"
+          data-aos-once="false"
           src="./s2_clock.png"
           alt
           class="absolute clock"
         />
       </div>
-      <!-- <div class="video-container relative" v-scroll-reveal.reset="$fadeInUp(1000, 2500)">
-        <div :class="`mask absolute flex-c ${isPlay ? 'hide' : ''}`">
-          <img src="./s2_play_btn.png" @click="handlePlay" alt="心天畝的圖片" />
-        </div>
-        <video ref="video">
-          <source src="./video.mp4" type="video/mp4" />
-        </video>
-      </div>-->
     </div>
   </div>
 </template>
@@ -161,7 +184,6 @@
     width: 100vw;
     height: auto;
     padding-top: 25px;
-    
 
     .content {
       width: 280px;

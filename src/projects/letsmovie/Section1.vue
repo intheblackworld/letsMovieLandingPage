@@ -4,15 +4,43 @@
     <!-- 背景圖覽家仔 -->
     <section
       class="fullscreen bg-cover no-nav flex-c bg"
-      v-scroll-reveal.reset="$fadeInUp()"
+      data-aos="fade-up"
+      data-aos-offset="50"
+      data-aos-delay="0"
+      data-aos-duration="1500"
+      data-aos-mirror="true"
+      data-aos-once="false"
     >
       <!-- div.mask.fullscr -->
       <div class="container flex-c">
-        <!-- <img class="slogan" v-scroll-reveal.reset="$fadeInUp()" src="./title.png" /> -->
         <div class="content">
-          <p v-scroll-reveal.reset="$fadeInUp(0)" class="title">女生免費看電影</p>
-          <p v-scroll-reveal.reset="$fadeInUp(300)" class="sub-title">找一個跟你在電影院裡會心一笑的人</p>
-          <a class="flex-c" v-scroll-reveal.reset="$fadeInUp(500)">開始配對</a>
+          <p
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="0"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            class="title"
+          >女生免費看電影</p>
+          <p
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="300"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+            class="sub-title"
+          >找一個跟你在電影院裡會心一笑的人</p>
+          <a
+            class="flex-c"
+            data-aos="fade-up"
+            data-aos-offset="50"
+            data-aos-delay="500"
+            data-aos-duration="1500"
+            data-aos-mirror="true"
+            data-aos-once="false"
+          >開始配對</a>
         </div>
       </div>
     </section>
@@ -66,7 +94,7 @@
       margin-top: 25px;
       border-radius: 30px / 30px;
       cursor: pointer;
-      transition: all .5s;
+      transition: all 0.5s;
 
       &:hover {
         background-color: #bb926d;
@@ -105,39 +133,39 @@
     background-attachment: scroll;
   }
   .container {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 
-  .content {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    margin: 0 auto;
-    text-align: center;
-
-    .title {
-      color: #fff;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .sub-title {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 14px;
-    }
-
-    a {
-      float: none;
+    .content {
+      position: relative;
+      bottom: auto;
+      right: auto;
       margin: 0 auto;
-      margin-top: 20px;
+      text-align: center;
+
+      .title {
+        color: #fff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .sub-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+
+      a {
+        float: none;
+        margin: 0 auto;
+        margin-top: 20px;
+      }
     }
   }
-}
 }
 
 // 避免內容電腦過渡平板時，設計未考量的調整

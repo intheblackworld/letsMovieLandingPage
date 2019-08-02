@@ -2,7 +2,15 @@
   <div class="section6 bg-cover">
     <div class="linear-g-mask">
       <div class="container pt-40 pb-30">
-        <p class="title flex-c" v-scroll-reveal.reset="$fadeInUp()">聽聽使用者怎麼說</p>
+        <p
+          class="title flex-c"
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="0"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >聽聽使用者怎麼說</p>
         <div class="bullet-wall">
           <div
             class="bullet"
