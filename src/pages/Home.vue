@@ -5,9 +5,9 @@
     <div id="section1">
       <Section1 />
     </div>
-    <div id="simulation">
+    <!-- <div id="simulation">
       <Simulation />
-    </div>
+    </div> -->
     <div id="section2">
       <Section2 />
     </div>
