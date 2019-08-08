@@ -36,6 +36,7 @@
               v-if="!isMobile"
             >
               <div class="btn border flex-c">現在就開始配對</div>
+              <div class="btn flex-c">體驗配對</div>
             </div>
           </div>
         </div>
@@ -49,6 +50,14 @@
           data-aos-once="false"
         >
           <div class="slide bg-cover">
+            <img src="./s3_phone.png" alt="" class="absolute-c phone-frame">
+            <img
+              :src="slide.src"
+              alt
+              v-for="(slide, index) in slideList"
+              :key="`img-${slide.src}`"
+              :class="`slide-img absolute-c ${slideIndex === index ? 'active' : ''}`"
+            />
             <div class="flex-ac flex-jb dot-group">
               <div
                 class="dot"
@@ -58,7 +67,7 @@
               ></div>
             </div>
           </div>
-          <p class="desc">{{slideList[slideIndex]}}</p>
+          <p class="desc">{{slideList[slideIndex].title}}</p>
           <div
             data-aos="fade-up"
             data-aos-offset="50"
@@ -122,8 +131,18 @@
   height: 420px;
   margin: 0 auto;
   margin-bottom: 40px;
-  background-image: url('./s3_phone.png');
   position: relative;
+
+  .phone-frame {
+    width: 220px;
+    height: 420px;
+    z-index: 1;
+  }
+
+  .slide-img {
+    width: 185px;
+    height: 390px;
+  }
 
   .dot-group {
     color: #fff;
@@ -147,12 +166,13 @@
   color: #fff;
   font-size: 18px;
   margin-bottom: 40px;
+  white-space: nowrap;
 }
 
 .btn {
   margin: 0 auto;
   font-size: 18px;
-  color: #fff;
+  margin-bottom: 25px;
 }
 /* 螢幕尺寸標準 */
 /* 平板尺寸 */
@@ -255,11 +275,26 @@ export default {
       isMobile,
 
       slideList: [
-        '1. 加入我們的 FB Bot',
-        '2. 根據我們給出的選項，填寫你的個人資料',
-        '3. 女生填寫自己想要的時段，以及電影',
-        '4. 男生則可以選擇我們推薦配對成功率高的時段',
-        '5. 配對成功後，喬好電影院跟詳細時間，就可以準備約會了！',
+        {
+          title: '1. 加入我們的 FB Bot',
+          src: require('./s3_img_2.png'),
+        },
+        {
+          title: '2. 根據我們給出的選項，填寫你的個人資料',
+          src: require('./s3_img_2.png'),
+        },
+        {
+          title: '3. 女生填寫自己想要的時段，以及電影',
+          src: require('./s3_img_3.png'),
+        },
+        {
+          title: '4. 男生則可以選擇我們推薦配對成功率高的時段',
+          src: require('./s3_img_4.png'),
+        },
+        {
+          title: '5. 配對成功後，喬好電影院跟詳細時間，就可以準備約會了！',
+          src: require('./s3_img_5.png'),
+        },
       ],
     }
   },
@@ -267,7 +302,7 @@ export default {
   created() {
     setInterval(() => {
       this.addIndex()
-    }, 2500)
+    }, 3500)
   },
 
   methods: {

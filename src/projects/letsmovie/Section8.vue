@@ -68,7 +68,7 @@
     }
 
     .desc {
-      font-size: 16px;
+      font-size: 24px;
       line-height: 1.5;
       color: #4d4d4d;
       margin-bottom: 30px;

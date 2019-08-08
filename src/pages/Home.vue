@@ -5,6 +5,9 @@
     <div id="section1">
       <Section1 />
     </div>
+    <div id="simulation">
+      <Simulation />
+    </div>
     <div id="section2">
       <Section2 />
     </div>
@@ -55,7 +58,7 @@ import Section4 from '@/projects/letsmovie/Section4.vue'
 import Section5 from '@/projects/letsmovie/Section5.vue'
 import Section6 from '@/projects/letsmovie/Section6.vue'
 import Section7 from '@/projects/letsmovie/Section7.vue'
-// import Section8 from '@/projects/letsmovie/Section8.vue'
+import Simulation from '@/projects/letsmovie/Simulation.vue'
 
 export default {
   name: 'home',
@@ -71,7 +74,7 @@ export default {
     Section5,
     Section6,
     Section7,
-    // Section8,
+    Simulation,
   },
 
   methods: {
