@@ -11,6 +11,7 @@
     <div id="section2">
       <Section2 />
     </div>
+
     <div id="section3">
       <Section3 />
     </div>
@@ -31,6 +32,7 @@
     </div> -->
     <!-- <ContactSection />
     <MobileNav /> -->
+    <Footer />
   </div>
 </template>
 
@@ -39,6 +41,7 @@
 import Navigation from '@/layouts/Navigation.vue'
 // import ContactSection from '@/layouts/ContactSection.vue'
 // import MobileNav from '@/layouts/MobileNav.vue'
+import Footer from '@/layouts/Footer.vue'
 import gtm from '@/mixins/gtm.js'
 
 // 結構
@@ -75,6 +78,7 @@ export default {
     Section6,
     Section7,
     Simulation,
+    Footer,
   },
 
   methods: {

@@ -1,7 +1,9 @@
 <template>
-  <div class="footer">
-    <img src="../assets/img/footerLogo.png" alt="心天畝的圖片" />
-    <a href=" https://www.h35.tw/admin/test/login.php" target="_blank">網頁製作</a>
+  <div>
+    <div class="footer">
+      <p @click="showPolicyDialog">隱私權條款</p>
+    </div>
+    <PolicyDialog :policyVisible="policyVisible" />
   </div>
 </template>
 <style lang="scss" scoped>
@@ -19,10 +21,12 @@
   }
 
   p {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    color: #fff;
     margin-right: 15px;
     margin-bottom: 0;
+    cursor: pointer;
+    text-decoration: underline;
   }
 
   a {
@@ -43,10 +47,23 @@
 </style>
 
 <script>
+import PolicyDialog from '@/components/PolicyDialog.vue'
 export default {
   name: 'adminFooter',
-  components: {},
+  components: {
+    PolicyDialog,
+  },
 
-  methods: {},
+  data() {
+    return {
+      policyVisible: false,
+    }
+  },
+
+  methods: {
+    showPolicyDialog() {
+      this.policyVisible = true
+    },
+  },
 }
 </script>
