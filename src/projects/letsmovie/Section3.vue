@@ -34,7 +34,7 @@
               data-aos-mirror="true"
               data-aos-once="false"
               class="title mb-20"
-            >價格方案</p>
+            >服務費用</p>
             <p
               class="sub-title"
               data-aos="fade-up"
@@ -45,7 +45,7 @@
               data-aos-once="false"
             >
               配對成功後<br />
-              男生收取媒合費用 300 元
+              男生收取媒合費 300 元
               <br />女生則<span class="pink">完全免費</span>
             </p>
             <div
