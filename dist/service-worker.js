@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.3474cad8d2379cca477b8963f4fb1067.js"
+  "/precache-manifest.2e2680e5cb7650f7074116e85293dffc.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vue-house"});
