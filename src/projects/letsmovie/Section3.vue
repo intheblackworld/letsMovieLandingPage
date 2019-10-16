@@ -48,7 +48,7 @@
               男生收取媒合費 300 元
               <br />女生則<span class="pink">完全免費</span>
             </p>
-            
+
             <div
               data-aos="fade-up"
               data-aos-offset="50"
@@ -220,9 +220,13 @@ a {
     background-image: url('./s3_bg_m.png');
     background-attachment: scroll;
   }
+
+  .fullscreen {
+    height: auto;
+  }
   .container {
     width: 100vw;
-    padding: 0 10px;
+    padding: 30px 10px;
     margin: 0 auto;
   }
 
@@ -256,6 +260,15 @@ a {
     margin-bottom: 20px;
     background-image: url('./s3_phone.png');
     position: relative;
+
+    img {
+      width: 100%;
+    }
+
+    .phone-frame, .slide-img {
+      width: 100%;
+      height: auto;
+    }
 
     .dot-group {
       display: none;
