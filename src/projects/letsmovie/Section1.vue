@@ -40,6 +40,8 @@
             data-aos-duration="1500"
             data-aos-mirror="true"
             data-aos-once="false"
+            target="_blank"
+            href="https://m.me/108301937223847"
           >開始配對</a>
         </div>
       </div>
@@ -93,6 +95,7 @@
       float: right;
       margin-top: 25px;
       border-radius: 30px / 30px;
+      text-decoration: none;
       cursor: pointer;
       transition: all 0.5s;
 

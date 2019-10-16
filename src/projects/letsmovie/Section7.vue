@@ -41,16 +41,18 @@
         >
           <span class="big">來 Lets Movie，遇見你的新緣分</span>
         </div>
-        <div
+        <a
           data-aos="fade-up"
           data-aos-offset="50"
           data-aos-delay="600"
           data-aos-duration="1500"
           data-aos-mirror="true"
           data-aos-once="false"
+          target="_blank"
+          href="https://m.me/108301937223847"
         >
           <div class="btn flex-c m-auto">開始配對</div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -58,6 +60,10 @@
 <style lang="scss" scoped>
 .section7 {
   background-image: url(./s7_bg.jpg);
+}
+
+a {
+  text-decoration: none;
 }
 
 .linear-g-mask {

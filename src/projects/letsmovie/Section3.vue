@@ -26,6 +26,28 @@
               <br />只為了讓你有最好的交友體驗
               <br />
             </p>
+            <p
+              data-aos="fade-up"
+              data-aos-offset="50"
+              data-aos-delay="0"
+              data-aos-duration="1500"
+              data-aos-mirror="true"
+              data-aos-once="false"
+              class="title mb-20"
+            >價格方案</p>
+            <p
+              class="sub-title"
+              data-aos="fade-up"
+              data-aos-offset="50"
+              data-aos-delay="300"
+              data-aos-duration="1500"
+              data-aos-mirror="true"
+              data-aos-once="false"
+            >
+              配對成功後<br />
+              男生收取媒合費用 300 元
+              <br />女生則<span class="pink">完全免費</span>
+            </p>
             <div
               data-aos="fade-up"
               data-aos-offset="50"
@@ -35,8 +57,12 @@
               data-aos-once="false"
               v-if="!isMobile"
             >
-              <div class="btn border flex-c">現在就開始配對</div>
-              <div class="btn flex-c">體驗配對</div>
+              <a
+                class="btn border flex-c"
+                target="_blank"
+                href="https://m.me/108301937223847"
+              >現在就開始配對</a>
+              <!-- <div class="btn flex-c">體驗配對</div> -->
             </div>
           </div>
         </div>
@@ -50,7 +76,7 @@
           data-aos-once="false"
         >
           <div class="slide bg-cover">
-            <img src="./s3_phone.png" alt="" class="absolute-c phone-frame">
+            <img src="./s3_phone.png" alt class="absolute-c phone-frame" />
             <img
               :src="slide.src"
               alt
@@ -96,6 +122,9 @@
   background: rgba(0, 0, 0, 0.7);
 }
 
+a {
+  text-decoration: none;
+}
 .container {
   width: 980px;
   margin: 0 auto;
@@ -111,17 +140,22 @@
   z-index: 1;
 }
 
+.pink {
+  color: #db7093;
+}
+
 .title {
   margin-bottom: 10px;
   color: #fff;
   font-size: 36px;
+  text-align: left;
 }
 
 .sub-title {
-  font-size: 24px;
+  font-size: 20px;
   color: #eee;
   letter-spacing: 2px !important;
-  line-height: 1.3 !important;
+  line-height: 1.5 !important;
   margin-bottom: 50px;
   text-align: left;
 }

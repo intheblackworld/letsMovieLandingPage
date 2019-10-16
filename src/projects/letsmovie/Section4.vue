@@ -58,10 +58,8 @@
         data-aos-mirror="true"
         data-aos-once="false"
       >
-        為了讓你們能
-        <span class="pink">更放心地</span>使用我們的服務，我們的配對機制
-        <br />能讓你們傳送的訊息都藉由
-        <span class="green">機器人</span>轉送
+        為了讓你們能<span class="pink">更放心地</span>使用我們的服務，我們的配對機制
+        <br />能讓你們傳送的訊息都藉由<span class="green">機器人</span>轉送
         <br />所以絕對不會透露個人資料給對方
         <br />如 Line/臉書帳號/真實姓名/其它隱密個資
         <br />
