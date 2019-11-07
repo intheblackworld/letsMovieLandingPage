@@ -21,23 +21,25 @@
           data-aos-once="false"
         >
           <p class="question flex-ac">
-            <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
+            <span class="flex-c">1</span>
+            我使用這個服務真的可以跟異性出去約會嗎？
           </p>
-          <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 300 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
+          <p>A:我們經過多次的流程的優化，基本上只要你經過審核。跟異性成功約出去的機率超過9成</p>
         </div>
-        <!-- <div
+        <div
           class="desc mb-30"
-          data-aos="fade-right"
+          data-aos="fade-left"
           data-aos-offset="50"
-          data-aos-delay="200"
+          data-aos-delay="400"
           data-aos-duration="1500"
           data-aos-mirror="true"
           data-aos-once="false"
         >
           <p class="question flex-ac">
-            <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
+            <span class="flex-c">2</span>
+            這個服務安全嗎？行程安全嗎？
           </p>
-          <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
+          <p>Ａ:我們設計了完整隱密的機制。在正式出去之前，對方不會得知你的任何資料。約會的地點也會在公共場所，另外我們也會紀錄你們的對話紀錄，如有任何冒犯性的對話，檢舉經查證後。會做出相應的懲罰措施</p>
         </div>
         <div
           class="desc mb-30"
@@ -49,38 +51,11 @@
           data-aos-once="false"
         >
           <p class="question flex-ac">
-            <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
+            <span class="flex-c">3</span>
+            我不想要配對了不好聊還要硬聊，平常很忙，沒時間跟對方聊天。
           </p>
-          <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
+          <p>A:我們主張不尬聊，配對成功之後，開啟你們雙方的對話的目的只是為了討論電影院跟確切的時間。敲定之後系統就會主動關閉對話。約會當天才會再度開啟對話，方便你們碰面。專為社交疲勞的你量身打造，根據統計，每個禮拜使用我們服務的時間不用四小時，就能跟一個人出去看電影</p>
         </div>
-        <div
-          class="desc mb-30"
-          data-aos="fade-right"
-          data-aos-offset="50"
-          data-aos-delay="200"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
-        >
-          <p class="question flex-ac">
-            <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
-          </p>
-          <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
-        </div>
-        <div
-          class="desc mb-30"
-          data-aos="fade-left"
-          data-aos-offset="50"
-          data-aos-delay="200"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
-        >
-          <p class="question flex-ac">
-            <span class="flex-c">1</span> 這個服務要付費嗎？會很貴嗎？
-          </p>
-          <p>A: 我們背後有專業的工作團隊，去配對最適合彼此的人。所以我們的服務需要收取媒合費用。不過不用擔心男生只要 500 元，女生則完全免費。只是為了禮貌，男生需要另外負擔女生的電影票費用喔。</p>
-        </div> -->
       </div>
     </div>
   </div>

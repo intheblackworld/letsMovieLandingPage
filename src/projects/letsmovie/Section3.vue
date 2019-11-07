@@ -45,7 +45,7 @@
               data-aos-once="false"
             >
               配對成功後<br />
-              男生收取媒合費 300 元
+              男生收取媒合費 500 元
               <br />女生則<span class="pink">完全免費</span>
             </p>
 
@@ -82,14 +82,14 @@
               :src="slide.src"
               alt
               v-for="(slide, index) in slideList"
-              :key="`img-${slide.src}`"
+              :key="`img-${index}-${slide.src}`"
               :class="`slide-img absolute-c ${slideIndex === index ? 'active' : ''}`"
             />
             <div class="flex-ac flex-jb dot-group">
               <div
                 class="dot"
                 v-for="(slide, index) in slideList"
-                :key="slide"
+                :key="index"
                 @click="setSlide(index)"
               ></div>
             </div>
