@@ -26,7 +26,7 @@
               <br />只為了讓你有最好的交友體驗
               <br />
             </p>
-            <p
+            <!-- <p
               data-aos="fade-up"
               data-aos-offset="50"
               data-aos-delay="0"
@@ -47,7 +47,7 @@
               配對成功後<br />
               男生收取媒合費 500 元
               <br />女生則<span class="pink">完全免費</span>
-            </p>
+            </p> -->
 
             <div
               data-aos="fade-up"
