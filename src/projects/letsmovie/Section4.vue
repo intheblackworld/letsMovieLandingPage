@@ -65,7 +65,7 @@
         <br />
       </div>
 
-      <div
+      <!-- <div
         class="card"
         data-aos="fade-up"
         data-aos-offset="50"
@@ -79,7 +79,7 @@
           註冊時採取實名認證以及年齡驗證
           <br />避免詐騙等狀況發生
         </p>
-      </div>
+      </div> -->
       <div
         class="warning"
         data-aos="fade-up"
@@ -91,7 +91,7 @@
       >
         <font-awesome-icon icon="exclamation-triangle" />
         <p v-if="!isMobile">
-          請在配對成功後出去看電影的時候
+          請在出去看電影的時候
           <span>嚴格遵守</span>
           <br />我們的
           <span class="big">安全守則</span>
@@ -117,8 +117,8 @@
     </div>
     <el-dialog title="安全守則" :visible.sync="visible" width="600px" fullscreen>
       <div class="policy-dialog-content">
-        <p>1. 男生在整個約會過程當中，除非取得女生同意，否則不能以任何形式，要求女生的聯絡方式</p>
-
+        <p>1. 我們沒有透露你的隱密個資給對方，請自行拿捏願意提供多少資訊，同時也請尊重對方拒絕提供的權利</p>
+        
         <p>2. 整個約會過程當中，請雙方務必抱持互相尊重的態度，不可出現攻擊性，性別騷擾性的行為跟言詞</p>
 
         <p>3. 遵守時間觀念是對彼此的尊重，所以除非有緊急事故，請雙方都要在約定的時間於約定地點碰面，切勿遲到</p>

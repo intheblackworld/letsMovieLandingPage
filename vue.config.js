@@ -38,7 +38,6 @@ module.exports = {
       args[0].title = meta.info.title
       args[0].metaTitle = meta.info.title
       args[0].ogMetaTitle = meta.info.title
-      args[0].ogMetaImage = './src/projects/letsmovie/s1_bg.jpg '
       args[0].metaDescription = meta.info.description
       args[0].ogMetaDescription = meta.info.description
       args[0].metaKeywords = meta.info.keywords
