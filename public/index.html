@@ -29,6 +29,27 @@
       property="og:description"
       content="<%= htmlWebpackPlugin.options.ogMetaDescription %>"
     />
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '1451919268290168',
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v2.11'
+        })
+      }
+      ;(function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0]
+        if (d.getElementById(id)) {
+          return
+        }
+        js = d.createElement(s)
+        js.id = id
+        js.src = 'https://connect.facebook.net/en_US/sdk.js'
+        fjs.parentNode.insertBefore(js, fjs)
+      })(document, 'script', 'facebook-jssdk')
+    </script>
   </head>
   <body>
     <noscript>
@@ -39,6 +60,7 @@
     </noscript>
     <div id="app"></div>
     <div id="fb-root"></div>
+    <div class="fb-customerchat" page_id="737844822982371" minimized="true"></div>
     <script
       async
       defer
