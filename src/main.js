@@ -14,7 +14,6 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueScrollTo from 'vue-scrollto' // scroll 錨點
 import VueLazyload from 'vue-lazyload' // 圖片 lazy load
 import { library } from '@fortawesome/fontawesome-svg-core'
-import VueFbCustomerChat from 'vue-fb-customer-chat'
 
 import {
   faBars,
@@ -61,12 +60,6 @@ Vue.use(config)
 Vue.use(ElementUI)
 Vue.use(VueScrollTo)
 Vue.use(VueLazyload)
-
-Vue.use(VueFbCustomerChat, {
-  page_id: '737844822982371', //  change 'null' to your Facebook Page ID,
-  theme_color: '#333333', // theme color in HEX
-  locale: 'zh-TW', // default 'en_US'
-})
 
 new Vue({
   router,
