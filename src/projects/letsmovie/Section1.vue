@@ -22,7 +22,7 @@
             data-aos-mirror="true"
             data-aos-once="false"
             class="title"
-          >男生請女生免費看電影</p>
+          >男生請女生看電影</p>
           <p
             data-aos="fade-up"
             data-aos-offset="50"
