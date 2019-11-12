@@ -1,6 +1,7 @@
 <template>
   <div class="home no-padding-top">
     <div ref="gtmNoScript" />
+    <Loading :loading="load" />
     <Navigation />
     <div id="section1">
       <Section1 />
@@ -41,6 +42,7 @@
 import Navigation from '@/layouts/Navigation.vue'
 // import ContactSection from '@/layouts/ContactSection.vue'
 // import MobileNav from '@/layouts/MobileNav.vue'
+import Loading from '@/components/Loading.vue'
 import Footer from '@/layouts/Footer.vue'
 import gtm from '@/mixins/gtm.js'
 
@@ -78,7 +80,19 @@ export default {
     Section6,
     Section7,
     Simulation,
+    Loading,
     Footer,
+  },
+
+  data() {
+    return {
+      load: true,
+    }
+  },
+  created() {
+    window.addEventListener('load', event => {
+      this.load = false
+    })
   },
 
   methods: {

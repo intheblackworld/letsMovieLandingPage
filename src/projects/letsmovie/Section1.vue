@@ -182,13 +182,13 @@
 
 <script>
 // @ is an alias to /src
-import Loading from '@/components/Loading.vue'
-import { setTimeout } from 'timers'
+// import Loading from '@/components/Loading.vue'
+// import { setTimeout } from 'timers'
 
 export default {
   name: 'section1',
   components: {
-    Loading,
+    // Loading,
   },
 
   data() {
@@ -200,13 +200,6 @@ export default {
   methods: {},
 
   created() {
-    this.$Lazyload.$on('loaded', ({ el, src }) => {
-      setTimeout(() => {
-        if (this.loading) {
-          this.loading = false
-        }
-      }, 2500)
-    })
   },
 }
 </script>
