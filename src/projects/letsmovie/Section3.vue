@@ -324,23 +324,23 @@ export default {
 
       slideList: [
         {
-          title: '1. 加入我們的 FB Bot',
+          title: '1. 根據機器人的問題，輸入個人資訊',
+          src: require('./s3_img_1.png'),
+        },
+        {
+          title: '2. 女生選擇想要的電影跟時段，發起約會',
           src: require('./s3_img_2.png'),
         },
         {
-          title: '2. 根據我們給出的選項，填寫你的個人資料',
-          src: require('./s3_img_2.png'),
-        },
-        {
-          title: '3. 女生填寫自己想要的時段，以及電影',
+          title: '3. 男生則可以發出約會邀請',
           src: require('./s3_img_3.png'),
         },
         {
-          title: '4. 男生則可以選擇我們推薦配對成功率高的時段',
+          title: '4. 配對成功後，開啟對話模式，喬好電影院跟碰面時間',
           src: require('./s3_img_4.png'),
         },
         {
-          title: '5. 配對成功後，喬好電影院跟詳細時間，就可以準備約會了！',
+          title: '5. 當天開啟對話，方便雙方碰面約會看電影',
           src: require('./s3_img_5.png'),
         },
       ],
@@ -350,7 +350,7 @@ export default {
   created() {
     setInterval(() => {
       this.addIndex()
-    }, 3500)
+    }, 5000)
   },
 
   methods: {
