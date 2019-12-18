@@ -265,9 +265,14 @@ a {
       width: 100%;
     }
 
-    .phone-frame, .slide-img {
+    .phone-frame {
       width: 100%;
       height: auto;
+    }
+
+    .slide-img {
+      width: 90%;
+      height: 93%;
     }
 
     .dot-group {
