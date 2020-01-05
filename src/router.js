@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
+import Blog from './pages/Blog.vue'
 
 Vue.use(Router)
 
@@ -12,6 +13,26 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/blog/:id',
+      name: 'Blog',
+      component: Blog,
+      children: [
+        { path: '', component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Intro.vue') },
+        {
+          path: 'intro',
+          component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Intro.vue')
+        },
+        {
+          path: 'help',
+          component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Help.vue')
+        },
+        {
+          path: 'dating',
+          component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Dating.vue')
+        }
+      ]
     },
     // {
     //   path: '/formThanks',
