@@ -1,8 +1,9 @@
 <template>
   <div class="intro">
+    <img src="./socialmedia1.jpg" alt="">
     <div class="title">現在的你，為什麼在交友軟體上認識人很難？</div>
     <div class="pre">
-      嗨，你好我們是 Let’s Movie 的創辦人<br />
+      嗨，你好我們是 Let’s Movie 的創辦團隊<br />
       很高興你點開來看了
     </div>
     <p>
@@ -56,7 +57,7 @@
       “很自然地逗笑女生“<br />
       “現在腦袋都裝工作“<br />
       “打開軟體左滑右滑“<br />
-      “好不容易配對到了卻不知道要怎麼起頭了““<br />
+      “好不容易配對到了卻不知道要怎麼起頭了“<br />
       “總不可能跟他聊今天開會的內容吧”<br />
     </p>
     <p>
@@ -106,13 +107,12 @@
       “一個禮拜不用到兩小時吧”<br />
       “重返黃金年代！”<br />
     </p>
-    <p>小張這樣說</p>
     <p>
       你是一個重視自己時間的人嗎？<br />
       你是一個工作忙碌的人嗎？<br />
       一個月一場電影約會<br />
       面對面認識一個異性<br />
-      需要的是500元的媒合費<br />
+      需要的是50 - 500元的媒合費<br />
       比加起來動輒幾千元的交友軟體會員費要少得多<br />
       當然我們更想要的是幫你把時間節省下來<br />
       讓你留更多的時間給自己<br />
@@ -135,8 +135,12 @@
 <style lang="scss" scoped>
 .intro {
   width: 1280px;
-  margin: 40px auto;
+  margin: 0px auto;
   text-align: justify;
+
+  img  {
+    width: 100%;
+  }
   
   .title {
     font-size: 36px;
@@ -176,6 +180,39 @@
 
 /* 手機尺寸 */
 @media only screen and (max-width: 767px) {
+  .intro {
+    width: 100vw;
+    padding: 0 5vw;
+    margin-top: 0px;
+
+    img {
+      width: 100vw;
+      margin-left: -5vw;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .pre {
+
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 30px;
+    }
+
+    .talk {
+      font-size: 15px;
+    }
+
+    .end {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+  }
 }
 
 // 避免內容電腦過渡平板時，設計未考量的調整

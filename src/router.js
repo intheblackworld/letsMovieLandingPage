@@ -15,21 +15,21 @@ export default new Router({
       component: Home
     },
     {
-      path: '/blog/:id',
+      path: '/blog',
       name: 'Blog',
       component: Blog,
       children: [
-        { path: '/', component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Intro.vue') },
+        // { path: '/', component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Intro.vue') },
         {
-          path: '/intro',
+          path: 'intro',
           component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Intro.vue')
         },
         {
-          path: '/help',
+          path: 'help',
           component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Help.vue')
         },
         {
-          path: '/dating',
+          path: 'dating',
           component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Dating.vue')
         }
       ]

@@ -3,19 +3,20 @@
     <div class="layout-container-fluid">
       <div class="layout-container">
         <div class="nav">
-          <img class="logo" src="@/assets/img/nav-logo.png" alt="心天畝的圖片" />
+          <img class="logo" src="@/assets/img/nav-logo.png" alt="" />
           <div class="menu" @click="toggleSidebar">
             <font-awesome-icon icon="bars" />
           </div>
           <div :class="`mask ${isOpen ? 'open' : ''}`" @click="toggleSidebar" />
           <ul :class="`navlist ${isOpen ? 'open': ''}`">
+            <router-link to="/blog/intro">test</router-link>	
             <li
               :key="item.name"
               v-scroll-to="{ element: `#${item.section}`, offset: offset }"
               v-for="item in list"
             >
               <span class="link">
-                <img v-if="item.imgSrc" :src="item.imgSrc" alt="心天畝的圖片" />
+                <img v-if="item.imgSrc" :src="item.imgSrc" alt="" />
                 <span>
                   <p class="title">{{item.name}}</p>
                   <span class="subTitle">{{item.subTitle}}</span>
