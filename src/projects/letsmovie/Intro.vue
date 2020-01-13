@@ -158,7 +158,6 @@
     margin-bottom: 30px;
   }
 
-
   p {
     line-height: 2.5;
     margin-bottom: 15px;

@@ -9,7 +9,6 @@
           </div>
           <div :class="`mask ${isOpen ? 'open' : ''}`" @click="toggleSidebar" />
           <ul :class="`navlist ${isOpen ? 'open': ''}`">
-            <router-link to="/blog/intro">test</router-link>	
             <li
               :key="item.name"
               v-scroll-to="{ element: `#${item.section}`, offset: offset }"
