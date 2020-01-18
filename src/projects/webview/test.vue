@@ -69,7 +69,7 @@ export default {
           // More code to follow
         },
         function error(err) {
-          console.log(err)
+          this.psid = err
         },
       )
     }
