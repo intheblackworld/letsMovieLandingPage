@@ -57,17 +57,17 @@ export default {
 
   mounted() {
     window.extAsyncInit = function() {
-      window.alert(123)
       console.log(MessengerExtensions)
       // the Messenger Extensions JS SDK is done loading
-      MessengerExtensions.getUserID(
-        function success(uids) {
-          var psid = uids.psid //This is your page scoped sender_id
-          this.psid = psid
-          // $.post('https://myapi.com/sendOnWebviewClose', { psid: psid })
+      MessengerExtensions.getContext(
+        '902252186774664',
+        function success(thread_context) {
+          // success
+          this.psid = thread_context.psid
+          // More code to follow
         },
         function error(err) {
-          alert('Messenger Extension Error: ' + err)
+          console.log(err)
         },
       )
     }
