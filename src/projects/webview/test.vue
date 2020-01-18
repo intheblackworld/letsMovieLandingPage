@@ -59,6 +59,7 @@ export default {
     window.extAsyncInit = function() {
       console.log(MessengerExtensions)
       // the Messenger Extensions JS SDK is done loading
+      this.psid = '123'
       MessengerExtensions.getContext(
         '902252186774664',
         function success(thread_context) {
