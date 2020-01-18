@@ -79,13 +79,26 @@ export default {
   methods: {
     onFBReady: function() {
       this.isFBReady = true
-      console.log(this.FB.getUserID())
-      this.fb_id = this.FB.getUserID()
-      // MessengerExtensions.requestCloseBrowser(function success() {
+      // console.log(this.FB.getUserID())
+      // this.fb_id = this.FB.getUserID()
 
+      //       MessengerExtensions.getSupportedFeatures(function success(result) {
+      //   let features = result.supported_features;
+      //   if (features.indexOf("context") != -1) {
+      //     MessengerExtensions.getContext('<YOUR_APP_ID>',
+      //       function success(thread_context) {
+      //         // success
+      //         document.getElementById("psid").value = thread_context.psid;
+      //         // More code to follow
+      //       },
+      //       function error(err) {
+      //         console.log(err);
+      //       }
+      //     );
+      //   }
       // }, function error(err) {
-
-      // })
+      //   console.log(err);
+      // });
     },
   },
 }

@@ -16,9 +16,13 @@ vue_fb.install = function install(Vue, options) {
   window.fbAsyncInit = function onSDKInit() {
     console.log('fb init!')
     FB.init(options)
-    FB.AppEvents.logPageView()  
+    FB.AppEvents.logPageView()
     Vue.prototype.FB = FB
     window.dispatchEvent(new Event('fb-sdk-ready'))
+  }
+
+  window.extAsyncInit = function() {
+    Vue.prototype.me = MessengerExtensions
   }
   Vue.FB = undefined
 }

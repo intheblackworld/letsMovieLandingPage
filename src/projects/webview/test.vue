@@ -2,17 +2,14 @@
   <div class="webview">
     <form action="/optionspostback" method="get">
     <input type="hidden" name="psid" id="psid">
-    <h3>{{fb_id}}</h3>
+    <h3>Pillows</h3>
     <input type="radio" name="pillows" value="soft" checked>Soft<br>
     <input type="radio" name="pillows" value="hard">Hard<br>
     <h3>Bed</h3>
     <input type="radio" name="bed" value="single" checked>Single<br>
     <input type="radio" name="bed" value="double">Double<br>
     <input type="radio" name="bed" value="twin">Twin<br>
-    <h3>View</h3>
-    <input type="radio" name="view" value="sea" checked>Sea<br>
-    <input type="radio" name="view" value="street">Street<br>
-    <input type="submit" value="Submit" id="submitButton">
+    <input type="submit" value="Submit" id="submitButton" @click="closeWebView">
 </form>
   </div>
 </template>
@@ -50,24 +47,15 @@ export default {
     return {}
   },
 
-  mounted: function() {
-    this.isFBReady = Vue.FB != undefined
-    window.addEventListener('fb-sdk-ready', this.onFBReady)
-  },
-  beforeDestroy: function() {
-    window.removeEventListener('fb-sdk-ready', this.onFBReady)
-  },
   methods: {
-    onFBReady: function() {
-      this.isFBReady = true
-      console.log(this.FB.getUserID())
-      this.fb_id = this.FB.getUserID()
-      // MessengerExtensions.requestCloseBrowser(function success() {
-
-      // }, function error(err) {
-
-      // })
-    },
+    closeWebView() {
+      this.me.requestCloseBrowser(function success() {
+      }, function error(err) {
+        console.log(err)
+      })
+    }
   },
+
+  created() {},
 }
 </script>
