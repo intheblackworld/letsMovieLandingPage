@@ -1,6 +1,5 @@
 <template>
   <div class="webview">
-    111
     <h3>{{psid}}</h3>
     <input type="submit" value="Submit" id="submitButton" @click="closeWebView" />
     <!-- <form action="/optionspostback" method="get">
@@ -58,7 +57,7 @@ export default {
 
   mounted() {
     this.psid = '123'
-    window.extAsyncInit = function() {
+    window.extAsyncInit = () => {
       console.log(MessengerExtensions)
       // the Messenger Extensions JS SDK is done loading
       this.psid = '456'
