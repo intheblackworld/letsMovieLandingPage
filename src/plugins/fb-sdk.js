@@ -13,18 +13,14 @@ vue_fb.install = function install(Vue, options) {
     fjs.parentNode.insertBefore(js, fjs)
   }(document, 'script', 'Messenger'))
 
-  window.fbAsyncInit = function onSDKInit() {
-    console.log('fb init!')
-    FB.init(options)
-    FB.AppEvents.logPageView()
-    Vue.prototype.FB = FB
+  window.extAsyncInit = function onSDKInit() {
+    window.alert('123')
+    // FB.init(options)
+    // FB.AppEvents.logPageView()
+    Vue.prototype.ME = MessengerExtensions
     window.dispatchEvent(new Event('fb-sdk-ready'))
   }
-
-  window.extAsyncInit = function() {
-    Vue.prototype.me = MessengerExtensions
-  }
-  Vue.FB = undefined
+  Vue.ME = undefined
 }
 
 export default vue_fb

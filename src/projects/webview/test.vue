@@ -1,16 +1,21 @@
 <template>
   <div class="webview">
-    <form action="/optionspostback" method="get">
-    <input type="hidden" name="psid" id="psid">
-    <h3>Pillows</h3>
-    <input type="radio" name="pillows" value="soft" checked>Soft<br>
-    <input type="radio" name="pillows" value="hard">Hard<br>
-    <h3>Bed</h3>
-    <input type="radio" name="bed" value="single" checked>Single<br>
-    <input type="radio" name="bed" value="double">Double<br>
-    <input type="radio" name="bed" value="twin">Twin<br>
-    <input type="submit" value="Submit" id="submitButton" @click="closeWebView">
-</form>
+    <input type="submit" value="Submit" id="submitButton" @click="closeWebView" />
+    <!-- <form action="/optionspostback" method="get">
+      <input type="hidden" name="psid" id="psid" />
+      <h3>Pillows</h3>
+      <input type="radio" name="pillows" value="soft" checked />Soft
+      <br />
+      <input type="radio" name="pillows" value="hard" />Hard
+      <br />
+      <h3>Bed</h3>
+      <input type="radio" name="bed" value="single" checked />Single
+      <br />
+      <input type="radio" name="bed" value="double" />Double
+      <br />
+      <input type="radio" name="bed" value="twin" />Twin
+      <br />
+    </form>-->
   </div>
 </template>
 <style lang="scss" scoped>
@@ -49,11 +54,16 @@ export default {
 
   methods: {
     closeWebView() {
-      this.me.requestCloseBrowser(function success() {
-      }, function error(err) {
-        console.log(err)
-      })
-    }
+      console.log(1)
+      this.me.requestCloseBrowser(
+        function success() {
+          console.log(2)
+        },
+        function error(err) {
+          console.log(err)
+        },
+      )
+    },
   },
 
   created() {},
