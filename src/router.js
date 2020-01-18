@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
 import Blog from './pages/Blog.vue'
+import Webview from './pages/Webview.vue'
 
 Vue.use(Router)
 
@@ -19,19 +20,30 @@ export default new Router({
       name: 'Blog',
       component: Blog,
       children: [
-        // { path: '/', component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Intro.vue') },
         {
           path: 'intro',
-          component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Intro.vue')
+          component: () => import(/* webpackChunkName: "blog" */ './projects/blog/Intro.vue')
         },
         {
           path: 'help',
-          component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Help.vue')
+          component: () => import(/* webpackChunkName: "blog" */ './projects/blog/Help.vue')
         },
         {
           path: 'dating',
-          component: () => import(/* webpackChunkName: "intro" */ './projects/letsmovie/Dating.vue')
+          component: () => import(/* webpackChunkName: "blog" */ './projects/blog/Dating.vue')
         }
+      ]
+    },
+
+    {
+      path: '/webview',
+      name: 'WebView',
+      component: Webview,
+      children: [
+        {
+          path: 'test',
+          component: () => import(/* webpackChunkName: "webtest" */ './projects/webview/test.vue')
+        },
       ]
     },
     // {

@@ -1,6 +1,5 @@
 <template>
   <div class="section1">
-    <Loading :loading="loading" />
     <!-- 背景圖覽家仔 -->
     <section
       class="fullscreen bg-cover no-nav flex-c bg"

@@ -56,14 +56,14 @@ import gtm from '@/mixins/gtm.js'
 // 7. final CTA
 
 
-import Section1 from '@/projects/letsmovie/Section1.vue'
-import Section2 from '@/projects/letsmovie/Section2.vue'
-import Section3 from '@/projects/letsmovie/Section3.vue'
-import Section4 from '@/projects/letsmovie/Section4.vue'
-import Section5 from '@/projects/letsmovie/Section5.vue'
-import Section6 from '@/projects/letsmovie/Section6.vue'
-import Section7 from '@/projects/letsmovie/Section7.vue'
-import Simulation from '@/projects/letsmovie/Simulation.vue'
+import Section1 from '@/projects/home/Section1.vue'
+import Section2 from '@/projects/home/Section2.vue'
+import Section3 from '@/projects/home/Section3.vue'
+import Section4 from '@/projects/home/Section4.vue'
+import Section5 from '@/projects/home/Section5.vue'
+import Section6 from '@/projects/home/Section6.vue'
+import Section7 from '@/projects/home/Section7.vue'
+// import Simulation from '@/projects/home/Simulation.vue'
 
 export default {
   name: 'home',
@@ -79,7 +79,7 @@ export default {
     Section5,
     Section6,
     Section7,
-    Simulation,
+    // Simulation,
     Loading,
     Footer,
   },

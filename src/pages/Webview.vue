@@ -6,21 +6,23 @@
     <router-view></router-view>
     <!-- <div id="section8">
       <Section8 />
-    </div> -->
+    </div>-->
     <!-- <ContactSection />
-    <MobileNav /> -->
+    <MobileNav />-->
     <Footer />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import Vue from 'vue'
 import Navigation from '@/layouts/Navigation.vue'
 // import ContactSection from '@/layouts/ContactSection.vue'
 // import MobileNav from '@/layouts/MobileNav.vue'
 import Loading from '@/components/Loading.vue'
 import Footer from '@/layouts/Footer.vue'
 import gtm from '@/mixins/gtm.js'
+// import
 
 // 結構
 // 1. 主視覺
@@ -30,7 +32,6 @@ import gtm from '@/mixins/gtm.js'
 // 5. FAQ
 // 6. 使用者回饋
 // 7. final CTA
-
 
 // import Section1 from '@/projects/home/Section1.vue'
 // import Section2 from '@/projects/home/Section2.vue'
@@ -42,7 +43,7 @@ import gtm from '@/mixins/gtm.js'
 // import Simulation from '@/projects/home/Simulation.vue'
 
 export default {
-  name: 'home',
+  name: 'webview',
   mixins: [gtm],
   components: {
     // Navigation,
@@ -60,20 +61,30 @@ export default {
     Footer,
   },
 
-  data() {
-    return {
-      load: true,
-    }
+  data: function() {
+    return { load: true, isFBReady: false }
   },
   created() {
     window.addEventListener('load', event => {
       this.load = false
     })
   },
-
+  mounted: function() {
+    this.isFBReady = Vue.FB != undefined
+    window.addEventListener('fb-sdk-ready', this.onFBReady)
+  },
+  beforeDestroy: function() {
+    window.removeEventListener('fb-sdk-ready', this.onFBReady)
+  },
   methods: {
-    onDone() {
-      console.log('done')
+    onFBReady: function() {
+      this.isFBReady = true
+      console.log(this.FB.getUserID())
+      // MessengerExtensions.requestCloseBrowser(function success() {
+
+      // }, function error(err) {
+
+      // })
     },
   },
 }

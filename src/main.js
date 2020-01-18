@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import vue_fb from './plugins/fb-sdk'
 import './registerServiceWorker'
 
 import '@/assets/style/global.scss'
@@ -56,6 +57,13 @@ Vue.use(VueSvgIcon, {
 })
 
 Vue.use(config)
+
+Vue.use(vue_fb, {
+  appId: '902252186774664',
+  autoLogAppEvents: true,
+  xfbml: true,
+  version: 'v2.9'
+})
 
 Vue.use(ElementUI)
 Vue.use(VueScrollTo)
