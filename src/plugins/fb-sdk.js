@@ -12,14 +12,13 @@ vue_fb.install = function install(Vue, options) {
     js.src = '//connect.facebook.com/en_US/messenger.Extensions.js'
     fjs.parentNode.insertBefore(js, fjs)
   }(document, 'script', 'Messenger'))
-
-  window.extAsyncInit = function onSDKInit() {
-    // window.alert('123')
-    // FB.init(options)
-    // FB.AppEvents.logPageView()
-    Vue.prototype.ME = MessengerExtensions
-    window.dispatchEvent(new Event('fb-sdk-ready'))
-  }
+  // window.extAsyncInit = function() {
+  //   // FB.init(options)
+  //   // FB.AppEvents.logPageView()
+  //   // Vue.prototype.ME = MessengerExtensions
+  //   window.alert('123')
+  //   window.dispatchEvent(new Event('fb-sdk-ready'))
+  // }
   Vue.ME = undefined
 }
 

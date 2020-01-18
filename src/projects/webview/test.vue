@@ -1,6 +1,6 @@
 <template>
   <div class="webview">
-    {{status}}
+    {{psid}}
     <input type="submit" value="Submit" id="submitButton" @click="closeWebView" />
     <!-- <form action="/optionspostback" method="get">
       <input type="hidden" name="psid" id="psid" />
@@ -51,14 +51,25 @@ export default {
 
   data() {
     return {
-      status: '',
+      psid: '',
     }
   },
 
   mounted() {
     window.extAsyncInit = function() {
-      this.status = 'sdk load!'
-      this.me = MessengerExtensions
+      window.alert(123)
+      console.log(MessengerExtensions)
+      // the Messenger Extensions JS SDK is done loading
+      MessengerExtensions.getUserID(
+        function success(uids) {
+          var psid = uids.psid //This is your page scoped sender_id
+          this.psid = psid
+          // $.post('https://myapi.com/sendOnWebviewClose', { psid: psid })
+        },
+        function error(err) {
+          alert('Messenger Extension Error: ' + err)
+        },
+      )
     }
   },
 

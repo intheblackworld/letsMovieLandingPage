@@ -19,12 +19,13 @@ export default {
     AstrictMask,
   },
 
-  mounted() {
-    window.extAsyncInit = function() {
-      // the Messenger Extensions JS SDK is done loading
-      console.log('ext!!!!!')
-      window.alert('ext!!!')
+  data() {
+    return {
+      me: null,
     }
-  }
+  },
+
+  mounted() {
+  },
 }
 </script>

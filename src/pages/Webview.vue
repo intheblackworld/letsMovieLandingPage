@@ -79,6 +79,8 @@ export default {
   methods: {
     onFBReady: function() {
       this.isFBReady = true
+      console.log('sdfasready')
+      console.log(this.ME)
       // console.log(this.FB.getUserID())
       // this.fb_id = this.FB.getUserID()
 
