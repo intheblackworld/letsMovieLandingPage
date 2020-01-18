@@ -80,6 +80,7 @@ export default {
     onFBReady: function() {
       this.isFBReady = true
       console.log(this.FB.getUserID())
+      this.fb_id = this.FB.getUserID()
       // MessengerExtensions.requestCloseBrowser(function success() {
 
       // }, function error(err) {

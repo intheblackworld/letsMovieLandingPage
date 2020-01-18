@@ -2,7 +2,7 @@
   <div class="webview">
     <form action="/optionspostback" method="get">
     <input type="hidden" name="psid" id="psid">
-    <h3>Pillows</h3>
+    <h3>{{fb_id}}</h3>
     <input type="radio" name="pillows" value="soft" checked>Soft<br>
     <input type="radio" name="pillows" value="hard">Hard<br>
     <h3>Bed</h3>
@@ -50,12 +50,24 @@ export default {
     return {}
   },
 
-  methods: {
-    closeWebView() {
-      // FB
-    }
+  mounted: function() {
+    this.isFBReady = Vue.FB != undefined
+    window.addEventListener('fb-sdk-ready', this.onFBReady)
   },
+  beforeDestroy: function() {
+    window.removeEventListener('fb-sdk-ready', this.onFBReady)
+  },
+  methods: {
+    onFBReady: function() {
+      this.isFBReady = true
+      console.log(this.FB.getUserID())
+      this.fb_id = this.FB.getUserID()
+      // MessengerExtensions.requestCloseBrowser(function success() {
 
-  created() {},
+      // }, function error(err) {
+
+      // })
+    },
+  },
 }
 </script>
