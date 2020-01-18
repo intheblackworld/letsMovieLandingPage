@@ -58,12 +58,12 @@ Vue.use(VueSvgIcon, {
 
 Vue.use(config)
 
-Vue.use(vue_fb, {
-  appId: '902252186774664',
-  autoLogAppEvents: true,
-  xfbml: true,
-  version: 'v2.9'
-})
+// Vue.use(vue_fb, {
+//   appId: '902252186774664',
+//   autoLogAppEvents: true,
+//   xfbml: true,
+//   version: 'v2.9'
+// })
 
 Vue.use(ElementUI)
 Vue.use(VueScrollTo)
@@ -72,5 +72,15 @@ Vue.use(VueLazyload)
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: h => h(App),
+  created() {
+    return (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0]
+      if (d.getElementById(id)) { return }
+      js = d.createElement(s) 
+      js.id = id
+      js.src = '//connect.facebook.com/en_US/messenger.Extensions.js'
+      fjs.parentNode.insertBefore(js, fjs)
+    }(document, 'script', 'Messenger'))
+  }
 }).$mount('#app')

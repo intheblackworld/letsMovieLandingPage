@@ -14,7 +14,7 @@ vue_fb.install = function install(Vue, options) {
   }(document, 'script', 'Messenger'))
 
   window.extAsyncInit = function onSDKInit() {
-    window.alert('123')
+    // window.alert('123')
     // FB.init(options)
     // FB.AppEvents.logPageView()
     Vue.prototype.ME = MessengerExtensions

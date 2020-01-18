@@ -1,5 +1,6 @@
 <template>
   <div class="webview">
+    {{status}}
     <input type="submit" value="Submit" id="submitButton" @click="closeWebView" />
     <!-- <form action="/optionspostback" method="get">
       <input type="hidden" name="psid" id="psid" />
@@ -49,20 +50,28 @@ export default {
   },
 
   data() {
-    return {}
+    return {
+      status: '',
+    }
+  },
+
+  mounted() {
+    window.extAsyncInit = function() {
+      this.status = 'sdk load!'
+      this.me = MessengerExtensions
+    }
   },
 
   methods: {
     closeWebView() {
-      console.log(1)
-      this.me.requestCloseBrowser(
-        function success() {
-          console.log(2)
-        },
-        function error(err) {
-          console.log(err)
-        },
-      )
+      // this.me.requestCloseBrowser(
+      //   function success() {
+      //     console.log(2)
+      //   },
+      //   function error(err) {
+      //     console.log(err)
+      //   },
+      // )
     },
   },
 
