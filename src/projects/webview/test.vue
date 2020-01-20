@@ -63,12 +63,12 @@ export default {
       this.psid = '456'
       MessengerExtensions.getContext(
         '902252186774664',
-        function success(thread_context) {
+        thread_context => {
           // success
           this.psid = thread_context.psid
           // More code to follow
         },
-        function error(err) {
+        err => {
           this.psid = err
         },
       )
