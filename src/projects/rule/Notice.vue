@@ -25,8 +25,9 @@
     <p>
       如果原定日期喬不攏
       <br />可以跟對方討論彈性修改
+      <br />敲定約會細節時，可以輸入不同日期
     </p>
-    <div class="end">Let’s Movie 電影約會團隊 祝你約會順利</div>
+    <div class="end">現在就跟對方打聲招呼吧😄</div>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -130,8 +131,9 @@
     }
 
     .end {
-      font-size: 16px;
+      font-size: 24px;
       margin-bottom: 30px;
+      color:#333;
     }
   }
 }
