@@ -1,21 +1,30 @@
 <template>
   <div class="dating">
-    <div class="title">平台守則</div>
+    <div class="title">注意事項</div>
     <p>
-      1.本次約會為<span class="boy">男生</span>請<span class="girl">女生</span>看電影🌹
+      1.討論好<span class="red">碰面時間，電影院</span>後請點選單
+      <br />
+      <span class="strong">約會快捷功能>敲定約會細節</span>
     </p>
-
+    <img src="./checkdetail.gif" alt />
+    <p>2.聊天都有做備份紀錄，請用一顆禮貌的心跟對方交談</p>
     <p>
-      2.請在<span class="red">見面後</span>再給予或詢問對方<br />
-      其他聯絡方式(Line, IG帳號...等)<br />
-      若違反經小編發現<br />
-      我們將<span class="red">終止您本次約會並停權帳號</span>
+      3.約會過程請保持友善態度
+      <br />
+      <span class="red">約會結束時會收到通知，此時可以互評對方表現</span>
+      <br />您的態度決定您的分數喔！
     </p>
+    <br />
+    <h3>備註一</h3>
+    <p>如果電影場次的時間還沒出來，可以先討論<span class="red">碰面時間</span></p>
+    <h3>備註二</h3>
     <p>
-      3.為了維護對方的權益，除非緊急狀況，否則<span class="red">約會當天取消約會或缺席者</span><br />
-      <span class="red">我們會採取停權的處置</span>
+      如果原定日期喬不攏
+      <br />可以跟對方討論彈性修改
+      <br />你們有<span class="red">24小時</span>的時間可以討論與交談
+      <br /><span class="red">過期而未敲定約會細節敲定，視同取消</span>
     </p>
-    <!-- <div class="end">Let’s Movie 電影約會團隊 祝你約會順利</div> -->
+    <div class="end">Let’s Movie 電影約會團隊 祝你約會順利</div>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -74,6 +83,7 @@
 
   .strong {
     color: #000;
+    font-weight: 700 !important;
   }
 
   .red {

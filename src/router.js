@@ -46,6 +46,10 @@ export default new Router({
           path: 'platform',
           component: () => import(/* webpackChunkName: "rule" */ './projects/rule/Platform.vue')
         },
+        {
+          path: 'notice',
+          component: () => import(/* webpackChunkName: "rule" */ './projects/rule/Notice.vue')
+        },
       ]
     },
     // webview 組件
