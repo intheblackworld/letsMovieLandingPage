@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
 import Blog from './pages/Blog.vue'
+import Rule from './pages/Rule.vue'
 import Webview from './pages/Webview.vue'
 
 Vue.use(Router)
@@ -15,6 +16,7 @@ export default new Router({
       name: 'home',
       component: Home
     },
+    // 部落格文章
     {
       path: '/blog',
       name: 'Blog',
@@ -34,7 +36,19 @@ export default new Router({
         }
       ]
     },
-
+    // 約會守則，注意事項
+    {
+      path: '/rule',
+      name: 'Rule',
+      component: Blog,
+      children: [
+        {
+          path: 'platform',
+          component: () => import(/* webpackChunkName: "rule" */ './projects/rule/Platform.vue')
+        },
+      ]
+    },
+    // webview 組件
     {
       path: '/webview',
       name: 'WebView',
