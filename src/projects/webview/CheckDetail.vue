@@ -34,7 +34,7 @@
       </div>
     </el-form>
     <div class="box">
-      <div class="wave -one"></div>
+      <!-- <div class="wave -one"></div> -->
       <!-- <div class="wave -two"></div> -->
       <!-- <div class="wave -three"></div> -->
     </div>
@@ -62,6 +62,7 @@
   border-left: 3px solid #af0404;
   padding-left: 15px;
   font-size: 30px;
+  margin-bottom: 25px;
 }
 .form-item {
   width: 100%;
