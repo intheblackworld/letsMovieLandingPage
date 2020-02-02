@@ -20,7 +20,7 @@
         >></el-date-picker>
       </el-form-item>
       <div class="form-item">
-        <el-button type="primary" round @click="submitForm('form')">確定</el-button>
+        <el-button type="primary" round @click="submitForm('form')" :loading="loading">確定</el-button>
       </div>
     </el-form>
     <div class="box">
@@ -166,6 +166,7 @@ export default {
   data() {
     return {
       me: '',
+      loading: false,
       theaters,
       form: {
         theater: '',
@@ -201,7 +202,8 @@ export default {
       // the Messenger Extensions JS SDK is done loading
       this.me = MessengerExtensions
       MessengerExtensions.getContext(
-        '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+        // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+        '1405269929631051', // Let's Movie 電影約會 BOT ID
         thread_context => {
           // success
           this.form.fb_id = thread_context.psid
@@ -218,7 +220,7 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // alert('submit!')
+          this.loading = true
           fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
             headers: {
               'Content-Type': 'application/json',
@@ -227,6 +229,7 @@ export default {
             body: JSON.stringify(this.form),
           }).then(res => {
             console.log(res)
+            this.loading = false
             this.closeWebView()
           })
         } else {
