@@ -1,6 +1,5 @@
 <template>
   <div class="check-detail">
-    <h3>{{form.fb_id}}</h3>
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">敲定約會細節</div>
@@ -158,6 +157,7 @@ export default {
 
   data() {
     return {
+      me: '',
       theaters,
       form: {
         theater: '',
@@ -179,10 +179,13 @@ export default {
   mounted() {
     window.extAsyncInit = () => {
       // the Messenger Extensions JS SDK is done loading
+      this.me = MessengerExtensions
       MessengerExtensions.getContext(
         '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
         thread_context => {
           // success
+          console.log(123)
+          console.log(thread_context)
           this.form.fb_id = thread_context.psid
           console.log(this.form.fb_id)
           // More code to follow
@@ -207,6 +210,7 @@ export default {
             body: JSON.stringify(this.form),
           }).then(res => {
             console.log(res)
+            this.closeWebView()
           })
         } else {
           console.log('error submit!!')
@@ -216,14 +220,14 @@ export default {
       })
     },
     closeWebView() {
-      // this.me.requestCloseBrowser(
-      //   function success() {
-      //     console.log(2)
-      //   },
-      //   function error(err) {
-      //     console.log(err)
-      //   },
-      // )
+      this.me.requestCloseBrowser(
+        function success() {
+          console.log(2)
+        },
+        function error(err) {
+          console.log(err)
+        },
+      )
     },
   },
 
