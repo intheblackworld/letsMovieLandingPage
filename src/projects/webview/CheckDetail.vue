@@ -242,7 +242,6 @@ export default {
                 title: res.err,
               })
               this.loading = false
-              this.closeWebView()
             } else {
               this.loading = false
               this.closeWebView()
