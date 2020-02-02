@@ -33,24 +33,6 @@
       <!-- <div class="wave -two"></div> -->
       <!-- <div class="wave -three"></div> -->
     </div>
-    <!-- 敲定約會細節 -->
-    <!-- 電影院 -->
-    <!-- 碰面時間 -->
-    <!-- <form action="/optionspostback" method="get">
-      <input type="hidden" name="fb_id" id="fb_id" />
-      <h3>Pillows</h3>
-      <input type="radio" name="pillows" value="soft" checked />Soft
-      <br />
-      <input type="radio" name="pillows" value="hard" />Hard
-      <br />
-      <h3>Bed</h3>
-      <input type="radio" name="bed" value="single" checked />Single
-      <br />
-      <input type="radio" name="bed" value="double" />Double
-      <br />
-      <input type="radio" name="bed" value="twin" />Twin
-      <br />
-    </form>-->
   </div>
 </template>
 <style lang="scss">
@@ -157,8 +139,6 @@
 
 <script>
 // @ is an alias to /src
-// import Loading from '@/components/Loading.vue'
-// import { setTimeout } from 'timers'
 import theaters from '@/info/theaters.js'
 import moment from 'moment'
 
@@ -207,8 +187,8 @@ export default {
       // the Messenger Extensions JS SDK is done loading
       this.me = MessengerExtensions
       MessengerExtensions.getContext(
-        '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-        // '1405269929631051', // Let's Movie 電影約會 BOT ID
+        // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+        '1405269929631051', // Let's Movie 電影約會 BOT ID
         thread_context => {
           // success
           this.form.fb_id = thread_context.psid
