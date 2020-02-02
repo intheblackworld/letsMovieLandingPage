@@ -59,8 +59,8 @@ export default new Router({
       component: Webview,
       children: [
         {
-          path: 'test',
-          component: () => import(/* webpackChunkName: "webtest" */ './projects/webview/test.vue')
+          path: 'checkdetail',
+          component: () => import(/* webpackChunkName: "webtest" */ './projects/webview/CheckDetail.vue')
         },
       ]
     },
