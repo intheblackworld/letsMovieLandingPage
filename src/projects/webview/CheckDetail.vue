@@ -4,7 +4,7 @@
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">敲定約會細節</div>
       <el-form-item class="form-item" prop="theater">
-        <el-select v-model="form.theater" filterable placeholder="你們要去的電影院是？">
+        <el-select v-model="form.theater" filterable placeholder="你們要去的電影院是？" no-data-text="沒有對應的電影院">
           <el-option v-for="item in theaters['台北']" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       </el-form-item>
@@ -13,9 +13,11 @@
           v-model="form.meet_time"
           type="datetime"
           placeholder="你們要碰面的時間是？"
-          format="yyyy-MM-dd HH:mm"
+          format="yyyy年 MM月 dd日 HH:mm"
           :editable="false"
-        ></el-date-picker>
+          :time-arrow-control="true"
+          :picker-options="pickerOptions"
+        >></el-date-picker>
       </el-form-item>
       <div class="form-item">
         <el-button type="primary" round @click="submitForm('form')">確定</el-button>
@@ -46,6 +48,11 @@
     </form>-->
   </div>
 </template>
+<style lang="scss">
+.el-date-table td.current:not(.disabled) span {
+  color: #fff !important;
+}
+</style>
 <style lang="scss" scoped>
 .check-detail {
   background: linear-gradient(to bottom, #000, #222, #252525);
@@ -54,7 +61,7 @@
 }
 
 .form {
-  padding: 40px 20px 0 20px;
+  padding: 40px 20px 40px 20px;
 }
 
 .form-title {
@@ -148,6 +155,7 @@
 // import Loading from '@/components/Loading.vue'
 // import { setTimeout } from 'timers'
 import theaters from '@/info/theaters.js'
+import moment from 'moment'
 
 export default {
   name: 'checkDetail',
@@ -173,6 +181,18 @@ export default {
           { required: true, message: '請選擇碰面時間', trigger: 'change' },
         ],
       },
+
+      pickerOptions: {
+        disabledDate(time) {
+          return (
+            moment(time).isAfter(
+              moment()
+                .clone()
+                .add(14, 'd'),
+            ) || moment(time).isBefore(moment())
+          )
+        },
+      },
     }
   },
 
@@ -184,10 +204,7 @@ export default {
         '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
         thread_context => {
           // success
-          console.log(123)
-          console.log(thread_context)
           this.form.fb_id = thread_context.psid
-          console.log(this.form.fb_id)
           // More code to follow
         },
         err => {
