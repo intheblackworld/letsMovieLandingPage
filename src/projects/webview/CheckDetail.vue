@@ -1,6 +1,6 @@
 <template>
   <div class="check-detail">
-    <!-- <h3>{{fb_id}}</h3> -->
+    <h3>{{form.fb_id}}</h3>
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">敲定約會細節</div>
@@ -184,7 +184,7 @@ export default {
         thread_context => {
           // success
           this.form.fb_id = thread_context.psid
-          console.log(this.fb_id)
+          console.log(this.form.fb_id)
           // More code to follow
         },
         err => {
@@ -210,6 +210,7 @@ export default {
           })
         } else {
           console.log('error submit!!')
+
           return false
         }
       })
