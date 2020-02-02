@@ -3,6 +3,12 @@
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">敲定約會細節</div>
+      <el-select
+          v-model="city"
+          placeholder="你的地區？"
+        >
+          <el-option v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']" :key="item" :label="item" :value="item"></el-option>
+        </el-select>
       <el-form-item class="form-item" prop="theater">
         <el-select
           v-model="form.theater"
@@ -10,7 +16,7 @@
           placeholder="你們要去的電影院是？"
           no-data-text="沒有對應的電影院"
         >
-          <el-option v-for="item in theaters['台北']" :key="item" :label="item" :value="item"></el-option>
+          <el-option v-for="item in theaters[city]" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item class="form-item" prop="meet_time">
@@ -152,6 +158,7 @@ export default {
       me: '',
       loading: false,
       theaters,
+      city: '台北',
       form: {
         theater: '',
         meet_time: '',
