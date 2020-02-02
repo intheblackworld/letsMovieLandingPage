@@ -4,7 +4,12 @@
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">敲定約會細節</div>
       <el-form-item class="form-item" prop="theater">
-        <el-select v-model="form.theater" filterable placeholder="你們要去的電影院是？" no-data-text="沒有對應的電影院">
+        <el-select
+          v-model="form.theater"
+          filterable
+          placeholder="你們要去的電影院是？"
+          no-data-text="沒有對應的電影院"
+        >
           <el-option v-for="item in theaters['台北']" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       </el-form-item>
@@ -202,8 +207,8 @@ export default {
       // the Messenger Extensions JS SDK is done loading
       this.me = MessengerExtensions
       MessengerExtensions.getContext(
-        // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-        '1405269929631051', // Let's Movie 電影約會 BOT ID
+        '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+        // '1405269929631051', // Let's Movie 電影約會 BOT ID
         thread_context => {
           // success
           this.form.fb_id = thread_context.psid
@@ -229,8 +234,22 @@ export default {
             body: JSON.stringify(this.form),
           }).then(res => {
             console.log(res)
-            this.loading = false
-            this.closeWebView()
+            if (res.err) {
+              // const h = this.$createElement
+              this.$notify({
+                title: res.err,
+                // message: h(
+                //   'i',
+                //   { style: 'color: teal' },
+                //   '这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案',
+                // ),
+              })
+              this.loading = false
+              this.closeWebView()
+            } else {
+              this.loading = false
+              this.closeWebView()
+            }
           })
         } else {
           console.log('error submit!!')
