@@ -233,16 +233,13 @@ export default {
             method: 'POST',
             body: JSON.stringify(this.form),
           }).then(res => {
+            return res.json()
+          }).then(res => {
             console.log(res)
             if (res.err) {
               // const h = this.$createElement
               this.$notify({
                 title: res.err,
-                // message: h(
-                //   'i',
-                //   { style: 'color: teal' },
-                //   '这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案这是提示文案',
-                // ),
               })
               this.loading = false
               this.closeWebView()
