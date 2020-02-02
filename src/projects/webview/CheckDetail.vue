@@ -20,7 +20,6 @@
           placeholder="你們要碰面的時間是？"
           format="yyyy年 MM月 dd日 HH:mm"
           :editable="false"
-          :time-arrow-control="true"
           :picker-options="pickerOptions"
         >></el-date-picker>
       </el-form-item>
@@ -187,8 +186,8 @@ export default {
       // the Messenger Extensions JS SDK is done loading
       this.me = MessengerExtensions
       MessengerExtensions.getContext(
-        '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-        // '1405269929631051', // Let's Movie 電影約會 BOT ID
+        // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+        '1405269929631051', // Let's Movie 電影約會 BOT ID
         thread_context => {
           // success
           this.form.fb_id = thread_context.psid
