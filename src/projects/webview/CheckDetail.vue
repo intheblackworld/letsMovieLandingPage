@@ -15,6 +15,7 @@
           type="datetime"
           placeholder="你們要碰面的時間是？"
           format="yyyy-MM-dd HH:mm"
+          :editable="false"
         ></el-date-picker>
       </el-form-item>
       <div class="form-item">
@@ -157,11 +158,11 @@ export default {
 
   data() {
     return {
-      fb_id: '',
       theaters,
       form: {
         theater: '',
         meet_time: '',
+        fb_id: '',
       },
 
       rules: {
@@ -182,7 +183,7 @@ export default {
         '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
         thread_context => {
           // success
-          this.fb_id = thread_context.psid
+          this.form.fb_id = thread_context.psid
           console.log(this.fb_id)
           // More code to follow
         },
