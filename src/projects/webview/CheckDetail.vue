@@ -1,14 +1,17 @@
 <template>
   <div class="check-detail">
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
+    {{meet_time}}
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">敲定約會細節</div>
-      <el-select
-          v-model="city"
-          placeholder="你的地區？"
-        >
-          <el-option v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']" :key="item" :label="item" :value="item"></el-option>
-        </el-select>
+      <el-select v-model="city" placeholder="你的地區？">
+        <el-option
+          v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']"
+          :key="item"
+          :label="item"
+          :value="item"
+        ></el-option>
+      </el-select>
       <el-form-item class="form-item" prop="theater">
         <el-select
           v-model="form.theater"
@@ -19,15 +22,26 @@
           <el-option v-for="item in theaters[city]" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item class="form-item" prop="meet_time">
+      <el-form-item class="form-item" prop="date">
         <el-date-picker
-          v-model="form.meet_time"
-          type="datetime"
-          placeholder="你們要碰面的時間是？"
-          format="yyyy年 MM月 dd日 HH:mm"
+          v-model="form.date"
+          placeholder="你們要碰面的日期是？"
+          format="yyyy年MM月dd日"
           :editable="false"
           :picker-options="pickerOptions"
-        >></el-date-picker>
+        ></el-date-picker>
+      </el-form-item>
+      <el-form-item class="form-item" prop="time">
+        <el-time-select
+          v-model="form.time"
+          :picker-options="{
+            start: '08:00',
+            step: '00:10',
+            end: '22:00',
+            minTime: moment().format('HH:mm')
+          }"
+          placeholder="你們要碰面的時間是？如果不可選則更換日期"
+        ></el-time-select>
       </el-form-item>
       <div class="form-item">
         <el-button type="primary" round @click="submitForm('form')" :loading="loading">確定</el-button>
@@ -160,8 +174,12 @@ export default {
       loading: false,
       theaters,
       city: '台北',
+      moment: moment,
+      meet_time: '',
       form: {
         theater: '',
+        date: '',
+        time: '',
         meet_time: '',
         fb_id: '',
       },
@@ -170,7 +188,10 @@ export default {
         theater: [
           { required: true, message: '請選擇電影院', trigger: 'change' },
         ],
-        meet_time: [
+        date: [
+          { required: true, message: '請選擇碰面日期', trigger: 'change' },
+        ],
+        time: [
           { required: true, message: '請選擇碰面時間', trigger: 'change' },
         ],
       },
@@ -182,7 +203,7 @@ export default {
               moment()
                 .clone()
                 .add(14, 'd'),
-            ) || moment(time).isBefore(moment())
+            ) || moment(time).isBefore(moment().subtract(1, 'd'))
           )
         },
       },
@@ -200,6 +221,32 @@ export default {
           // success
           this.form.fb_id = thread_context.psid
           // More code to follow
+
+          fetch(
+            'https://bot-production.letsmovienow.com/api/webview/getUserData',
+            {
+              // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              method: 'POST',
+              body: JSON.stringify(this.form),
+            },
+          )
+            .then(res => {
+              return res.json()
+            })
+            .then(res => {
+              console.log(res)
+              if (res.err) {
+                // const h = this.$createElement
+                this.$notify({
+                  title: res.err,
+                })
+              } else {
+                this.meet_time = res.data.meet_time
+              }
+            })
         },
         err => {
           this.fb_id = err
@@ -213,28 +260,33 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.loading = true
-          fetch('https://bot-production.letsmovienow.com/api/webview/checkDetail', {
-          // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
-            headers: {
-              'Content-Type': 'application/json',
+          fetch(
+            'https://bot-production.letsmovienow.com/api/webview/checkDetail',
+            {
+              // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              method: 'POST',
+              body: JSON.stringify(this.form),
             },
-            method: 'POST',
-            body: JSON.stringify(this.form),
-          }).then(res => {
-            return res.json()
-          }).then(res => {
-            console.log(res)
-            if (res.err) {
-              // const h = this.$createElement
-              this.$notify({
-                title: res.err,
-              })
-              this.loading = false
-            } else {
-              this.loading = false
-              this.closeWebView()
-            }
-          })
+          )
+            .then(res => {
+              return res.json()
+            })
+            .then(res => {
+              console.log(res)
+              if (res.err) {
+                // const h = this.$createElement
+                this.$notify({
+                  title: res.err,
+                })
+                this.loading = false
+              } else {
+                this.loading = false
+                this.closeWebView()
+              }
+            })
         } else {
           console.log('error submit!!')
 
