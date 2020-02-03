@@ -213,7 +213,8 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           this.loading = true
-          fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+          fetch('bot-production.letsmovienow.com/api/webview/checkDetail', {
+          // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
             headers: {
               'Content-Type': 'application/json',
             },
