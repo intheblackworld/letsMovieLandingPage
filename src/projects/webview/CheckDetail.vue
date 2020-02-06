@@ -34,13 +34,14 @@
       <el-form-item class="form-item" prop="time">
         <el-time-select
           v-model="form.time"
+          :editable="false"
           :picker-options="{
             start: '08:00',
             step: '00:10',
             end: '22:00',
-            minTime: moment().format('HH:mm')
+            minTime,
           }"
-          placeholder="你們要碰面的時間是？如果不可選則更換日期"
+          placeholder="你們要碰面的時間？不可選則重選日期"
         ></el-time-select>
       </el-form-item>
       <div class="form-item">
@@ -210,7 +211,20 @@ export default {
     }
   },
 
+  computed: {
+    minTime() {
+      return moment(this.form.date).isSame(moment(), 'day')
+        ? moment()
+          .add(3, 'h')
+          .format('HH:mm')
+        : moment()
+          .startOf('day')
+          .format('HH:mm')
+    },
+  },
+
   mounted() {
+    console.log(moment())
     window.extAsyncInit = () => {
       // the Messenger Extensions JS SDK is done loading
       this.me = MessengerExtensions
@@ -237,7 +251,6 @@ export default {
               return res.json()
             })
             .then(res => {
-              console.log(res)
               if (res.err) {
                 // const h = this.$createElement
                 this.$notify({
@@ -258,8 +271,20 @@ export default {
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
+        // 如果選擇的日期是當天
         if (valid) {
+          const meet_time =
+            moment(this.form.date).format('YYYY-MM-DD') + ' ' + this.form.time
+          if (moment(this.form.date).isSame(moment(), 'day')) {
+            if (moment(meet_time).isBefore(moment().add(3, 'h'))) {
+              this.$notify({
+                title: '選擇的時間有誤，請重新選擇時間',
+              })
+              return
+            }
+          }
           this.loading = true
+          this.form.meet_time = meet_time
           fetch(
             'https://bot-production.letsmovienow.com/api/webview/checkDetail',
             {
@@ -275,7 +300,6 @@ export default {
               return res.json()
             })
             .then(res => {
-              console.log(res)
               if (res.err) {
                 // const h = this.$createElement
                 this.$notify({
@@ -296,9 +320,7 @@ export default {
     },
     closeWebView() {
       this.me.requestCloseBrowser(
-        function success() {
-          console.log(2)
-        },
+        function success() {},
         function error(err) {
           console.log(err)
         },
