@@ -215,56 +215,57 @@ export default {
     minTime() {
       return moment(this.form.date).isSame(moment(), 'day')
         ? moment()
-          .add(3, 'h')
-          .format('HH:mm')
+            .add(3, 'h')
+            .format('HH:mm')
         : moment()
-          .startOf('day')
-          .format('HH:mm')
+            .startOf('day')
+            .format('HH:mm')
     },
   },
 
   mounted() {
-    console.log(moment())
     window.extAsyncInit = () => {
       // the Messenger Extensions JS SDK is done loading
-      this.me = MessengerExtensions
-      MessengerExtensions.getContext(
-        // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-        '1405269929631051', // Let's Movie 電影約會 BOT ID
-        thread_context => {
-          // success
-          this.form.fb_id = thread_context.psid
-          // More code to follow
+      setTimeout(() => {
+        this.me = MessengerExtensions
+        MessengerExtensions.getContext(
+          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+          '1405269929631051', // Let's Movie 電影約會 BOT ID
+          thread_context => {
+            // success
+            this.form.fb_id = thread_context.psid
+            // More code to follow
 
-          fetch(
-            'https://bot-production.letsmovienow.com/api/webview/getUserData',
-            {
-              // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
-              headers: {
-                'Content-Type': 'application/json',
+            fetch(
+              'https://bot-production.letsmovienow.com/api/webview/getUserData',
+              {
+                // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                body: JSON.stringify(this.form),
               },
-              method: 'POST',
-              body: JSON.stringify(this.form),
-            },
-          )
-            .then(res => {
-              return res.json()
-            })
-            .then(res => {
-              if (res.err) {
-                // const h = this.$createElement
-                this.$notify({
-                  title: res.err,
-                })
-              } else {
-                this.meet_time = res.data.meet_time
-              }
-            })
-        },
-        err => {
-          this.fb_id = err
-        },
-      )
+            )
+              .then(res => {
+                return res.json()
+              })
+              .then(res => {
+                if (res.err) {
+                  // const h = this.$createElement
+                  this.$notify({
+                    title: res.err,
+                  })
+                } else {
+                  this.meet_time = res.data.meet_time
+                }
+              })
+          },
+          err => {
+            this.fb_id = err
+          },
+        )
+      }, 500)
     }
   },
 
