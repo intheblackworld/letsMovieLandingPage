@@ -2,7 +2,8 @@
   <div class="dating">
     <div class="title">平台守則</div>
     <p>
-      1.本次約會為<span class="boy">男生</span>請<span class="girl">女生</span>看電影🌹
+      1.本次約會為<span class="boy">男生</span>請<span class="girl">女生</span>看電影🌹<br />
+      可以附加約其他行程(吃飯，喝飲料聊天等)，但行程當中一定要有看電影，否則查核屬實後一律黑名單處理
     </p>
 
     <p>
