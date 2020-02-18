@@ -33,10 +33,9 @@
   <body>
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
-    <script>
+    <!-- <script>
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '1405269929631051',
           xfbml: true,
           version: 'v5.0'
         })
@@ -51,9 +50,10 @@
         js.src = 'https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js'
         fjs.parentNode.insertBefore(js, fjs)
       })(document, 'script', 'facebook-jssdk')
-    </script>
-    <!-- <script>
+    </script> -->
+    <script>
       window.fbAsyncInit = function() {
+        console.log(123123123123)
         FB.init({
           appId      : '1405269929631051',
           xfbml      : true,
@@ -69,7 +69,7 @@
          js.src = "https://connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-    </script> -->
+    </script>
 
     <!-- Your customer chat code -->
     <div
