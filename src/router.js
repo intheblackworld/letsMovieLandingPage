@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
 import Blog from './pages/Blog.vue'
-import Rule from './pages/Rule.vue'
 import Webview from './pages/Webview.vue'
 
 Vue.use(Router)
@@ -60,27 +59,13 @@ export default new Router({
       children: [
         {
           path: 'checkdetail',
-          component: () => import(/* webpackChunkName: "webtest" */ './projects/webview/CheckDetail.vue')
+          component: () => import(/* webpackChunkName: "webview" */ './projects/webview/CheckDetail.vue')
+        },
+        {
+          path: 'editinfo',
+          component: () => import(/* webpackChunkName: "webview" */ './projects/webview/EditInfo.vue')
         },
       ]
     },
-    // {
-    //   path: '/formThanks',
-    //   name: 'formThanks',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () =>
-    //     import(/* webpackChunkName: "about" */ './pages/FormThanks.vue')
-    // },
-    // {
-    //   path: '/phoneThanks',
-    //   name: 'phoneThanks',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () =>
-    //     import(/* webpackChunkName: "about" */ './pages/PhoneThanks.vue')
-    // }
   ]
 })

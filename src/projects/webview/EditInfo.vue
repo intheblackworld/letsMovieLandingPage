@@ -1,56 +1,49 @@
 <template>
   <div class="check-detail">
+    <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
     <el-form class="form" :model="form" :rules="rules" ref="form">
-      <div class="form-title">敲定約會細節</div>
-      <el-select v-model="city" placeholder="你的地區？">
-        <el-option
-          v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']"
-          :key="item"
-          :label="item"
-          :value="item"
-        ></el-option>
-      </el-select>
-      <el-form-item class="form-item" prop="theater">
-        <el-select
-          v-model="form.theater"
-          filterable
-          placeholder="你們要去的電影院是？"
-          no-data-text="沒有對應的電影院"
-        >
-          <el-option v-for="item in theaters[city]" :key="item" :label="item" :value="item"></el-option>
+      <div class="form-title">您的個人資訊</div>
+      <!-- 暱稱 -->
+      <!-- 主要活動地區(根據地區配對約會) -->
+      <!-- 特質 -->
+      <!-- 興趣(限十個字) -->
+      <!-- 職業 -->
+      <el-form-item label="暱稱" class="form-item" prop="nickname">
+        <el-input v-model="form.nickname" placeholder="请输入暱稱"></el-input>
+      </el-form-item>
+
+      <el-form-item label="主要活動地區" class="form-item" prop="address">
+        <el-select v-model="form.address" placeholder="你的地區">
+          <el-option
+            v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']"
+            :key="item"
+            :label="item"
+            :value="item"
+          ></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item class="form-item" prop="date">
-        <el-date-picker
-          v-model="form.date"
-          placeholder="你們要碰面的日期是？"
-          format="yyyy年MM月dd日"
-          :editable="false"
-          :picker-options="pickerOptions"
-        ></el-date-picker>
+
+      <el-form-item label="個人特質" class="form-item" prop="address">
+        <el-select v-model="form.personality" placeholder="你的個人特質">
+          <el-option v-for="item in personalityList" :key="item" :label="item" :value="item"></el-option>
+        </el-select>
       </el-form-item>
-      <el-form-item class="form-item" prop="time">
-        <el-time-select
-          v-model="form.time"
-          :editable="false"
-          :picker-options="{
-            start: '08:00',
-            step: '00:10',
-            end: '22:00',
-            minTime,
-          }"
-          placeholder="你們要碰面的時間？不可選則重選日期"
-        ></el-time-select>
+
+      <el-form-item label="興趣" class="form-item" prop="habbit">
+        <el-input v-model="form.habbit" placeholder="你的興趣 - 限十個字"></el-input>
+      </el-form-item>
+      <el-form-item label="職業" class="form-item" prop="job">
+        <el-input v-model="form.job" placeholder="你的職業 - 限十個字"></el-input>
       </el-form-item>
       <div class="form-item">
         <el-button type="primary" round @click="submitForm('form')" :loading="loading">確定</el-button>
       </div>
     </el-form>
-    <div class="box">
+    <!-- <div class="box">
       <div class="wave -one"></div>
-      <!-- <div class="wave -two"></div> -->
-      <!-- <div class="wave -three"></div> -->
-    </div>
+      <div class="wave -two"></div>
+      <div class="wave -three"></div>
+    </div>-->
   </div>
 </template>
 <style lang="scss">
@@ -162,7 +155,7 @@ import theaters from '@/info/theaters.js'
 import moment from 'moment'
 
 export default {
-  name: 'checkDetail',
+  name: 'editInfo',
   components: {
     // Loading,
   },
@@ -171,27 +164,37 @@ export default {
     return {
       me: '',
       loading: false,
-      theaters,
       city: '台北',
       moment: moment,
+      theaters,
       meet_time: '',
       form: {
-        theater: '',
-        date: '',
-        time: '',
-        meet_time: '',
-        fb_id: '',
+        gender: '0',
+        nickname: '',
+        address: '',
+        personality: '',
+        habbit: '',
+        job: '',
       },
 
       rules: {
-        theater: [
-          { required: true, message: '請選擇電影院', trigger: 'change' },
+        nickname: [
+          { required: true, message: '請輸入暱稱', trigger: 'blur' },
+          { max: 10, message: '最多十個字', trigger: 'blur' },
         ],
-        date: [
-          { required: true, message: '請選擇碰面日期', trigger: 'change' },
+        address: [
+          { required: true, message: '請選擇主要活動地區', trigger: 'change' },
         ],
-        time: [
-          { required: true, message: '請選擇碰面時間', trigger: 'change' },
+        personality: [
+          { required: true, message: '請選擇個人特質', trigger: 'change' },
+        ],
+        habbit: [
+          { required: true, message: '請輸入興趣', trigger: 'blur' },
+          { max: 10, message: '最多十個字', trigger: 'blur' },
+        ],
+        job: [
+          { required: true, message: '請輸入職業', trigger: 'blur' },
+          { max: 10, message: '最多十個字', trigger: 'blur' },
         ],
       },
 
@@ -210,6 +213,25 @@ export default {
   },
 
   computed: {
+    personalityList() {
+      return this.form.gender == '0'
+        ? [
+            '斯文清秀',
+            '帥氣穿搭',
+            '幽默風趣',
+            '才華洋溢',
+            '認真上進',
+            '善良正直',
+          ]
+        : [
+            '活潑可愛',
+            '氣質有禮',
+            '聰明動人',
+            '善解人意',
+            '多才多藝',
+            '溫柔善良',
+          ]
+    },
     minTime() {
       return moment(this.form.date).isSame(moment(), 'day')
         ? moment()
@@ -232,6 +254,32 @@ export default {
           thread_context => {
             // success
             this.form.fb_id = thread_context.psid
+            // More code to follow
+
+            fetch(
+              'https://bot-production.letsmovienow.com/api/webview/getUserData',
+              {
+                // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                body: JSON.stringify(this.form),
+              },
+            )
+              .then(res => {
+                return res.json()
+              })
+              .then(res => {
+                if (res.err) {
+                  // const h = this.$createElement
+                  this.$notify({
+                    title: res.err,
+                  })
+                } else {
+                  this.meet_time = res.data.meet_time
+                }
+              })
           },
           err => {
             this.fb_id = err
