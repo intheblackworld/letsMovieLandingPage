@@ -36,7 +36,7 @@
         <el-input v-model="form.job" placeholder="你的職業 - 限十個字"></el-input>
       </el-form-item>
       <div class="form-item">
-        <el-button type="primary" round @click="submitForm('form')" :loading="loading">確定</el-button>
+        <el-button type="primary" round @click="submitForm('form')" :loading="loading">確認</el-button>
       </div>
     </el-form>
     <!-- <div class="box">
@@ -264,7 +264,7 @@ export default {
                   'Content-Type': 'application/json',
                 },
                 method: 'POST',
-                body: JSON.stringify(this.form),
+                body: JSON.stringify({ fb_id: this.form.fb_id }),
               },
             )
               .then(res => {
@@ -277,7 +277,8 @@ export default {
                     title: res.err,
                   })
                 } else {
-                  this.meet_time = res.data.meet_time
+                  // console.log(res.data)
+                  this.form = res.data
                 }
               })
           },
