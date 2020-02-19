@@ -2,12 +2,7 @@
   <div class="check-detail">
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
     <el-form class="form" :model="form" :rules="rules" ref="form">
-      <div class="form-title">您的個人資訊</div>
-      <!-- 暱稱 -->
-      <!-- 主要活動地區(根據地區配對約會) -->
-      <!-- 特質 -->
-      <!-- 興趣(限十個字) -->
-      <!-- 職業 -->
+      <div class="form-title">修改個人資訊</div>
       <el-form-item label="暱稱" class="form-item" prop="nickname">
         <el-input v-model="form.nickname" placeholder="请输入暱稱"></el-input>
       </el-form-item>
@@ -29,12 +24,13 @@
         </el-select>
       </el-form-item>
 
-      <el-form-item label="興趣" class="form-item" prop="habbit">
+      <el-form-item label="興趣 - 限十個字" class="form-item" prop="habbit">
         <el-input v-model="form.habbit" placeholder="你的興趣 - 限十個字"></el-input>
       </el-form-item>
-      <el-form-item label="職業" class="form-item" prop="job">
+      <el-form-item label="職業 - 限十個字" class="form-item" prop="job">
         <el-input v-model="form.job" placeholder="你的職業 - 限十個字"></el-input>
       </el-form-item>
+      <strong class="hint">如果沒有舊資料請重開網頁</strong>
       <div class="form-item">
         <el-button type="primary" round @click="submitForm('form')" :loading="loading">確認</el-button>
       </div>
@@ -151,7 +147,6 @@
 
 <script>
 // @ is an alias to /src
-import theaters from '@/info/theaters.js'
 import moment from 'moment'
 
 export default {
@@ -166,10 +161,10 @@ export default {
       loading: false,
       city: '台北',
       moment: moment,
-      theaters,
-      meet_time: '',
+      fb_id: '',
       form: {
-        gender: '0',
+        fb_id: '',
+        gender: '',
         nickname: '',
         address: '',
         personality: '',
@@ -197,18 +192,6 @@ export default {
           { max: 10, message: '最多十個字', trigger: 'blur' },
         ],
       },
-
-      pickerOptions: {
-        disabledDate(time) {
-          return (
-            moment(time).isAfter(
-              moment()
-                .clone()
-                .add(14, 'd'),
-            ) || moment(time).isBefore(moment().subtract(1, 'd'))
-          )
-        },
-      },
     }
   },
 
@@ -232,15 +215,6 @@ export default {
             '溫柔善良',
           ]
     },
-    minTime() {
-      return moment(this.form.date).isSame(moment(), 'day')
-        ? moment()
-            .add(3, 'h')
-            .format('HH:mm')
-        : moment()
-            .startOf('day')
-            .format('HH:mm')
-    },
   },
 
   mounted() {
@@ -253,7 +227,7 @@ export default {
           '1405269929631051', // Let's Movie 電影約會 BOT ID
           thread_context => {
             // success
-            this.form.fb_id = thread_context.psid
+            this.fb_id = thread_context.psid
             // More code to follow
 
             fetch(
@@ -264,7 +238,7 @@ export default {
                   'Content-Type': 'application/json',
                 },
                 method: 'POST',
-                body: JSON.stringify({ fb_id: this.form.fb_id }),
+                body: JSON.stringify({ fb_id: this.fb_id }),
               },
             )
               .then(res => {
@@ -295,27 +269,23 @@ export default {
       this.$refs[formName].validate(valid => {
         // 如果選擇的日期是當天
         if (valid) {
-          const meet_time =
-            moment(this.form.date).format('YYYY-MM-DD') + ' ' + this.form.time
-          if (moment(this.form.date).isSame(moment(), 'day')) {
-            if (moment(meet_time).isBefore(moment().add(3, 'h'))) {
-              this.$notify({
-                title: '選擇的時間有誤，請重新選擇時間',
-              })
-              return
-            }
-          }
           this.loading = true
-          this.form.meet_time = meet_time
           fetch(
-            'https://bot-production.letsmovienow.com/api/webview/checkDetail',
+            'https://bot-production.letsmovienow.com/api/webview/editUserData',
             {
               // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
               headers: {
                 'Content-Type': 'application/json',
               },
               method: 'POST',
-              body: JSON.stringify(this.form),
+              body: JSON.stringify({
+                fb_id: this.fb_id,
+                nickname: this.form.nickname,
+                address: this.form.address,
+                personality: this.form.personality,
+                habbit: this.form.habbit,
+                job: this.form.job,
+              }),
             },
           )
             .then(res => {
