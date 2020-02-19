@@ -4,7 +4,7 @@
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">修改個人資訊</div>
       <el-form-item label="暱稱" class="form-item" prop="nickname">
-        <el-input v-model="form.nickname" placeholder="请输入暱稱"></el-input>
+        <el-input v-model="form.nickname" placeholder="請輸入暱稱"></el-input>
       </el-form-item>
 
       <el-form-item label="主要活動地區" class="form-item" prop="address">
