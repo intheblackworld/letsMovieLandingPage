@@ -59,6 +59,7 @@
               v-if="!isMobile"
             >
               <a
+                id="cta-2"
                 class="btn border flex-c"
                 target="_blank"
                 href="https://m.me/108301937223847"

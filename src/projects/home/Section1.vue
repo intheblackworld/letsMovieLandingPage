@@ -33,6 +33,7 @@
           >找一個跟你在電影院裡會心一笑的人</p>
           <a
             class="flex-c"
+            id="cta-1"
             data-aos="fade-up"
             data-aos-offset="50"
             data-aos-delay="500"
