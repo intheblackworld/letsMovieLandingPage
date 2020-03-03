@@ -14,8 +14,9 @@
     </p>
     <p>
       3.為了維護對方的權益，除非緊急狀況，否則<span class="red">約會當天取消約會或缺席者</span><br />
-      <span class="red">我們會採取停權的處置</span>
+      <span class="red">我們會採取黑名單的處置</span>
     </p>
+    <h3>如上述狀況發生，採取黑名單者，一率不退還L幣</h3>
     <!-- <div class="end">Let’s Movie 電影約會團隊 祝你約會順利</div> -->
   </div>
 </template>
