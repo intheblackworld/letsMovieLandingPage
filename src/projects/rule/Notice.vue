@@ -1,6 +1,8 @@
 <template>
   <div class="dating">
     <div class="title">注意事項</div>
+    <h3>Warning: 配對成功後，取消本次約會將會扣除50L幣，L幣為負時無法發起約會</h3>
+    <br />
     <p>
       1.討論好
       <span class="red">碰面時間及電影院</span>後請點選單
