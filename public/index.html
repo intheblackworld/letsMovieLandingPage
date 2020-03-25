@@ -7,9 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
-    <link rel="icon" href="<%= BASE_URL %>favicon.png" />
-    <title><%= htmlWebpackPlugin.options.title %></title>
-
     <!--SEO meta-->
     <meta name="title" content="<%= htmlWebpackPlugin.options.metaTitle %>" />
     <meta
@@ -25,6 +22,11 @@
       content="<%= htmlWebpackPlugin.options.ogMetaTitle %>"
     />
     <meta
+      property="og:url"
+      content="http://letsmovienow.com/"
+    />
+    <meta property="og:image" content="https://www.niusnews.com/upload/banners/banners1_10145_1575036179.jpg">
+    <meta
       property="og:type"
       content="<%= htmlWebpackPlugin.options.ogMetaType %>"
     />
@@ -32,11 +34,9 @@
       property="og:description"
       content="<%= htmlWebpackPlugin.options.ogMetaDescription %>"
     />
-    <meta
-      property="og:url"
-      content="http://letsmovienow.com/"
-    />
-    <meta property="og:image" content="https://www.stateandbijou.org/sites/default/files/statemoneyshot.jpg"></meta>
+    <link rel="icon" href="<%= BASE_URL %>favicon.png" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
     <script data-ad-client="ca-pub-7550920209691261" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </head>
   <body>
