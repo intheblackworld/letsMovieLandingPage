@@ -93,6 +93,7 @@ export default {
     window.addEventListener('load', event => {
       this.load = false
     })
+    console.log(this.$route)
   },
 
   methods: {

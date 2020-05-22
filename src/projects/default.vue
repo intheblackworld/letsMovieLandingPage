@@ -30,12 +30,12 @@ export default {
 
   data() {
     return {
-      isMobile
+      isMobile,
     }
   },
 
   methods: {},
-
-  created() {},
+  created() {
+  },
 }
 </script>
