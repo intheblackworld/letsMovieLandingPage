@@ -95,7 +95,7 @@ export default {
     }
     this.$router.replace({ query: null })
   },
-  
+
   created() {
     window.addEventListener('load', event => {
       this.load = false
