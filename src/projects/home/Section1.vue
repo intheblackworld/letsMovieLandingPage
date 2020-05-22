@@ -44,8 +44,6 @@
             :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name}`"
             @click="logCTA1"
           >開始配對</a>
-          <!-- 測試id 103972354293750 -->
-          <!-- 正式id 108301937223847 -->
         </div>
       </div>
     </section>
@@ -217,6 +215,8 @@ export default {
         body: JSON.stringify(req),
       })
     },
+    //  測試id 103972354293750
+    //  正式id 108301937223847
   },
   created() {},
 }
