@@ -41,8 +41,11 @@
             data-aos-mirror="true"
             data-aos-once="false"
             target="_blank"
-            href="https://m.me/108301937223847"
+            :href="`https://m.me/103972354293750?ref=${$store.state.source},${$store.state.name}`"
+            @click="logCTA1"
           >開始配對</a>
+          <!-- 測試id 103972354293750 -->
+          <!-- 正式id 108301937223847 -->
         </div>
       </div>
     </section>
@@ -197,9 +200,24 @@ export default {
     }
   },
 
-  methods: {},
-
-  created() {
+  methods: {
+    logCTA1() {
+      let req = {
+        name: this.$store.state.name,
+        source: this.$store.state.source,
+        click: 'cta1',
+        stage: 1,
+      }
+      fetch('https://bot-production.letsmovienow.com/api/webview/logUserClickCTA', {
+        // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify(req),
+      })
+    },
   },
+  created() {},
 }
 </script>

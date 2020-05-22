@@ -55,7 +55,6 @@ import gtm from '@/mixins/gtm.js'
 // 6. 使用者回饋
 // 7. final CTA
 
-
 import Section1 from '@/projects/home/Section1.vue'
 import Section2 from '@/projects/home/Section2.vue'
 import Section3 from '@/projects/home/Section3.vue'
@@ -87,13 +86,20 @@ export default {
   data() {
     return {
       load: true,
+      routeString: '',
     }
   },
+  beforeMount() {
+    if (this.$route.query.source && this.$route.query.source) {
+      this.$store.commit('setCTA', this.$route.query)
+    }
+    this.$router.replace({ query: null })
+  },
+  
   created() {
     window.addEventListener('load', event => {
       this.load = false
     })
-    console.log(this.$route)
   },
 
   methods: {
