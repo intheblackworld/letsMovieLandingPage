@@ -41,7 +41,7 @@
             data-aos-mirror="true"
             data-aos-once="false"
             target="_blank"
-            :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name}`"
+            :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name},cta1`"
             @click="logCTA1"
           >開始配對</a>
         </div>

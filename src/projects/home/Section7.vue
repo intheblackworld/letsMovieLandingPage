@@ -49,7 +49,7 @@
           data-aos-mirror="true"
           data-aos-once="false"
           target="_blank"
-          :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name}`"
+          :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name},cta3`"
           @click="logCTA3"
         >
           <div class="btn flex-c m-auto" id="cta-3">找人看電影</div>

@@ -62,7 +62,7 @@
                 id="cta-2"
                 class="btn border flex-c"
                 target="_blank"
-                :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name}`"
+                :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name},cta2`"
                 @click="logCTA2"
               >現在就開始配對</a>
               <!-- <div class="btn flex-c">體驗配對</div> -->
