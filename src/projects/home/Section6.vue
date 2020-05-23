@@ -8,8 +8,8 @@
         v-if="!isMobile"
         @click="addChunkIndex"
       >
-      <div class="next flex-c" v-if="isMobile" @click="addChunkIndex"><img src="./small_right_btn.png" alt=""></div>
       <div class="prev flex-c" v-if="isMobile" @click="decChunkIndex"><img src="./small_left_btn.png" alt=""></div>
+      <div class="next flex-c" v-if="isMobile" @click="addChunkIndex"><img src="./small_right_btn.png" alt=""></div>
       <p
         class="title flex-c"
         :data-aos="isMobile ? '' : 'fade-up'"
@@ -496,16 +496,16 @@ export default {
 
     decChunkIndex() {
       if (!this.isMobile) {
-        if (this.chunkIndex === this.pcFeedBack.length - 1) {
+        if (this.chunkIndex === 0) {
           this.chunkIndex = this.pcFeedBack.length - 1
         } else {
           this.chunkIndex--
         }
       } else {
-        if (this.chunkIndex === this.mobileFeedBack.length - 1) {
+        if (this.chunkIndex === 0) {
           this.chunkIndex = this.mobileFeedBack.length - 1
         } else {
-          this.chunkIndex++
+          this.chunkIndex--
         }
       }
     },
@@ -519,7 +519,7 @@ export default {
         } else {
           this.chunkIndex++
         }
-      }, 10000)
+      }, 15000)
     } else {
       setInterval(() => {
         if (this.chunkIndex === this.mobileFeedBack.length - 1) {
