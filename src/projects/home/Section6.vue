@@ -1,30 +1,82 @@
 <template>
-  <div class="section6 bg-cover">
-    <div class="linear-g-mask">
-      <div class="container pt-40 pb-30">
-        <p
-          class="title flex-c"
-          data-aos="fade-up"
-          data-aos-offset="50"
-          data-aos-delay="0"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
-        >聽聽使用者怎麼說</p>
-        <div class="bullet-wall">
-          <div
-            class="bullet"
-            v-for="bullet in bulletList"
-            :key="bullet[1]"
-          >{{bullet[0]}} : {{bullet[1]}}</div>
+  <div class="section6 bg-cover relative">
+    <div class="container pt-40 pb-30">
+      <img
+        src="./s6_fb_ms.png"
+        alt=""
+        class="fs"
+        v-if="!isMobile"
+        @click="addChunkIndex"
+      >
+      <div class="next flex-c" v-if="isMobile" @click="addChunkIndex"><img src="./small_right_btn.png" alt=""></div>
+      <div class="prev flex-c" v-if="isMobile" @click="decChunkIndex"><img src="./small_left_btn.png" alt=""></div>
+      <p
+        class="title flex-c"
+        :data-aos="isMobile ? '' : 'fade-up'"
+        data-aos-offset="50"
+        data-aos-delay="0"
+        data-aos-duration="1500"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >上百組真實使用者回饋</p>
+      <p
+        class="desc flex-c"
+        :data-aos="isMobile ? '' : 'fade-up'"
+        data-aos-offset="50"
+        data-aos-delay="0"
+        data-aos-duration="1500"
+        data-aos-mirror="true"
+        data-aos-once="false"
+      >(大頭貼為示意圖)</p>
+      <transition-group
+        name="slide-fade"
+        mode="out-in"
+        class="ms-wall relative"
+      >
+        <div
+          class="ms-dialog"
+          v-for="(ms, index) in isMobile ? mobileFeedBack[chunkIndex] : pcFeedBack[chunkIndex]"
+          :key="ms.boy"
+        >
+          <div class="ms-head flex-ac">
+            <img
+              src="./bot-logo.png"
+              alt=""
+              class="bot-logo"
+            >
+            Let's Movie 電影約會 bot
+          </div>
+          <div class="ms-content-t">
+            <img
+              :src="girl_avatars[index]"
+              alt=""
+              class="ms-avatar"
+            >
+            <div class="ms-box-w">
+              {{ms.girl}}
+            </div>
+          </div>
+          <div class="ms-content-b">
+            <div class="ms-box-b">
+              {{ms.boy}}
+            </div>
+            <img
+              :src="boy_avatars[index]"
+              alt=""
+              class="ms-avatar"
+            >
+          </div>
         </div>
-      </div>
+      </transition-group>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
 .section6 {
-  background-image: url(./s6_bg.jpg);
+  background: #fff;
+  background-image: url(./fanspage.png);
+  background-size: cover;
+  border-top: 40px solid #4267b2;
 }
 
 .linear-g-mask {
@@ -32,96 +84,200 @@
   height: 100%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 1));
 }
+
 .container {
   width: 100vw;
   margin: 0 auto;
   text-align: left;
 
   .title {
-    width: 340px;
+    width: 440px;
     height: 101px;
-    color: #fff;
+    color: #eee;
     font-size: 34px;
-    letter-spacing: 4px !important;
+    font-weight: 500 !important;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    letter-spacing: 2px !important;
     margin: 0 auto;
     margin-bottom: 25px;
+    top: 20%;
+    left: 0;
+    right: 0;
+    position: absolute;
   }
 
-  .bullet-wall {
+  .desc {
+    top: 30%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #ccc;
+    font-weight: 500 !important;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    text-align: left;
+  }
+
+  .ms-wall {
     color: #fff;
     font-weight: normal !important;
-
-    .bullet {
-      font-size: 22px;
-      animation: bullet infinite 30s linear;
-      opacity: 0;
-      transform: translateX(100vw);
-
-      @for $i from 1 through 20 {
-        @if $i % 2 == 0 {
-          &:nth-child(#{$i}) {
-            animation-delay: #{$i}s;
-          }
-        }
-
-        @if $i % 2 == 1 {
-          &:nth-child(#{$i}) {
-            animation-delay: calc(#{$i}s * 2.33);
-          }
-        }
-
-        @if $i % 3 == 0 {
-          &:nth-child(#{$i}) {
-            animation-delay: calc(20s - #{$i}s);
-          }
-        }
-
-        @if $i % 5 == 0 {
-          &:nth-child(#{$i}) {
-            color: #db7093;
-            animation: bullet infinite 25s linear;
-            animation-delay: calc(#{$i}s * 1.5);
-          }
-        }
-
-        @if $i % 7 == 0 {
-          &:nth-child(#{$i}) {
-            color: #87cefa;
-            animation: bullet infinite 34s linear;
-            animation-delay: calc(#{$i}s * 0.75);
-          }
-        }
-      }
-    }
+    display: block;
+    height: 700px;
   }
 }
 
-@keyframes bullet {
+.fs {
+  width: 200px;
+  position: absolute;
+  z-index: 3;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  animation: jump 1s ease-in-out 0s infinite;
+}
+
+.bot-logo {
+  width: 24px;
+  border-radius: 30px;
+  margin-right: 5px;
+}
+
+@keyframes jump {
   0% {
-    transform: translateX(100vw);
-    opacity: 0.2;
+    transform: translateY(-50%);
   }
-
-  20% {
-    transform: translateX(60vw);
-    opacity: 1;
-  }
-
-  90% {
-    transform: translateX(-80vw);
-    opacity: 1;
+  50% {
+    transform: translateY(-55%);
   }
   100% {
-    transform: translateX(-100vw);
-    opacity: 0;
+    transform: translateY(-50%);
   }
+}
+
+.ms-dialog {
+  box-shadow: 0 0px 5px 1px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  border-radius: 8px;
+  width: 400px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  position: absolute;
+  &:hover {
+    z-index: 1;
+  }
+  .ms-head {
+    padding: 5px 10px;
+    background-color: #4284fb;
+    color: #fff;
+    width: 100%;
+    font-weight: 500 !important;
+    letter-spacing: 0px !important;
+  }
+
+  .ms-avatar {
+    width: 30px;
+    border-radius: 30px;
+    background-color: rosybrown;
+    margin: 5px;
+  }
+
+  .ms-content-t {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    padding: 30px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .ms-content-b {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    padding: 10px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .ms-box-w {
+    background-color: #ececec;
+    border-radius: 8px;
+    width: 250px;
+    padding: 5px 10px;
+    color: #333;
+    font-weight: 400 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .ms-box-b {
+    background-color: #4284fb;
+    border-radius: 8px;
+    width: 250px;
+    padding: 5px 10px;
+    color: #fff;
+    font-weight: 400 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  &:nth-child(1) {
+    top: -10%;
+    left: 12%;
+    transition-delay: 0 !important;
+  }
+
+  &:nth-child(2) {
+    top: 27%;
+    left: 5%;
+    transition-delay: 0.2s !important;
+  }
+
+  &:nth-child(3) {
+    top: 62%;
+    left: 25%;
+    transition-delay: 0.4s !important;
+  }
+
+  &:nth-child(4) {
+    top: -7%;
+    right: 11%;
+    transition-delay: 0.6s !important;
+  }
+
+  &:nth-child(5) {
+    top: 35%;
+    right: 2%;
+    transition-delay: 0.8s !important;
+  }
+
+  &:nth-child(6) {
+    top: 62%;
+    right: 22%;
+    transition-delay: 1s !important;
+  }
+}
+
+.slide-fade-enter-active {
+  transition: transform 0.4s cubic-bezier(1, 0.5, 0.8, 1), opacity 0.2s;
+}
+.slide-fade-leave-active {
+  transition: transform 0s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active for below version 2.1.8 */ {
+  transform: translateY(20px);
+  opacity: 0;
 }
 
 /* 螢幕尺寸標準 */
 /* 平板尺寸 */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
   .container {
-    .bullet-wall {
+    .ms-wall {
       color: #fff;
       font-weight: normal !important;
 
@@ -135,20 +291,132 @@
 
 /* 手機尺寸 */
 @media only screen and (max-width: 767px) {
+  .section6 {
+    background: #e9ebee;
+  }
   .container {
     .title {
       font-size: 24px;
+      height: auto;
       margin-bottom: 15px;
+      position: relative;
+      top: 0;
+      width: 100vw;
+      text-align: center;
+      text-shadow: none;
+      color: #333;
+      margin-bottom: 0px;
     }
-    .bullet-wall {
+
+    .desc {
+      position: relative;
+      width: 100vw;
+      text-align: center;
+      text-shadow: none;
+      color: #666;
+    }
+    .ms-wall {
       color: #fff;
       font-weight: normal !important;
-
-      .bullet {
-        font-size: 13px;
-        white-space: nowrap;
-      }
+      padding: 15px 10px 0;
+      height: auto;
+      min-height: 500px;
     }
+  }
+
+  .ms-dialog {
+    box-shadow: none;
+    background-color: #fff;
+    border-radius: 0;
+    width: 100%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
+    // border-bottom: 1px solid #666;
+    top: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    &:hover {
+      z-index: 1;
+    }
+    .ms-head {
+      padding: 5px 10px;
+      background-color: #4284fb;
+      color: #fff;
+      width: 100%;
+      font-size: 14px;
+      font-weight: 500 !important;
+      letter-spacing: 0px !important;
+    }
+
+    .ms-avatar {
+      width: 24px;
+      border-radius: 30px;
+      background-color: rosybrown;
+      margin: 5px;
+    }
+
+    .ms-content-t {
+      position: relative;
+      background-color: #fff;
+      width: 100%;
+      padding: 20px 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .ms-content-b {
+      position: relative;
+      background-color: #fff;
+      width: 100%;
+      padding: 10px 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .ms-box-w {
+      font-size: 14px;
+      background-color: #ececec;
+      border-radius: 8px;
+      width: 250px;
+      padding: 5px 10px;
+      color: #333;
+      font-weight: 400 !important;
+      letter-spacing: -0.5px !important;
+    }
+
+    .ms-box-b {
+      font-size: 14px;
+      background-color: #4284fb;
+      border-radius: 8px;
+      width: 250px;
+      padding: 5px 10px;
+      color: #fff;
+      font-weight: 400 !important;
+      letter-spacing: -0.5px !important;
+    }
+  }
+  .next, .prev {
+    position: absolute;
+    z-index: 5;
+    height: 100vh;
+  }
+  .next img, .prev img {
+    width: 20px;
+  }
+
+  .prev {
+    left: 0;
+    padding-left: 5px;
+    padding-right: 15px;
+  }
+
+  .next {
+    right: 0;
+    padding-left: 15px;
+    padding-right: 5px;
   }
 }
 
@@ -164,55 +432,103 @@
 <script>
 // @ is an alias to /src
 import { isMobile } from '@/utils'
+import _ from 'lodash'
 export default {
   name: 'section6',
 
+  props: ['feedback'],
   data() {
     return {
       isMobile,
-      bulletList: [
-        ['高雄陳先生', '拓展交友圈，很開心選的電影得了奧斯卡。'],
-        ['台北邵先生', '春天似乎提早來了'],
-        ['台北丁先生', '很簡單且自然的就可以認識到不同領域的人'],
-        ['台北張先生', '非常感謝，可以多認識一個知性的異性'],
-        ['台北陳先生', '很特別的體驗，我會想繼續嘗試'],
-        [
-          '台北劉先生',
-          '很自然，對方也是很交朋友的心情，所以聊起來也沒什麼顧忌，反而有點像本來就是朋友的感覺，滿好的。',
-        ],
-        ['台北施小姐', '棒棒的，認識新朋友很好'],
-        ['台北呂小姐', '很棒~聊天很開心電影也很好看！！'],
-        ['台北張小姐', '遇到的人很不錯'],
-        [
-          '台北鄭小姐',
-          '很開心認識到不同的人～還一起看了都想看的電影 ,覺得很棒很開心～',
-        ],
-        ['台北江小姐', '滿有趣的，比起線上交友這個會比較令人安心'],
-        ['台北姜小姐', '透過對相同電影的偏好交朋友，真的是個很棒的概念~'],
-        ['台北余小姐', '電影好看，對方很有禮貌'],
-        ['台北高小姐', '暢談甚歡'],
-        [
-          '台北林小姐',
-          '「覺得ㄧ開始有保護隱私，（不能一開始就加Line)很不錯，讓我很安心地參加活動」',
-        ],
-        [
-          '台北高小姐',
-          '「很棒的活動，看了場好電影，一起分享，認識新朋友，聊著彼此對電影的感覺，很有趣！」',
-        ],
-        [
-          '台北呂小姐',
-          '第一次參加這種活動，整體很有創意也不會讓人感覺很像相親',
-        ],
+      chunkIndex: 0,
+      girl_avatars: [
+        require('./girl_avatar/1.png'),
+        require('./girl_avatar/2.png'),
+        require('./girl_avatar/3.png'),
+        require('./girl_avatar/4.png'),
+        require('./girl_avatar/5.png'),
+        require('./girl_avatar/6.png'),
+        require('./girl_avatar/7.png'),
+        require('./girl_avatar/8.png'),
+        require('./girl_avatar/9.png'),
+        require('./girl_avatar/10.png'),
+      ],
+      boy_avatars: [
+        require('./boy_avatar/1.png'),
+        require('./boy_avatar/2.png'),
+        require('./boy_avatar/3.png'),
+        require('./boy_avatar/4.png'),
+        require('./boy_avatar/5.png'),
+        require('./boy_avatar/6.png'),
+        require('./boy_avatar/7.png'),
+        require('./boy_avatar/8.png'),
+        require('./boy_avatar/9.png'),
+        require('./boy_avatar/10.png'),
       ],
     }
   },
 
-  methods: {},
+  computed: {
+    pcFeedBack() {
+      return _.chunk(this.feedback, 6)
+    },
+    mobileFeedBack() {
+      return _.chunk(this.feedback, 3)
+    },
+  },
+
+  methods: {
+    addChunkIndex() {
+      if (!this.isMobile) {
+        if (this.chunkIndex === this.pcFeedBack.length - 1) {
+          this.chunkIndex = 0
+        } else {
+          this.chunkIndex++
+        }
+      } else {
+        if (this.chunkIndex === this.mobileFeedBack.length - 1) {
+          this.chunkIndex = 0
+        } else {
+          this.chunkIndex++
+        }
+      }
+    },
+
+    decChunkIndex() {
+      if (!this.isMobile) {
+        if (this.chunkIndex === this.pcFeedBack.length - 1) {
+          this.chunkIndex = this.pcFeedBack.length - 1
+        } else {
+          this.chunkIndex--
+        }
+      } else {
+        if (this.chunkIndex === this.mobileFeedBack.length - 1) {
+          this.chunkIndex = this.mobileFeedBack.length - 1
+        } else {
+          this.chunkIndex++
+        }
+      }
+    },
+  },
 
   created() {
-    window.setTimeout(() => {
-      // this.loading = true
-    }, 1500)
+    if (!this.isMobile) {
+      setInterval(() => {
+        if (this.chunkIndex === this.pcFeedBack.length - 1) {
+          this.chunkIndex = 0
+        } else {
+          this.chunkIndex++
+        }
+      }, 10000)
+    } else {
+      setInterval(() => {
+        if (this.chunkIndex === this.mobileFeedBack.length - 1) {
+          this.chunkIndex = 0
+        } else {
+          this.chunkIndex++
+        }
+      }, 10000)
+    }
   },
 }
 </script>

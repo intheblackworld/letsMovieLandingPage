@@ -23,7 +23,7 @@
       <Section5 />
     </div>
     <div id="section6">
-      <Section6 />
+      <Section6 :feedback="feedback" />
     </div>
     <div id="section7">
       <Section7 />
@@ -62,6 +62,7 @@ import Section4 from '@/projects/home/Section4.vue'
 import Section5 from '@/projects/home/Section5.vue'
 import Section6 from '@/projects/home/Section6.vue'
 import Section7 from '@/projects/home/Section7.vue'
+import feedback from '@/projects/home/feedback.js'
 // import Simulation from '@/projects/home/Simulation.vue'
 
 export default {
@@ -87,6 +88,7 @@ export default {
     return {
       load: true,
       routeString: '',
+      feedback,
     }
   },
   beforeMount() {

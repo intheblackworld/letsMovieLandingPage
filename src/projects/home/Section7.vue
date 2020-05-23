@@ -18,6 +18,7 @@
           最後有禮貌的互道聲晚安，在心底給自己一聲歡呼。
         慶幸緣分，其實沒那麼難。-->
         <div
+          v-if="!isMobile"
           data-aos="fade-up"
           data-aos-offset="50"
           data-aos-delay="0"
@@ -28,6 +29,20 @@
           <span class="blue">一個人</span>去電影院有多孤獨，
           那兩個人去看電影就有
           <span class="pink">多幸福</span>。
+          <br />
+          <br />
+        </div>
+        <div
+          v-else
+          data-aos="fade-up"
+          data-aos-offset="50"
+          data-aos-delay="0"
+          data-aos-duration="1500"
+          data-aos-mirror="true"
+          data-aos-once="false"
+        >
+          <span class="blue">一個人</span>去電影院有多孤獨<br />
+          那兩個人去看電影就有<span class="pink">多幸福</span>
           <br />
           <br />
         </div>
@@ -52,7 +67,10 @@
           :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name},cta3`"
           @click="logCTA3"
         >
-          <div class="btn flex-c m-auto" id="cta-3">找人看電影</div>
+          <div
+            class="btn flex-c m-auto"
+            id="cta-3"
+          >找人看電影</div>
         </a>
       </div>
     </div>
@@ -68,11 +86,11 @@ a {
 }
 
 .linear-g-mask {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
 }
 
 .desc {
-  font-size: 18px;
+  font-size: 23px;
   text-align: center;
   letter-spacing: 2px !important;
   line-height: 1.7;
@@ -82,7 +100,7 @@ a {
 
   .big {
     font-weight: normal !important;
-    font-size: 20px;
+    font-size: 25px;
     color: #fff;
   }
 
@@ -102,7 +120,7 @@ a {
 /* 手機尺寸 */
 @media only screen and (max-width: 767px) {
   .desc {
-    font-size: 14px;
+    font-size: 18px;
     text-align: center;
     letter-spacing: 2px !important;
     line-height: 1.7;
@@ -113,7 +131,7 @@ a {
 
     .big {
       font-weight: normal !important;
-      font-size: 18px;
+      font-size: 20px;
       color: #fff;
     }
 
@@ -157,14 +175,17 @@ export default {
         click: 'cta3',
         stage: 1,
       }
-      fetch('https://bot-production.letsmovienow.com/api/webview/logUserClickCTA', {
-        // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
-        headers: {
-          'Content-Type': 'application/json',
+      fetch(
+        'https://bot-production.letsmovienow.com/api/webview/logUserClickCTA',
+        {
+          // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify(req),
         },
-        method: 'POST',
-        body: JSON.stringify(req),
-      })
+      )
     },
     //  測試id 103972354293750
     //  正式id 108301937223847

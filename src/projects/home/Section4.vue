@@ -266,7 +266,7 @@
 
   .danger {
     color: #fff;
-    border: 1px solid #ff4500;
+    background: #cf3a04;
     &:hover {
       color: #fff;
       background: #ff4500;

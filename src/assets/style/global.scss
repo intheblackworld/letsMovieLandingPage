@@ -1,12 +1,12 @@
-@import './animate.scss';
-@import './variableDefault.scss';
-@import './variableColor.scss';
-@import './form.scss';
-@import './dialog.scss';
-@import './fonts.scss';
-@import './reset.scss';
-@import './customClass.scss';
-@import './slide.scss';
+@import "./animate.scss";
+@import "./variableDefault.scss";
+@import "./variableColor.scss";
+@import "./form.scss";
+@import "./dialog.scss";
+@import "./fonts.scss";
+@import "./reset.scss";
+@import "./customClass.scss";
+@import "./slide.scss";
 
 html,
 body {
@@ -127,17 +127,17 @@ body {
 }
 
 /* lazy load */
-img[lazy='loading'] {
+img[lazy="loading"] {
   opacity: 0;
   transition: opacity 1s;
 }
-img[lazy='error'] {
+img[lazy="error"] {
   /*your style here*/
   opacity: 0;
   transition: opacity 1s;
 }
 
-img[lazy='loaded'] {
+img[lazy="loaded"] {
   /*your style here*/
   opacity: 1;
   transition: opacity 1s;
@@ -147,14 +147,14 @@ img[lazy='loaded'] {
   transition: opacity 1s;
   opacity: 0;
 }
-.lazy-bg[lazy='loading'] {
+.lazy-bg[lazy="loading"] {
   opacity: 0;
 }
-.lazy-bg[lazy='error'] {
+.lazy-bg[lazy="error"] {
   /*your style here*/
   opacity: 0;
 }
-.lazy-bg[lazy='loaded'] {
+.lazy-bg[lazy="loaded"] {
   opacity: 1;
 }
 
@@ -287,8 +287,9 @@ img[lazy='loaded'] {
 
 .btn {
   font-size: 20px;
-  color: #444;
-  background-color: #fff;
+  font-weight: 400 !important;
+  background-color: #bb926d;
+  color: #fff;
   width: 170px;
   height: 55px;
   margin-top: 25px;
@@ -297,13 +298,12 @@ img[lazy='loaded'] {
   transition: all 0.5s;
 
   &.border {
-    background-color: transparent;
-    border: 1px solid #bb926d;
-    color: #fff;
+    color: #444;
+    background-color: #fff;
   }
 
   &:hover {
-    background-color: #bb926d;
-    color: #fff;
+    background-color: #fff;
+    color: #444;
   }
 }
