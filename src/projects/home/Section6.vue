@@ -8,8 +8,8 @@
         v-if="!isMobile"
         @click="addChunkIndex"
       >
-      <div class="prev flex-c" v-if="isMobile" @click="decChunkIndex"><img src="./small_left_btn.png" alt=""></div>
-      <div class="next flex-c" v-if="isMobile" @click="addChunkIndex"><img src="./small_right_btn.png" alt=""></div>
+      <div class="prev flex-c" v-if="isMobile" @click="decChunkIndex"><img src="./arrow-left.png" alt=""></div>
+      <div class="next flex-c" v-if="isMobile" @click="addChunkIndex"><img src="./arrow-right.png" alt=""></div>
       <p
         class="title flex-c"
         :data-aos="isMobile ? '' : 'fade-up'"
@@ -319,8 +319,8 @@
       color: #fff;
       font-weight: normal !important;
       padding: 15px 10px 0;
-      height: auto;
-      min-height: 500px;
+      height: 550px;
+      overflow: hidden;
     }
   }
 
