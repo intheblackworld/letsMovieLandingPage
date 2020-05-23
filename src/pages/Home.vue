@@ -90,10 +90,10 @@ export default {
     }
   },
   beforeMount() {
-    if (this.$route.query.source && this.$route.query.source) {
+    if (this.$route.query.source && this.$route.query.name) {
       this.$store.commit('setCTA', this.$route.query)
+      this.$router.replace({ query: null })
     }
-    this.$router.replace({ query: null })
   },
 
   created() {
