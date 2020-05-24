@@ -16,6 +16,7 @@
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "@saeris/vue-spinners": "^1.0.8",
     "aos": "^3.0.0-beta.6",
+    "compression-webpack-plugin": "^4.0.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.10.1",
     "moment": "^2.24.0",
