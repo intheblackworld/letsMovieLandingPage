@@ -21,7 +21,7 @@ import Navigation from '@/layouts/Navigation.vue'
 // import MobileNav from '@/layouts/MobileNav.vue'
 import Loading from '@/components/Loading.vue'
 import Footer from '@/layouts/Footer.vue'
-import gtm from '@/mixins/gtm.js'
+// import gtm from '@/mixins/gtm.js'
 // import
 
 // 結構
@@ -44,7 +44,7 @@ import gtm from '@/mixins/gtm.js'
 
 export default {
   name: 'webview',
-  mixins: [gtm],
+  // mixins: [gtm],
   components: {
     // Navigation,
     // ContactSection,

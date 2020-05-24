@@ -20,11 +20,11 @@
 // import MobileNav from '@/layouts/MobileNav.vue'
 import Loading from '@/components/Loading.vue'
 import Footer from '@/layouts/Footer.vue'
-import gtm from '@/mixins/gtm.js'
+// import gtm from '@/mixins/gtm.js'
 
 export default {
   name: 'rule',
-  mixins: [gtm],
+  // mixins: [gtm],
   components: {
     // Navigation,
     Loading,

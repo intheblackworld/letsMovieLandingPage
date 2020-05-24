@@ -20,7 +20,7 @@ import Navigation from '@/layouts/Navigation.vue'
 // import MobileNav from '@/layouts/MobileNav.vue'
 import Loading from '@/components/Loading.vue'
 import Footer from '@/layouts/Footer.vue'
-import gtm from '@/mixins/gtm.js'
+// import gtm from '@/mixins/gtm.js'
 
 // 結構
 // 1. 主視覺
@@ -43,7 +43,7 @@ import gtm from '@/mixins/gtm.js'
 
 export default {
   name: 'home',
-  mixins: [gtm],
+  // mixins: [gtm],
   components: {
     // Navigation,
     // ContactSection,
