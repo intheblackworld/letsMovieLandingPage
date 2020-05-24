@@ -6,29 +6,20 @@
         <p
           class="title flex-c"
           data-aos="fade-up"
-          data-aos-offset="50"
           data-aos-delay="0"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >擺脫你的無效社交</p>
         <div>
           <p
             data-aos="fade-up"
-            data-aos-offset="50"
             data-aos-delay="300"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos-duration="500"
             class="sub-title"
           >交朋友不是靠滑的</p>
           <p
             data-aos="fade-up"
-            data-aos-offset="50"
             data-aos-delay="300"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos-duration="500"
           >
             說真的，我們不想讓你掛在線上，往左滑，往右滑，往右滑，往左滑…
             好不容易配對成功之後，才發現，那個人已讀不回，這個人不太會回，
@@ -39,20 +30,14 @@
         <div class="second">
           <p
             data-aos="fade-up"
-            data-aos-offset="50"
             data-aos-delay="500"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos-duration="500"
             class="sub-title"
           >時間，請花在美好的事物上</p>
           <p
             data-aos="fade-up"
-            data-aos-offset="50"
             data-aos-delay="500"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos-duration="500"
           >
             認識不同領域的人，拓展交友的圈子
             <br />為你的生活注入點刺激
@@ -62,11 +47,8 @@
         </div>
         <img
           data-aos="fade-up"
-          data-aos-offset="50"
           data-aos-delay="700"
-          data-aos-duration="2000"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
           src="./s2_clock.png"
           alt
           class="absolute clock"

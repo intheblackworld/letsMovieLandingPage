@@ -4,42 +4,30 @@
     <section
       class="fullscreen bg-cover no-nav flex-c bg"
       data-aos="fade-up"
-      data-aos-offset="50"
       data-aos-delay="0"
-      data-aos-duration="1500"
-      data-aos-mirror="true"
-      data-aos-once="false"
+      data-aos-duration="500"
     >
       <!-- div.mask.fullscr -->
       <div class="container flex-c">
         <div class="content">
           <p
             data-aos="fade-up"
-            data-aos-offset="50"
             data-aos-delay="0"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos-duration="500"
             class="title"
           >男生請女生看電影</p>
           <p
             data-aos="fade-up"
-            data-aos-offset="50"
             data-aos-delay="300"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos-duration="500"
             class="sub-title"
           >找一個跟你在電影院裡會心一笑的人</p>
           <a
             class="flex-c"
             id="cta-1"
-            data-aos="fade-up"
-            data-aos-offset="50"
-            data-aos-delay="500"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos="fade"
+            data-aos-delay="700"
+            data-aos-duration="500"
             target="_blank"
             :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name},cta1`"
             @click="logCTA1"

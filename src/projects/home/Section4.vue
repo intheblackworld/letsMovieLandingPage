@@ -4,21 +4,15 @@
       <p
         class="title flex-c m-auto"
         data-aos="fade-up"
-        data-aos-offset="50"
         data-aos-delay="0"
-        data-aos-duration="1500"
-        data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-duration="500"
       >安心的理由</p>
       <div class="graph flex-ac flex-jb">
         <div
           class="flex-c"
           data-aos="fade-right"
-          data-aos-offset="50"
           data-aos-delay="0"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <span class="radar male"></span>
           <font-awesome-icon icon="male" class="male" />
@@ -26,11 +20,8 @@
         <div
           class="flex-c"
           data-aos="fade"
-          data-aos-offset="50"
           data-aos-delay="400"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <span class="radar robot"></span>
           <font-awesome-icon icon="robot" class="robot" />
@@ -38,11 +29,8 @@
         <div
           class="flex-c"
           data-aos="fade-left"
-          data-aos-offset="50"
           data-aos-delay="400"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <span class="radar female"></span>
           <font-awesome-icon icon="female" class="female" />
@@ -52,11 +40,8 @@
       <div
         class="desc"
         data-aos="fade-up"
-        data-aos-offset="50"
         data-aos-delay="600"
-        data-aos-duration="1500"
-        data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-duration="500"
       >
         為了讓你們能<span class="pink">更放心地</span>使用我們的服務，我們的配對機制
         <br />能讓你們傳送的訊息都藉由<span class="green">機器人</span>轉送
@@ -68,11 +53,8 @@
       <!-- <div
         class="card"
         data-aos="fade-up"
-        data-aos-offset="50"
         data-aos-delay="800"
-        data-aos-duration="1500"
-        data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-duration="500"
       >
         <font-awesome-icon icon="id-card" class="card" />
         <p>
@@ -83,11 +65,8 @@
       <div
         class="warning"
         data-aos="fade-up"
-        data-aos-offset="50"
-        data-aos-delay="1000"
-        data-aos-duration="1500"
-        data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-delay="700"
+        data-aos-duration="500"
       >
         <font-awesome-icon icon="exclamation-triangle" />
         <p v-if="!isMobile">

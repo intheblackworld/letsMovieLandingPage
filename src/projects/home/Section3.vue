@@ -6,21 +6,15 @@
           <div>
             <p
               data-aos="fade-up"
-              data-aos-offset="50"
               data-aos-delay="0"
-              data-aos-duration="1500"
-              data-aos-mirror="true"
-              data-aos-once="false"
+              data-aos-duration="500"
               class="title mb-20"
             >配對流程</p>
             <p
               class="sub-title"
               data-aos="fade-up"
-              data-aos-offset="50"
               data-aos-delay="300"
-              data-aos-duration="1500"
-              data-aos-mirror="true"
-              data-aos-once="false"
+              data-aos-duration="500"
             >
               我們在背後用了超級複雜的技術
               <br />只為了讓你有最好的交友體驗
@@ -28,21 +22,15 @@
             </p>
             <!-- <p
               data-aos="fade-up"
-              data-aos-offset="50"
               data-aos-delay="0"
-              data-aos-duration="1500"
-              data-aos-mirror="true"
-              data-aos-once="false"
+              data-aos-duration="500"
               class="title mb-20"
             >服務費用</p>
             <p
               class="sub-title"
               data-aos="fade-up"
-              data-aos-offset="50"
               data-aos-delay="300"
-              data-aos-duration="1500"
-              data-aos-mirror="true"
-              data-aos-once="false"
+              data-aos-duration="500"
             >
               配對成功後<br />
               男生收取媒合費 500 元
@@ -51,11 +39,8 @@
 
             <div
               data-aos="fade-up"
-              data-aos-offset="50"
               data-aos-delay="500"
-              data-aos-duration="1500"
-              data-aos-mirror="true"
-              data-aos-once="false"
+              data-aos-duration="500"
               v-if="!isMobile"
             >
               <a
@@ -72,11 +57,8 @@
         <div
           class="content"
           data-aos="fade-up"
-          data-aos-offset="50"
           data-aos-delay="300"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <div class="slide bg-cover">
             <img
@@ -103,11 +85,8 @@
           <p class="desc">{{slideList[slideIndex].title}}</p>
           <div
             data-aos="fade-up"
-            data-aos-offset="50"
             data-aos-delay="500"
-            data-aos-duration="1500"
-            data-aos-mirror="true"
-            data-aos-once="false"
+            data-aos-duration="500"
             v-if="isMobile"
           >
             <a class="btn border flex-c show-in-mobile"

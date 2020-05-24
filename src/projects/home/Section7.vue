@@ -20,11 +20,8 @@
         <div
           v-if="!isMobile"
           data-aos="fade-up"
-          data-aos-offset="50"
           data-aos-delay="0"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <span class="blue">一個人</span>去電影院有多孤獨，
           那兩個人去看電影就有
@@ -35,11 +32,8 @@
         <div
           v-else
           data-aos="fade-up"
-          data-aos-offset="50"
           data-aos-delay="0"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <span class="blue">一個人</span>去電影院有多孤獨<br />
           那兩個人去看電影就有<span class="pink">多幸福</span>
@@ -48,21 +42,15 @@
         </div>
         <div
           data-aos="fade-up"
-          data-aos-offset="50"
           data-aos-delay="300"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <span class="big">來 Lets Movie，遇見你的新緣分</span>
         </div>
         <a
           data-aos="fade-up"
-          data-aos-offset="50"
           data-aos-delay="600"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
           target="_blank"
           :href="`https://m.me/108301937223847?ref=${$store.state.source},${$store.state.name},cta3`"
           @click="logCTA3"

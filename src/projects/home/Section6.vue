@@ -13,20 +13,14 @@
       <p
         class="title flex-c"
         :data-aos="isMobile ? '' : 'fade-up'"
-        data-aos-offset="50"
         data-aos-delay="0"
-        data-aos-duration="1500"
-        data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-duration="800"
       >上百組真實使用者回饋</p>
       <p
         class="desc flex-c"
         :data-aos="isMobile ? '' : 'fade-up'"
-        data-aos-offset="50"
         data-aos-delay="0"
-        data-aos-duration="1500"
-        data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-duration="800"
       >(大頭貼為示意圖)</p>
       <transition-group
         name="slide-fade"

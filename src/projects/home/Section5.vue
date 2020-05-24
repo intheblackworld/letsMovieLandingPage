@@ -4,21 +4,15 @@
       <p
         class="title flex-c"
         data-aos="fade-up"
-        data-aos-offset="50"
         data-aos-delay="0"
-        data-aos-duration="1500"
-        data-aos-mirror="true"
-        data-aos-once="false"
+        data-aos-duration="500"
       >你可能想問</p>
       <div class="flex-jb wrap">
         <div
           class="desc mb-30"
           data-aos="fade-left"
-          data-aos-offset="50"
           data-aos-delay="200"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <p class="question flex-ac">
             <span class="flex-c">1</span>
@@ -29,11 +23,8 @@
         <div
           class="desc mb-30"
           data-aos="fade-left"
-          data-aos-offset="50"
           data-aos-delay="400"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <p class="question flex-ac">
             <span class="flex-c">2</span>
@@ -44,11 +35,8 @@
         <div
           class="desc mb-30"
           data-aos="fade-left"
-          data-aos-offset="50"
           data-aos-delay="200"
-          data-aos-duration="1500"
-          data-aos-mirror="true"
-          data-aos-once="false"
+          data-aos-duration="500"
         >
           <p class="question flex-ac">
             <span class="flex-c">3</span>
