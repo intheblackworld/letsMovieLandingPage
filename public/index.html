@@ -42,24 +42,6 @@
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <!-- customer chat code start -->
-    <script defer>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml: true,
-          version: "v6.0"
-        });
-      };
-
-      (function(d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
-    </script>
     <div
       class="fb-customerchat"
       greeting_dialog_display="fade"
@@ -97,6 +79,24 @@
       data-color="#f44336"
       data-apps="JTdCJTIyZmFjZWJvb2slMjI6JTIyNzM3ODQ0ODIyOTgyMzcxJTIyJTdE"
     ></script> -->
+    <script defer>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml: true,
+          version: "v6.0"
+        });
+      };
+
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/zh_TW/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
     <style>
       .keyreply-brand {
         display: none;
