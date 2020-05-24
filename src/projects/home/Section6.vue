@@ -2,14 +2,14 @@
   <div class="section6 bg-cover relative">
     <div class="container pt-40 pb-30">
       <img
-        src="./s6_fb_ms.png"
+        v-lazy="require('./s6_fb_ms.png')"
         alt=""
         class="fs"
         v-if="!isMobile"
         @click="addChunkIndex"
       >
-      <div class="prev flex-c" v-if="isMobile" @click="decChunkIndex"><img src="./arrow-left.png" alt=""></div>
-      <div class="next flex-c" v-if="isMobile" @click="addChunkIndex"><img src="./arrow-right.png" alt=""></div>
+      <div class="prev flex-c" v-if="isMobile" @click="decChunkIndex"><img v-lazy="require('./arrow-left.png')" alt=""></div>
+      <div class="next flex-c" v-if="isMobile" @click="addChunkIndex"><img v-lazy="require('./arrow-right.png')" alt=""></div>
       <p
         class="title flex-c"
         :data-aos="isMobile ? '' : 'fade-up'"
@@ -34,7 +34,7 @@
         >
           <div class="ms-head flex-ac">
             <img
-              src="./bot-logo.png"
+              v-lazy="require('./bot-logo.png')"
               alt=""
               class="bot-logo"
             >
@@ -42,7 +42,7 @@
           </div>
           <div class="ms-content-t">
             <img
-              :src="girl_avatars[index]"
+              v-lazy="girl_avatars[index]"
               alt=""
               class="ms-avatar"
             >
@@ -55,7 +55,7 @@
               {{ms.boy}}
             </div>
             <img
-              :src="boy_avatars[index]"
+              v-lazy="boy_avatars[index]"
               alt=""
               class="ms-avatar"
             >

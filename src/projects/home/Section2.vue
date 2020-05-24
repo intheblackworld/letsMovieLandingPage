@@ -49,7 +49,7 @@
           data-aos="fade-up"
           data-aos-delay="700"
           data-aos-duration="500"
-          src="./s2_clock.png"
+          v-lazy="require('./s2_clock.png')"
           alt
           class="absolute clock"
         />

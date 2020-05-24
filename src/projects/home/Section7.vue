@@ -1,5 +1,5 @@
 <template>
-  <div class="section7 fullscreen bg-cover">
+  <div class="section7 fullscreen bg-cover" v-lazy:background-image="require('./s7_bg.jpg')">
     <div class="linear-g-mask fullscreen flex-c">
       <div class="desc">
         <!-- <span>電影院</span>，是兩個人靜靜地沈浸在劇中的場景與故事，實現自己腦中幻想的地方。 -->
@@ -66,7 +66,7 @@
 </template>
 <style lang="scss" scoped>
 .section7 {
-  background-image: url(./s7_bg.jpg);
+  // background-image: url();
 }
 
 a {

@@ -62,12 +62,12 @@
         >
           <div class="slide bg-cover">
             <img
-              src="./s3_phone.png"
+              v-lazy="require('./s3_phone.png')"
               alt
               class="absolute-c phone-frame"
             />
             <img
-              :src="slide.src"
+              v-lazy="slide.src"
               alt
               v-for="(slide, index) in slideList"
               :key="`img-${index}-${slide.src}`"
