@@ -7,6 +7,7 @@ import './registerServiceWorker'
 import '@/assets/style/global.scss'
 
 /* 全局配置 https://blog.csdn.net/FireBird_one/article/details/80295229 */
+import config from './lib/config.js'
 
 import lang from 'element-ui/lib/locale/lang/zh-TW'
 import ElementUI from 'element-ui'
@@ -54,6 +55,8 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueSvgIcon, {
   tagName: 'icon'
 })
+
+Vue.use(config)
 
 Vue.use(ElementUI)
 Vue.use(VueScrollTo)
