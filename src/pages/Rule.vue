@@ -108,4 +108,10 @@ export default {
 
   }
 }
+
+</style>
+<style lang="scss">
+.fb_dialog {
+  display: none !important;
+}
 </style>
