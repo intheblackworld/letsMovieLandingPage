@@ -24,6 +24,7 @@
 .dating {
   width: 1280px;
   margin: 0px auto;
+  margin-bottom: 60px;
   text-align: justify;
   min-height: calc(100vh - 40px);
 

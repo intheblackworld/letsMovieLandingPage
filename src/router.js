@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './pages/Home.vue'
 import Blog from './pages/Blog.vue'
+import Rule from './pages/Rule.vue'
 import Webview from './pages/Webview.vue'
 
 Vue.use(Router)
@@ -39,7 +40,7 @@ export default new Router({
     {
       path: '/rule',
       name: 'Rule',
-      component: Blog,
+      component: Rule,
       children: [
         {
           path: 'platform',
@@ -48,6 +49,15 @@ export default new Router({
         {
           path: 'notice',
           component: () => import(/* webpackChunkName: "rule" */ './projects/rule/Notice.vue')
+        },
+        {
+          path: 'guide',
+          component: () => import(/* webpackChunkName: "webview" */ './projects/rule/Guide.vue')
+        },
+
+        {
+          path: 'question',
+          component: () => import(/* webpackChunkName: "webview" */ './projects/rule/Question.vue')
         },
       ]
     },

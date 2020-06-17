@@ -24,6 +24,8 @@ import {
   faMapMarkerAlt,
   faIdCard,
   faExclamationTriangle,
+  faQuestionCircle,
+  faClipboardList,
   faRobot,
   faMale,
   faFemale,
@@ -32,7 +34,7 @@ import {
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-import { faFacebookMessenger, faFacebookF } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookMessenger, faFacebookF, faReadme } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueSvgIcon from 'vue-svgicon'
 
@@ -43,7 +45,13 @@ library.add(faTimes)
 library.add(faPhone)
 library.add(faPen)
 library.add(faFacebookMessenger)
+
 library.add(faFacebookF)
+
+library.add(faReadme)
+library.add(faQuestionCircle)
+library.add(faClipboardList)
+
 library.add(faMapMarkerAlt)
 library.add(faIdCard)
 library.add(faExclamationTriangle)
