@@ -136,11 +136,22 @@
     <div v-if="tabIndex === 4">
       <div class="subtitle">敲定約會細節功能說明</div>
       <p>配對成功會開通男女雙方的對話！這個時候就可以傳訊息對話了</p>
-      <img src="./guide/hello.gif" alt="">
+      <img
+        src="./guide/hello.gif"
+        alt=""
+      >
       <div class="img-desc red">請在24小時內確定碰面時間地點</div>
-      <img src="./guide/6.png" alt="" class="">
+      <img
+        src="./guide/6.png"
+        alt=""
+        class=""
+      >
       <p>敲定約會細節，是<span class="red">告訴系統你們已經討論完畢</span>了</p>
-      <img src="./guide/7.png" alt="" class="">
+      <img
+        src="./guide/7.png"
+        alt=""
+        class=""
+      >
       <p>
         <span class="red">如果24小時內沒有敲定</span><br />
         將會以最後一句話是誰回的，另外一方判定為未回應而被扣點
@@ -330,53 +341,57 @@ export default {
     setTab(index) {
       this.tabIndex = index
     },
+
+    getUserData() {
+      window.extAsyncInit = () => {
+        // the Messenger Extensions JS SDK is done loading
+        setTimeout(() => {
+          this.me = MessengerExtensions
+          MessengerExtensions.getContext(
+            // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+            '1405269929631051', // Let's Movie 電影約會 BOT ID
+            thread_context => {
+              // success
+              this.fb_id = thread_context.psid
+              // More code to follow
+
+              fetch(
+                'https://bot-production.letsmovienow.com/api/webview/getUserData',
+                {
+                  // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  method: 'POST',
+                  body: JSON.stringify({ fb_id: this.fb_id }),
+                },
+              )
+                .then(res => {
+                  return res.json()
+                })
+                .then(res => {
+                  if (res.err) {
+                    // const h = this.$createElement
+                    this.$notify({
+                      title: res.err,
+                    })
+                  } else {
+                    // console.log(res.data)
+                    this.gender = res.data.gender
+                  }
+                })
+            },
+            err => {
+              this.fb_id = err
+            },
+          )
+        }, 1500)
+      }
+    },
   },
 
   mounted() {
-    window.extAsyncInit = () => {
-      // the Messenger Extensions JS SDK is done loading
-      setTimeout(() => {
-        this.me = MessengerExtensions
-        MessengerExtensions.getContext(
-          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          '1405269929631051', // Let's Movie 電影約會 BOT ID
-          thread_context => {
-            // success
-            this.fb_id = thread_context.psid
-            // More code to follow
-
-            fetch(
-              'https://bot-production.letsmovienow.com/api/webview/getUserData',
-              {
-                // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify({ fb_id: this.fb_id }),
-              },
-            )
-              .then(res => {
-                return res.json()
-              })
-              .then(res => {
-                if (res.err) {
-                  // const h = this.$createElement
-                  this.$notify({
-                    title: res.err,
-                  })
-                } else {
-                  // console.log(res.data)
-                  this.gender = res.data.gender
-                }
-              })
-          },
-          err => {
-            this.fb_id = err
-          },
-        )
-      }, 1500)
-    }
+    this.getUserData()
   },
 }
 </script>
