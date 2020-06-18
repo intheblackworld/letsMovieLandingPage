@@ -374,7 +374,7 @@ export default {
             this.fb_id = err
           },
         )
-      }, 1500)
+      }, 2500)
     }
   },
 }
