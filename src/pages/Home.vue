@@ -55,6 +55,8 @@ import gtm from '@/mixins/gtm.js'
 // 6. 使用者回饋
 // 7. final CTA
 
+import { info } from '@/info/meta'
+
 import Section1 from '@/projects/home/Section1.vue'
 import Section2 from '@/projects/home/Section2.vue'
 import Section3 from '@/projects/home/Section3.vue'
@@ -91,6 +93,52 @@ export default {
       feedback,
     }
   },
+
+  jsonld: [
+    {
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      name: info.title,
+      url: 'https://letsmovienow.com/',
+      // potentialAction: [
+      //   {
+      //     "@type": "SearchAction",
+      //     target: "https: blog.lalacube.com search article?p={search_term_string}",
+      //     "query-input": "required name=search_term_string"
+      //   }
+      // ]
+    },
+    {
+      '@context': 'http://schema.org',
+      '@type': 'WebApplication',
+      name: info.title,
+      description: info.description,
+      operatingSystem: 'Windows 7, OSX 10.6',
+      browserRequirements: 'requires HTML5 support',
+      applicationCategory: 'DeveloperApplication',
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.6',
+        ratingCount: '3224',
+      },
+      // offers: {
+      //   '@type': 'Offer',
+      //   availability: 'https://schema.org/InStock',
+      //   price: '0',
+      //   priceCurrency: 'TWD',
+      // },
+      // "image": "https://howcobe.com/",
+      url: 'https://letsmovienow.com/',
+      // author: {
+      //   "@context": "http://schema.org",
+      //   "@type": "Organization",
+      //   name: "好課比",
+      //   url: "https://howcobe.com/",
+      //   logo: "https: blog.lalacube.com mei img app privacy i_512x512.png",
+      //   sameAs: ["https: www.facebook.com mei.studio.li "]
+      // }
+    },
+  ],
   beforeMount() {
     if (this.$route.query.source && this.$route.query.name) {
       this.$store.commit('setCTA', this.$route.query)

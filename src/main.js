@@ -6,6 +6,8 @@ import './registerServiceWorker'
 
 import '@/assets/style/global.scss'
 
+import VueJsonLD from 'vue-jsonld'
+
 /* 全局配置 https://blog.csdn.net/FireBird_one/article/details/80295229 */
 import config from './lib/config.js'
 
@@ -70,6 +72,8 @@ Vue.use(ElementUI)
 Vue.use(VueScrollTo)
 Vue.use(VueLazyload)
 
+Vue.use(VueJsonLD)
+
 new Vue({
   router,
   store,
@@ -78,7 +82,7 @@ new Vue({
     return (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0]
       if (d.getElementById(id)) { return }
-      js = d.createElement(s) 
+      js = d.createElement(s)
       js.id = id
       js.src = '//connect.facebook.com/en_US/messenger.Extensions.js'
       fjs.parentNode.insertBefore(js, fjs)
