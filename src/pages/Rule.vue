@@ -80,54 +80,7 @@ export default {
       this.isFBReady = true
       // this.getUserData()
     },
-
-    getUserData() {
-      window.extAsyncInit = () => {
-        // the Messenger Extensions JS SDK is done loading
-        setTimeout(() => {
-          this.me = MessengerExtensions
-          MessengerExtensions.getContext(
-            // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-            '1405269929631051', // Let's Movie 電影約會 BOT ID
-            thread_context => {
-              // success
-              this.fb_id = thread_context.psid
-              // More code to follow
-
-              fetch(
-                'https://bot-production.letsmovienow.com/api/webview/getUserData',
-                {
-                  // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                  method: 'POST',
-                  body: JSON.stringify({ fb_id: this.fb_id }),
-                },
-              )
-                .then(res => {
-                  return res.json()
-                })
-                .then(res => {
-                  if (res.err) {
-                    // const h = this.$createElement
-                    this.$notify({
-                      title: res.err,
-                    })
-                  } else {
-                    // console.log(res.data)
-                    this.gender = res.data.gender
-                  }
-                })
-            },
-            err => {
-              this.fb_id = err
-            },
-          )
-        }, 1500)
-      }
-    },
-  },
+  }
 }
 </script>
 
