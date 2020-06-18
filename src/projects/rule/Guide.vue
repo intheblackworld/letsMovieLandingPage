@@ -7,7 +7,7 @@
         class="btn-row"
         @click="setTab(0)"
       >選單在哪?</div>
-      <div v-if="!fb_id">
+      <div v-if="fb_id">
         <div
           class="btn-row"
           @click="setTab(1)"
