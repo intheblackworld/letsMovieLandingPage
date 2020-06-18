@@ -78,7 +78,7 @@ export default {
   methods: {
     onFBReady: function() {
       this.isFBReady = true
-      this.getUserData()
+      // this.getUserData()
     },
 
     getUserData() {
