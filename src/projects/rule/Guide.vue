@@ -1,6 +1,5 @@
 <template>
   <div class="dating">
-    fb:{{fb_id}}
     <div class="title">使用指南</div>
     <div class="subtitle">選單功能說明</div>
     <div class="message-btns">
@@ -391,7 +390,7 @@ export default {
   },
 
   mounted() {
-    this.getUserData()
+    // this.getUserData()
   },
 }
 </script>
