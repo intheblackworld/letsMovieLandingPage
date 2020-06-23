@@ -91,16 +91,6 @@ export default {
   },
 
   mounted() {
-    // window.extAsyncInit = function() {
-    //   // the Messenger Extensions JS SDK is done loading
-    //   MessengerExtensions.getUserID(
-    //     function success(uids) {
-    //       var psid = uids.psid
-    //       window.alert(psid)
-    //     },
-    //     function error(err) {},
-    //   )
-    // }
   },
 }
 </script>
