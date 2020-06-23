@@ -1,6 +1,6 @@
 <template>
   <div class="datings">
-    <div class="title">最新成功約會案例</div>
+    <div class="title">最新成功約會</div>
     <div
       class="dating-item"
       v-for="date in datings"
