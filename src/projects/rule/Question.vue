@@ -387,6 +387,8 @@ export default {
             '系統在當天會為您們開啟對話，您們在約好時間地點後，看要認服裝顏色等等，都還是可以來相認做聯繫喔！',
         },
       ],
+
+      interval: '',
     }
   },
 
@@ -397,6 +399,7 @@ export default {
   },
 
   mounted() {
+    // this.interval = setInterval(() => {}, 2000)
     window.extAsyncInit = () => {
       // the Messenger Extensions JS SDK is done loading
       MessengerExtensions.getContext(
@@ -407,17 +410,16 @@ export default {
           this.fb_id = thread_context.psid
           // More code to follow
 
-          fetch(
-            'https://bot-production.letsmovienow.com/api/webview/getUserData',
-            {
-              // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              method: 'POST',
-              body: JSON.stringify({ fb_id: this.fb_id }),
+          // fetch(
+          //   'https://bot-production.letsmovienow.com/api/webview/getUserData',
+          //   {
+          fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+            headers: {
+              'Content-Type': 'application/json',
             },
-          )
+            method: 'POST',
+            body: JSON.stringify({ fb_id: this.fb_id }),
+          })
             .then(res => {
               return res.json()
             })
