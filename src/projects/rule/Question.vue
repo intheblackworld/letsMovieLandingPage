@@ -23,6 +23,7 @@
       <div class="subtitle">平台功能問題</div>
       <div
         v-for="(qa, index) in qaList1"
+        v-show="qa.gender && qa.gender === gender"
         :key="qa.q + qa.a + index"
       >
         <p
@@ -308,9 +309,10 @@ export default {
           a: '有的喔！我們目前平均一天有兩場約會並且慢慢成長當中～',
         },
         {
+          gender: 0,
           q: '若我成為月費會員，但那個月的約會選擇很少，這樣會不會很吃虧？',
           a:
-            '平台這邊有提出一些獎勵措施，但如果您覺得目前約會太少的話，可以先不發出約會沒關係，我們也希望大家在使用的過程上是流暢的，甚至是物超所值的，畢竟出門約會也是需要成本<br /><br />平台這邊有提出一些獎勵措施，但如果您覺得目前約會太少的話，可以先不發出約會沒關係，我們也希望大家在使用的過程上是流暢的，甚至是物超所值的，畢竟出門約會也是需要成本',
+            '平台這邊有提出一些獎勵措施，但如果您覺得目前約會太少的話，可以先不發出約會沒關係，我們也希望大家在使用的過程上是流暢的，甚至是物超所值的，畢竟出門約會也是需要成本',
         },
         {
           q: 'L幣是什麼?',
@@ -400,8 +402,8 @@ export default {
       setTimeout(() => {
         window.alert('Getting PSID')
         MessengerExtensions.getContext(
-          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          '1405269929631051', // Let's Movie 電影約會 BOT ID
+          '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+          // '1405269929631051', // Let's Movie 電影約會 BOT ID
           thread_context => {
             // success
             this.fb_id = thread_context.psid
