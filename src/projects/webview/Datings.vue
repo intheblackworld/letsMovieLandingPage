@@ -187,7 +187,7 @@ export default {
     this.interval = setInterval(() => {
       if (!this.fb_id) {
         // the Messenger Extensions JS SDK is done loading
-        this.me = MessengerExtensions
+        // this.me = MessengerExtensions
         MessengerExtensions.getContext(
           // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
           '1405269929631051', // Let's Movie 電影約會 BOT ID
@@ -232,14 +232,14 @@ export default {
   },
 
   methods: {
-    closeWebView() {
-      this.me.requestCloseBrowser(
-        function success() {},
-        function error(err) {
-          console.log(err)
-        },
-      )
-    },
+    // closeWebView() {
+    //   this.me.requestCloseBrowser(
+    //     function success() {},
+    //     function error(err) {
+    //       console.log(err)
+    //     },
+    //   )
+    // },
   },
 
   created() {},
