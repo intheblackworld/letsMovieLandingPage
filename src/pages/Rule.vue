@@ -30,12 +30,12 @@
         class="nav-item flex-c wrap"
       ><font-awesome-icon icon="exclamation-triangle" />
       注意事項</router-link>
-      <router-link
+      <!-- <router-link
         :to="`/rule/question`"
         tag="div"
         class="nav-item flex-c wrap"
       ><font-awesome-icon icon="question-circle" />
-      常見問題</router-link>
+      常見問題</router-link> -->
     </div>
     <!-- <Footer /> -->
   </div>
@@ -93,7 +93,7 @@ export default {
   width: 100vw;
   box-shadow: 0 -2px 10px 2px rgba(0,0, 0, .2);
   .nav-item {
-    width: 25%;
+    width: 33.33%;
     height: 100%;
     padding-top: 10px;
     background-color: #333;
