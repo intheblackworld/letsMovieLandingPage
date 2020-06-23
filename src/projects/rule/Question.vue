@@ -403,9 +403,9 @@ export default {
   },
 
   mounted() {
-    this.interval = setInterval(() => {
-      if (!this.fb_id) {
-        window.extAsyncInit = () => {
+    window.extAsyncInit = () => {
+      this.interval = setInterval(() => {
+        if (!this.fb_id) {
           // the Messenger Extensions JS SDK is done loading
           MessengerExtensions.getContext(
             '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
@@ -447,8 +447,8 @@ export default {
             },
           )
         }
-      }
-    }, 2000)
+      }, 2000)
+    }
   },
 }
 </script>
