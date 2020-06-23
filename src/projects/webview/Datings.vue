@@ -189,8 +189,8 @@ export default {
         // the Messenger Extensions JS SDK is done loading
         this.me = MessengerExtensions
         MessengerExtensions.getContext(
-          '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          // '1405269929631051', // Let's Movie 電影約會 BOT ID
+          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+          '1405269929631051', // Let's Movie 電影約會 BOT ID
           thread_context => {
             // success
             this.fb_id = thread_context.psid
@@ -232,51 +232,6 @@ export default {
   },
 
   methods: {
-    submitForm(formName) {
-      this.$refs[formName].validate(valid => {
-        // 如果選擇的日期是當天
-        if (valid) {
-          this.loading = true
-          fetch(
-            'https://bot-production.letsmovienow.com/api/webview/editUserData',
-            {
-              // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              method: 'POST',
-              body: JSON.stringify({
-                fb_id: this.fb_id,
-                nickname: this.form.nickname,
-                address: this.form.address,
-                personality: this.form.personality,
-                habbit: this.form.habbit,
-                job: this.form.job,
-              }),
-            },
-          )
-            .then(res => {
-              return res.json()
-            })
-            .then(res => {
-              if (res.err) {
-                // const h = this.$createElement
-                this.$notify({
-                  title: res.err,
-                })
-                this.loading = false
-              } else {
-                this.loading = false
-                this.closeWebView()
-              }
-            })
-        } else {
-          console.log('error submit!!')
-
-          return false
-        }
-      })
-    },
     closeWebView() {
       this.me.requestCloseBrowser(
         function success() {},
