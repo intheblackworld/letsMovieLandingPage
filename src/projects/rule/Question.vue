@@ -399,7 +399,9 @@ export default {
   },
 
   mounted() {
-    // this.interval = setInterval(() => {}, 2000)
+    this.interval = setInterval(() => {
+      
+    }, 2000);
     window.extAsyncInit = () => {
       // the Messenger Extensions JS SDK is done loading
       MessengerExtensions.getContext(
@@ -410,16 +412,17 @@ export default {
           this.fb_id = thread_context.psid
           // More code to follow
 
-          // fetch(
-          //   'https://bot-production.letsmovienow.com/api/webview/getUserData',
-          //   {
-          fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
-            headers: {
-              'Content-Type': 'application/json',
+          fetch(
+            'https://bot-production.letsmovienow.com/api/webview/getUserData',
+            {
+              // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              method: 'POST',
+              body: JSON.stringify({ fb_id: this.fb_id }),
             },
-            method: 'POST',
-            body: JSON.stringify({ fb_id: this.fb_id }),
-          })
+          )
             .then(res => {
               return res.json()
             })
