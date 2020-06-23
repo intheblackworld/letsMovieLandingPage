@@ -353,8 +353,8 @@ export default {
       if (!this.fb_id) {
         // the Messenger Extensions JS SDK is done loading
         MessengerExtensions.getContext(
-          '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          // '1405269929631051', // Let's Movie 電影約會 BOT ID
+          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+          '1405269929631051', // Let's Movie 電影約會 BOT ID
           thread_context => {
             // success
             this.fb_id = thread_context.psid
