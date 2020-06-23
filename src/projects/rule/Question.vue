@@ -397,11 +397,11 @@ export default {
   },
 
   mounted() {
-    window.alert('mounted!')
+    alert('mounted!')
     window.extAsyncInit = () => {
       // the Messenger Extensions JS SDK is done loading
       setTimeout(() => {
-        window.alert('Getting PSID')
+        alert('Getting PSID')
         MessengerExtensions.getContext(
           '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
           // '1405269929631051', // Let's Movie 電影約會 BOT ID
