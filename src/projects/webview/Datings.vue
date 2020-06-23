@@ -68,7 +68,7 @@
 .dating-item {
   width: 100%;
   margin: 25px auto;
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(255, 255, 255, 0.1);
   padding: 20px 15px 15px 50px;
   border-radius: 10px;
   position: relative;
@@ -183,52 +183,28 @@ export default {
   },
 
   mounted() {
-    // window.extAsyncInit = () => {
-    this.interval = setInterval(() => {
-      if (!this.fb_id) {
-        // the Messenger Extensions JS SDK is done loading
-        // this.me = MessengerExtensions
-        MessengerExtensions.getContext(
-          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          '1405269929631051', // Let's Movie 電影約會 BOT ID
-          thread_context => {
-            // success
-            this.fb_id = thread_context.psid
-            // More code to follow
-
-            fetch(
-              'https://bot-production.letsmovienow.com/api/webview/getDatingData',
-              {
-                // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify({ fb_id: this.fb_id }),
-              },
-            )
-              .then(res => {
-                return res.json()
-              })
-              .then(res => {
-                if (res.err) {
-                  // const h = this.$createElement
-                  this.$notify({
-                    title: res.err,
-                  })
-                } else {
-                  // console.log(res.data)
-                  this.datings = res.data
-                }
-              })
-          },
-          err => {
-            console.log(err)
-            this.fb_id = ''
-          },
-        )
-      }
-    }, 2000)
+    fetch('https://bot-production.letsmovienow.com/api/webview/getDatingData', {
+      // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ fb_id: this.fb_id }),
+    })
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+        if (res.err) {
+          // const h = this.$createElement
+          this.$notify({
+            title: res.err,
+          })
+        } else {
+          // console.log(res.data)
+          this.datings = res.data
+        }
+      })
   },
 
   methods: {

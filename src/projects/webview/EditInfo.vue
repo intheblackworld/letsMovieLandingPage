@@ -1,14 +1,33 @@
 <template>
   <div class="check-detail">
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
-    <el-form class="form" :model="form" :rules="rules" ref="form">
+    <el-form
+      class="form"
+      :model="form"
+      :rules="rules"
+      ref="form"
+    >
       <div class="form-title">修改個人資訊</div>
-      <el-form-item label="暱稱" class="form-item" prop="nickname">
-        <el-input v-model="form.nickname" placeholder="請輸入暱稱"></el-input>
+      <el-form-item
+        label="暱稱"
+        class="form-item"
+        prop="nickname"
+      >
+        <el-input
+          v-model="form.nickname"
+          placeholder="請輸入暱稱"
+        ></el-input>
       </el-form-item>
 
-      <el-form-item label="主要活動地區" class="form-item" prop="address">
-        <el-select v-model="form.address" placeholder="你的地區">
+      <el-form-item
+        label="主要活動地區"
+        class="form-item"
+        prop="address"
+      >
+        <el-select
+          v-model="form.address"
+          placeholder="你的地區"
+        >
           <el-option
             v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']"
             :key="item"
@@ -18,21 +37,52 @@
         </el-select>
       </el-form-item>
 
-      <el-form-item label="個人特質" class="form-item" prop="address">
-        <el-select v-model="form.personality" placeholder="你的個人特質">
-          <el-option v-for="item in personalityList" :key="item" :label="item" :value="item"></el-option>
+      <el-form-item
+        label="個人特質"
+        class="form-item"
+        prop="address"
+      >
+        <el-select
+          v-model="form.personality"
+          placeholder="你的個人特質"
+        >
+          <el-option
+            v-for="item in personalityList"
+            :key="item"
+            :label="item"
+            :value="item"
+          ></el-option>
         </el-select>
       </el-form-item>
 
-      <el-form-item label="興趣 - 限十個字" class="form-item" prop="habbit">
-        <el-input v-model="form.habbit" placeholder="你的興趣 - 限十個字"></el-input>
+      <el-form-item
+        label="興趣 - 限十個字"
+        class="form-item"
+        prop="habbit"
+      >
+        <el-input
+          v-model="form.habbit"
+          placeholder="你的興趣 - 限十個字"
+        ></el-input>
       </el-form-item>
-      <el-form-item label="職業 - 限十個字" class="form-item" prop="job">
-        <el-input v-model="form.job" placeholder="你的職業 - 限十個字"></el-input>
+      <el-form-item
+        label="職業 - 限十個字"
+        class="form-item"
+        prop="job"
+      >
+        <el-input
+          v-model="form.job"
+          placeholder="你的職業 - 限十個字"
+        ></el-input>
       </el-form-item>
       <strong class="hint">如果沒有舊資料請重開網頁</strong>
       <div class="form-item">
-        <el-button type="primary" round @click="submitForm('form')" :loading="loading">確認</el-button>
+        <el-button
+          type="primary"
+          round
+          @click="submitForm('form')"
+          :loading="loading"
+        >確認</el-button>
       </div>
     </el-form>
     <!-- <div class="box">
