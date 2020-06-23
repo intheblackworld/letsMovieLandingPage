@@ -23,7 +23,7 @@
       <div class="subtitle">平台功能問題</div>
       <div
         v-for="(qa, index) in qaList1"
-        v-show="qa.gender && qa.gender === gender"
+        v-show="!qa.gender || (ga.gender && qa.gender === gender)"
         :key="qa.q + qa.a + index"
       >
         <p
