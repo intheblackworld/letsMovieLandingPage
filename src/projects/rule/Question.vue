@@ -397,6 +397,7 @@ export default {
   },
 
   mounted() {
+    window.alert('mounted!')
     window.extAsyncInit = () => {
       // the Messenger Extensions JS SDK is done loading
       setTimeout(() => {
