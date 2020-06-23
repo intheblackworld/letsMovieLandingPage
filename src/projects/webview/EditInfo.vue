@@ -192,6 +192,8 @@ export default {
           { max: 10, message: '最多十個字', trigger: 'blur' },
         ],
       },
+
+      interval: '',
     }
   },
 
@@ -216,11 +218,15 @@ export default {
           ]
     },
   },
+  destroyed() {
+    clearInterval(this.interval)
+  },
 
   mounted() {
-    window.extAsyncInit = () => {
-      // the Messenger Extensions JS SDK is done loading
-      setTimeout(() => {
+    // window.extAsyncInit = () => {
+    this.interval = setInterval(() => {
+      if (!this.fb_id) {
+        // the Messenger Extensions JS SDK is done loading
         this.me = MessengerExtensions
         MessengerExtensions.getContext(
           // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
@@ -233,7 +239,7 @@ export default {
             fetch(
               'https://bot-production.letsmovienow.com/api/webview/getUserData',
               {
-                // fetch(`https://0a46f965.ngrok.io/api/webview/checkDetail`, {
+                // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
                 headers: {
                   'Content-Type': 'application/json',
                 },
@@ -257,11 +263,12 @@ export default {
               })
           },
           err => {
-            this.fb_id = err
+            console.log(err)
+            this.fb_id = ''
           },
         )
-      }, 800)
-    }
+      }
+    }, 2000)
   },
 
   methods: {
