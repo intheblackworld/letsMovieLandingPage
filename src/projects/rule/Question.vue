@@ -434,7 +434,7 @@ export default {
             })
         },
         err => {
-          // console.log(err)
+          console.log(err)
           this.fb_id = ''
         },
       )
