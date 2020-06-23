@@ -75,6 +75,10 @@ export default new Router({
           path: 'editinfo',
           component: () => import(/* webpackChunkName: "webview" */ './projects/webview/EditInfo.vue')
         },
+        {
+          path: 'datings',
+          component: () => import(/* webpackChunkName: "webview" */ './projects/webview/Datings.vue')
+        },
       ]
     },
   ]
