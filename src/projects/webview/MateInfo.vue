@@ -12,39 +12,38 @@
         class="form-item"
         prop="nickname"
       >
-        {{form.nickname}}
       </el-form-item>
-
+      <div class="info">Zuray</div>
       <el-form-item
         label="主要活動地區"
         class="form-item"
         prop="address"
       >
-        {{form.nickname}}
       </el-form-item>
+      <div class="info">{{form.nickname}}</div>
 
       <el-form-item
         label="個人特質"
         class="form-item"
         prop="personality"
       >
-        {{form.personality}}
       </el-form-item>
+      <div class="info">{{form.personality}}</div>
 
       <el-form-item
         label="興趣"
         class="form-item"
         prop="habbit"
       >
-        {{form.habbit}}
       </el-form-item>
+      <div class="info">{{form.habbit}}</div>
       <el-form-item
         label="職業"
         class="form-item"
         prop="job"
       >
-        {{form.job}}
       </el-form-item>
+      <div class="info">{{form.job}}</div>
       <div class="flex-ac flex-jb mt-40 mb-20">
         <div class="intro-title">
           關於我
@@ -88,9 +87,17 @@
       font-weight: bold !important;
       font-size: 16px;
     }
+
+    .form-item {
+      width: 100%;
+      margin: 20px auto 5px;
+    }
   }
 }
 
+.info {
+  text-align: left;
+}
 .form {
   padding: 40px 20px 40px 20px;
 }
@@ -103,22 +110,7 @@
   font-size: 30px;
   margin-bottom: 25px;
 }
-.form-item {
-  width: 100%;
-  margin: 25px auto;
-}
-.el-select,
-.el-date-editor.el-input {
-  width: 100%;
-}
 
-.submit {
-  width: 70%;
-  border-radius: 999px !important;
-  color: #fff;
-  font-size: 18px;
-  margin-top: 15px;
-}
 .box {
   position: fixed;
   top: 40vh;
@@ -320,8 +312,7 @@ export default {
     }
   },
 
-  computed: {
-  },
+  computed: {},
   destroyed() {
     clearInterval(this.interval)
   },
@@ -340,7 +331,7 @@ export default {
             this.fb_id = thread_context.psid
             // More code to follow
             fetch(
-              'https://bot-production.letsmovienow.com/api/webview/getUserData',
+              'https://bot-production.letsmovienow.com/api/webview/getMateData',
               {
                 // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
                 headers: {
