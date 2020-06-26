@@ -76,30 +76,32 @@
           placeholder="你的職業 - 限十個字"
         ></el-input>
       </el-form-item>
-      <div class="flex-ac flex-jb mt-40 mb-20">
-        <div class="intro-title">
-          關於你
-        </div>
+      <div v-if="form.gender == 0">
+        <div class="flex-ac flex-jb mt-40 mb-20">
+          <div class="intro-title">
+            關於你
+          </div>
 
-        <div
-          class="intro-link"
-          @click="isIntroDialog = true"
-        >
-          編輯自介
+          <div
+            class="intro-link"
+            @click="isIntroDialog = true"
+          >
+            編輯自介
+          </div>
         </div>
-      </div>
-      <div
-        class="intro-content mb-20"
-        v-if="!form.intro"
-      >
-        <span class="label">預設自介</span><br />
-        <div v-html="defaultIntro"></div>
-      </div>
-      <div
-        class="intro-content mb-20"
-        v-else
-      >
-        <div v-html="form.intro"></div>
+        <div
+          class="intro-content mb-20"
+          v-if="!form.intro"
+        >
+          <span class="label">預設自介</span><br />
+          <div v-html="defaultIntro"></div>
+        </div>
+        <div
+          class="intro-content mb-20"
+          v-else
+        >
+          <div v-html="form.intro"></div>
+        </div>
       </div>
       <strong class="hint">如果沒有舊資料請重開網頁</strong>
       <div
