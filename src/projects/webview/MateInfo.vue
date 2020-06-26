@@ -49,7 +49,8 @@
           關於我
         </div>
       </div>
-      <div
+      <div v-if="fb_id">
+        <div
         class="intro-content mb-20"
         v-if="!form.intro"
       >
@@ -61,6 +62,7 @@
         v-else
       >
         <div v-html="form.intro"></div>
+      </div>
       </div>
       <strong class="hint">如果沒有資料請重開網頁</strong>
     </el-form>
