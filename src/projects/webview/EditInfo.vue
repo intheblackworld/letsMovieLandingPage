@@ -76,7 +76,7 @@
           placeholder="你的職業 - 限十個字"
         ></el-input>
       </el-form-item>
-      <div v-if="form.gender && form.gender == 0">
+      <div v-if="form.gender && form.gender == '0'">
         <div class="flex-ac flex-jb mt-40 mb-20">
           <div class="intro-title">
             關於你
@@ -527,7 +527,7 @@ export default {
 
   computed: {
     personalityList() {
-      return this.form.gender === '0'
+      return this.form.gender == '0'
         ? [
             '斯文清秀',
             '帥氣穿搭',
