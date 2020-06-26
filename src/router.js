@@ -76,6 +76,10 @@ export default new Router({
           component: () => import(/* webpackChunkName: "webview" */ './projects/webview/EditInfo.vue')
         },
         {
+          path: 'mateinfo',
+          component: () => import(/* webpackChunkName: "webview" */ './projects/webview/MateInfo.vue')
+        },
+        {
           path: 'datings',
           component: () => import(/* webpackChunkName: "webview" */ './projects/webview/Datings.vue')
         },
