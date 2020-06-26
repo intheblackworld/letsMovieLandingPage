@@ -76,7 +76,7 @@
           placeholder="你的職業 - 限十個字"
         ></el-input>
       </el-form-item>
-      <div v-show="form.gender && form.gender == '0'">
+      <div v-show="form.gender && form.gender != '1'">
         <div class="flex-ac flex-jb mt-40 mb-20">
           <div class="intro-title">
             關於你
