@@ -13,14 +13,14 @@
         prop="nickname"
       >
       </el-form-item>
-      <div class="info">Zuray</div>
+      <div class="info">{{form.nickname}}</div>
       <el-form-item
         label="主要活動地區"
         class="form-item"
         prop="address"
       >
       </el-form-item>
-      <div class="info">{{form.nickname}}</div>
+      <div class="info">{{form.address}}</div>
 
       <el-form-item
         label="個人特質"
