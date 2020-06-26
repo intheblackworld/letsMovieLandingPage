@@ -287,7 +287,7 @@ span.label {
 import moment from 'moment'
 
 export default {
-  name: 'editInfo',
+  name: 'mateInfo',
   components: {
     // Loading,
   },
@@ -321,25 +321,6 @@ export default {
   },
 
   computed: {
-    personalityList() {
-      return this.form.gender == '0'
-        ? [
-            '斯文清秀',
-            '帥氣穿搭',
-            '幽默風趣',
-            '才華洋溢',
-            '認真上進',
-            '善良正直',
-          ]
-        : [
-            '活潑可愛',
-            '氣質有禮',
-            '聰明動人',
-            '善解人意',
-            '多才多藝',
-            '溫柔善良',
-          ]
-    },
   },
   destroyed() {
     clearInterval(this.interval)
@@ -359,9 +340,9 @@ export default {
             this.fb_id = thread_context.psid
             // More code to follow
             fetch(
-              'https://bot-production.letsmovienow.com/api/webview/getMateData',
+              'https://bot-production.letsmovienow.com/api/webview/getUserData',
               {
-                // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+                // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
                 headers: {
                   'Content-Type': 'application/json',
                 },
@@ -391,7 +372,10 @@ export default {
         )
       }
     }, 2000)
-    clearInterval(this.interval)
+
+    setTimeout(() => {
+      clearInterval(this.interval)
+    }, 1000 * 30)
   },
 
   methods: {
