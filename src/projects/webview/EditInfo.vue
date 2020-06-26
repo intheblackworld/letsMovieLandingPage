@@ -76,32 +76,32 @@
           placeholder="你的職業 - 限十個字"
         ></el-input>
       </el-form-item>
-      <div v-if="fb_id == '3540599815966136'">
+      <div v-if="fb_id == '3234838449866605'">
         <div class="flex-ac flex-jb mt-40 mb-20">
-        <div class="intro-title">
-          關於你
-        </div>
+          <div class="intro-title">
+            關於你
+          </div>
 
-        <div
-          class="intro-link"
-          @click="isIntroDialog = true"
-        >
-          編輯自介
+          <div
+            class="intro-link"
+            @click="isIntroDialog = true"
+          >
+            編輯自介
+          </div>
         </div>
-      </div>
-      <div
-        class="intro-content mb-20"
-        v-if="!form.intro"
-      >
-        <span class="label">預設自介</span><br />
-        <div v-html="defaultIntro"></div>
-      </div>
-      <div
-        class="intro-content mb-20"
-        v-else
-      >
-        <div v-html="form.intro"></div>
-      </div>
+        <div
+          class="intro-content mb-20"
+          v-if="!form.intro"
+        >
+          <span class="label">預設自介</span><br />
+          <div v-html="defaultIntro"></div>
+        </div>
+        <div
+          class="intro-content mb-20"
+          v-else
+        >
+          <div v-html="form.intro"></div>
+        </div>
       </div>
       <strong class="hint">如果沒有舊資料請重開網頁</strong>
       <div
@@ -563,16 +563,17 @@ export default {
             // success
             this.fb_id = thread_context.psid
             // More code to follow
-            // fetch(
-            //   'https://bot-production.letsmovienow.com/api/webview/getUserData',
-            //   {
-            fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
-              headers: {
-                'Content-Type': 'application/json',
+            fetch(
+              'https://bot-production.letsmovienow.com/api/webview/getUserData',
+              {
+                // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                body: JSON.stringify({ fb_id: this.fb_id }),
               },
-              method: 'POST',
-              body: JSON.stringify({ fb_id: this.fb_id }),
-            })
+            )
               .then(res => {
                 return res.json()
               })
@@ -607,24 +608,25 @@ export default {
         // 如果選擇的日期是當天
         if (valid) {
           this.loading = true
-          // fetch(
-          // 'https://bot-production.letsmovienow.com/api/webview/editUserData',
-          // {
-          fetch(`https://009e367078af.ngrok.io/api/webview/editUserData`, {
-            headers: {
-              'Content-Type': 'application/json',
+          fetch(
+            'https://bot-production.letsmovienow.com/api/webview/editUserData',
+            {
+              // fetch(`https://009e367078af.ngrok.io/api/webview/editUserData`, {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              method: 'POST',
+              body: JSON.stringify({
+                fb_id: this.fb_id,
+                nickname: this.form.nickname,
+                address: this.form.address,
+                personality: this.form.personality,
+                habbit: this.form.habbit,
+                job: this.form.job,
+                intro: this.form.intro,
+              }),
             },
-            method: 'POST',
-            body: JSON.stringify({
-              fb_id: this.fb_id,
-              nickname: this.form.nickname,
-              address: this.form.address,
-              personality: this.form.personality,
-              habbit: this.form.habbit,
-              job: this.form.job,
-              intro: this.form.intro,
-            }),
-          })
+          )
             .then(res => {
               return res.json()
             })
