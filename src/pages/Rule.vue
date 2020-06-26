@@ -105,8 +105,6 @@ export default {
       font-size: 24px;
       display: block;
     }
-
-
   }
 }
 
