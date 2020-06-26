@@ -393,6 +393,10 @@ export default {
         )
       }
     }, 2000)
+
+    setTimeout(() => {
+      clearInterval(this.interval)
+    }, 1000 * 30)
   },
 }
 </script>
