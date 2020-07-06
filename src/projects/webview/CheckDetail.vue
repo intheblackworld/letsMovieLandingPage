@@ -41,6 +41,7 @@
           }"
           placeholder="你們要碰面的時間？不可選則重選日期"
         ></el-time-select>
+        <div class="hint">此為24小時制，有分白天晚上時間</div>
       </el-form-item>
       <div class="form-item">
         <el-button type="primary" round @click="submitForm('form')" :loading="loading">確定</el-button>
@@ -98,6 +99,12 @@
   top: 40vh;
   transform: rotate(80deg);
   left: 30vw;
+}
+
+.hint {
+  text-align: left;
+  margin-top: 10px;
+  font-weight: bold !important;
 }
 .wave {
   position: fixed;
