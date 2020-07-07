@@ -285,7 +285,7 @@ export default {
         'Content-Type': 'application/json',
       },
       method: 'POST',
-      body: JSON.stringify({ fb_id: this.fb_id }),
+      body: JSON.stringify({ fb_id: this.fb_id, needImg: true }),
     })
       .then(res => {
         return res.json()
