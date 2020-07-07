@@ -9,6 +9,7 @@
         v-for="(date, index) in datings"
         :key="date.girl_name + date.boy_name + date.movie_name + date.theater + index"
         class="dating-item"
+        v-show="date.img_url"
       >
         <img
           :src="date.img_url"
