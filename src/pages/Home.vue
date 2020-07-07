@@ -25,12 +25,12 @@
     <div id="section6">
       <Section6 :feedback="feedback" />
     </div>
+    <div id="section8">
+      <Section8 />
+    </div>
     <div id="section7">
       <Section7 />
     </div>
-    <!-- <div id="section8">
-      <Section8 />
-    </div> -->
     <!-- <ContactSection />
     <MobileNav /> -->
     <Footer />
@@ -64,6 +64,7 @@ import Section4 from '@/projects/home/Section4.vue'
 import Section5 from '@/projects/home/Section5.vue'
 import Section6 from '@/projects/home/Section6.vue'
 import Section7 from '@/projects/home/Section7.vue'
+import Section8 from '@/projects/home/Datings.vue'
 import feedback from '@/projects/home/feedback.js'
 // import Simulation from '@/projects/home/Simulation.vue'
 
@@ -81,6 +82,7 @@ export default {
     Section5,
     Section6,
     Section7,
+    Section8,
     // Simulation,
     Loading,
     Footer,

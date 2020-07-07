@@ -202,7 +202,7 @@ export default {
           })
         } else {
           // console.log(res.data)
-          this.datings = res.data
+          this.datings = res.data.slice(0, 5)
         }
       })
   },
