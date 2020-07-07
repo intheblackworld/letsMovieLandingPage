@@ -186,15 +186,7 @@ export default {
         autoplay: {
           delay: isMobile ? 3000 : 2500,
         },
-        // autoplay: {
-        //   delay: 5000,
-        //   disableOnInteraction: true,
-        // },
         loop: true,
-        // navigation: {
-        //   nextEl: '.swiper-button-next',
-        //   prevEl: '.swiper-button-prev',
-        // },
       },
       datings: [],
       // interval: '',
@@ -226,6 +218,16 @@ export default {
           })
         } else {
           // console.log(res.data)
+          this.swiperOption = {
+            slidesPerView: this.isMobile ? 1.3 : 4,
+            centeredSlides: true,
+            spaceBetween: this.isMobile ? 20 : 50,
+            slidesPerColumn: 1,
+            autoplay: {
+              delay: this.isMobile ? 3000 : 2500,
+            },
+            loop: true,
+          }
           this.datings = res.data
         }
       })
