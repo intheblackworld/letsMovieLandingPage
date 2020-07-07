@@ -73,6 +73,7 @@
     height: 350px;
     object-fit: cover;
     object-position: center;
+    border: none
   }
 
   p {
@@ -188,7 +189,53 @@ export default {
         },
         loop: true,
       },
-      datings: [],
+      datings: [
+        {
+          movie_name: '',
+          theater: '',
+          meet_time: '',
+          girl_scores: '',
+          boy_scores: '',
+          girl_name: '',
+          boy_name: '',
+        },
+        {
+          movie_name: '',
+          theater: '',
+          meet_time: '',
+          girl_scores: '',
+          boy_scores: '',
+          girl_name: '',
+          boy_name: '',
+        },
+        {
+          movie_name: '',
+          theater: '',
+          meet_time: '',
+          girl_scores: '',
+          boy_scores: '',
+          girl_name: '',
+          boy_name: '',
+        },
+        {
+          movie_name: '',
+          theater: '',
+          meet_time: '',
+          girl_scores: '',
+          boy_scores: '',
+          girl_name: '',
+          boy_name: '',
+        },
+        {
+          movie_name: '',
+          theater: '',
+          meet_time: '',
+          girl_scores: '',
+          boy_scores: '',
+          girl_name: '',
+          boy_name: '',
+        },
+      ],
       // interval: '',
     }
   },
@@ -212,22 +259,10 @@ export default {
       })
       .then(res => {
         if (res.err) {
-          // const h = this.$createElement
           this.$notify({
             title: res.err,
           })
         } else {
-          // console.log(res.data)
-          this.swiperOption = {
-            slidesPerView: this.isMobile ? 1.3 : 4,
-            centeredSlides: true,
-            spaceBetween: this.isMobile ? 20 : 50,
-            slidesPerColumn: 1,
-            autoplay: {
-              delay: this.isMobile ? 3000 : 2500,
-            },
-            loop: true,
-          }
           this.datings = res.data
         }
       })
