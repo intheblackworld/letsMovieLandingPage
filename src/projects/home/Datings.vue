@@ -25,27 +25,6 @@
         </div>
       </swiper-slide>
     </swiper>
-    <!-- <div class="container flex-ac flex-jb wrap">
-      <div
-        class="dating-item"
-        v-for="date in datings"
-        :key="date.girl_name + date.boy_name + date.movie_name + date.theater"
-      >
-        <img
-          src="https://movies.tw.campaign.yahoo.net/i/o/production/movies/July2019/Ff3kkEzMwiG9wanpdCGI-992x1418.JPG"
-          alt=""
-        >
-        <div class="dating-content">
-          <p>
-            恭喜
-            <span class="red"> {{date.girl_name}} </span>與<span class="blue"> {{date.boy_name}} </span><br />
-            在<span class="hot"> {{date.meet_time}} </span>成功出去約會<br />
-            🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟<br />
-            他們觀看的電影是: <span class="hot">{{date.movie_name}}</span><br />
-          </p>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 <style lang="scss">
@@ -57,7 +36,7 @@
 .datings {
   background: #222126;
   color: #fff;
-  // min-height: 100vh;
+  min-height: calc(100vw * (710 / 1680));
   padding: 40px 0px 40px 0px;
 }
 
@@ -217,58 +196,7 @@ export default {
         //   prevEl: '.swiper-button-prev',
         // },
       },
-      datings: [
-        {
-          movie_name: '非常母親',
-          theater: '信義威秀影城',
-          meet_time: '2020-06-22',
-          girl_scores: '5',
-          boy_scores: '4',
-          girl_name: '魯*******',
-          boy_name: '林*******',
-          img_url: 'https://movies.tw.campaign.yahoo.net/i/o/production/movies/July2019/Ff3kkEzMwiG9wanpdCGI-992x1418.JPG'
-        },
-        {
-          movie_name: '非常母親',
-          theater: '信義威秀影城',
-          meet_time: '2020-06-22',
-          girl_scores: '5',
-          boy_scores: '4',
-          girl_name: '魯*******',
-          boy_name: '林*******',
-          img_url: 'https://movies.tw.campaign.yahoo.net/i/o/production/movies/July2019/Ff3kkEzMwiG9wanpdCGI-992x1418.JPG'
-        },
-        {
-          movie_name: '非常母親',
-          theater: '信義威秀影城',
-          meet_time: '2020-06-22',
-          girl_scores: '5',
-          boy_scores: '4',
-          girl_name: '魯*******',
-          boy_name: '林*******',
-          img_url: 'https://movies.tw.campaign.yahoo.net/i/o/production/movies/July2019/Ff3kkEzMwiG9wanpdCGI-992x1418.JPG'
-        },
-        {
-          movie_name: '非常母親',
-          theater: '信義威秀影城',
-          meet_time: '2020-06-22',
-          girl_scores: '5',
-          boy_scores: '4',
-          girl_name: '魯*******',
-          boy_name: '林*******',
-          img_url: 'https://movies.tw.campaign.yahoo.net/i/o/production/movies/July2019/Ff3kkEzMwiG9wanpdCGI-992x1418.JPG'
-        },
-        {
-          movie_name: '非常母親',
-          theater: '信義威秀影城',
-          meet_time: '2020-06-22',
-          girl_scores: '5',
-          boy_scores: '4',
-          girl_name: '魯*******',
-          boy_name: '林*******',
-          img_url: 'https://movies.tw.campaign.yahoo.net/i/o/production/movies/July2019/Ff3kkEzMwiG9wanpdCGI-992x1418.JPG'
-        },
-      ],
+      datings: [],
       // interval: '',
     }
   },
@@ -280,7 +208,7 @@ export default {
 
   mounted() {
     fetch('https://bot-production.letsmovienow.com/api/webview/getDatingData', {
-    // fetch('https://9571028eb789.ngrok.io/api/webview/getUserData', {
+      // fetch('https://9571028eb789.ngrok.io/api/webview/getUserData', {
       headers: {
         'Content-Type': 'application/json',
       },
