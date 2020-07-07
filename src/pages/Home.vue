@@ -25,9 +25,9 @@
     <div id="section6">
       <Section6 :feedback="feedback" />
     </div>
-    <div id="section8">
+    <!-- <div id="section8">
       <Section8 />
-    </div>
+    </div> -->
     <div id="section7">
       <Section7 />
     </div>
