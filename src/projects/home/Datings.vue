@@ -207,28 +207,28 @@ export default {
   // },
 
   mounted() {
-    // fetch('https://bot-production.letsmovienow.com/api/webview/getDatingData', {
-    //   // fetch('https://9571028eb789.ngrok.io/api/webview/getUserData', {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    //   body: JSON.stringify({ fb_id: this.fb_id, needImg: true }),
-    // })
-    //   .then(res => {
-    //     return res.json()
-    //   })
-    //   .then(res => {
-    //     if (res.err) {
-    //       // const h = this.$createElement
-    //       this.$notify({
-    //         title: res.err,
-    //       })
-    //     } else {
-    //       // console.log(res.data)
-    //       this.datings = res.data
-    //     }
-    //   })
+    fetch('https://bot-production.letsmovienow.com/api/webview/getDatingData', {
+      // fetch('https://9571028eb789.ngrok.io/api/webview/getUserData', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ fb_id: this.fb_id, needImg: true }),
+    })
+      .then(res => {
+        return res.json()
+      })
+      .then(res => {
+        if (res.err) {
+          // const h = this.$createElement
+          this.$notify({
+            title: res.err,
+          })
+        } else {
+          // console.log(res.data)
+          this.datings = res.data
+        }
+      })
   },
 
   methods: {
