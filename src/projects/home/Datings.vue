@@ -192,7 +192,16 @@ export default {
       me: '',
       moment: moment,
       fb_id: '',
-      datings: [],
+      datings: [
+        {
+          girl_name: '***',
+          boy_name: '***',
+          movie_name: '***',
+          theater: '***',
+          img_url: '***',
+          meet_time: '***',
+        },
+      ],
       // interval: '',
     }
   },
