@@ -230,6 +230,7 @@ export default {
           })
         } else {
           this.datings = res.data
+          console.log(this.datings)
         }
       })
   },
