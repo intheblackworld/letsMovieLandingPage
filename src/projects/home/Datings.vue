@@ -229,7 +229,7 @@ export default {
             title: res.err,
           })
         } else {
-          this.datings = res.data
+          this.datings = res.data.filter(date => !!date)
           console.log(this.datings)
         }
       })
