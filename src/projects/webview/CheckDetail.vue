@@ -34,7 +34,7 @@
           v-model="form.time"
           :editable="false"
           :picker-options="{
-            start: '08:00',
+            start: '12:00',
             step: '00:10',
             end: '22:00',
             minTime,
