@@ -292,28 +292,28 @@ export default {
   mounted() {
     this.fb_id = this.$route.query.id
     // More code to follow
-    // fetch('https://bot-production.letsmovienow.com/api/webview/getMateData', {
-    //   // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   method: 'POST',
-    //   body: JSON.stringify({ fb_id: this.fb_id }),
-    // })
-    //   .then((res) => {
-    //     return res.json()
-    //   })
-    //   .then((res) => {
-    //     if (res.err) {
-    //       // const h = this.$createElement
-    //       this.$notify({
-    //         title: res.err,
-    //       })
-    //     } else {
-    //       // console.log(res.data)
-    //       this.form = res.data
-    //     }
-    //   })
+    fetch('https://bot-production.letsmovienow.com/api/webview/getMateData', {
+      // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ fb_id: this.fb_id }),
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((res) => {
+        if (res.err) {
+          // const h = this.$createElement
+          this.$notify({
+            title: res.err,
+          })
+        } else {
+          // console.log(res.data)
+          this.form = res.data
+        }
+      })
     // window.extAsyncInit = () => {
     // this.interval = setInterval(() => {
     //   if (!this.fb_id) {
@@ -322,44 +322,44 @@ export default {
     //     MessengerExtensions.getContext(
     //       // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
     //       '1405269929631051', // Let's Movie 電影約會 BOT ID
-    //       (thread_context) => {
+    //       thread_context => {
     //         // success
-
+    //         this.fb_id = thread_context.psid
+    //         // More code to follow
+    //         fetch(
+    //           'https://bot-production.letsmovienow.com/api/webview/getMateData',
+    //           {
+    //             // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
+    //             headers: {
+    //               'Content-Type': 'application/json',
+    //             },
+    //             method: 'POST',
+    //             body: JSON.stringify({ fb_id: this.fb_id }),
+    //           },
+    //         )
+    //           .then(res => {
+    //             return res.json()
+    //           })
+    //           .then(res => {
+    //             if (res.err) {
+    //               // const h = this.$createElement
+    //               this.$notify({
+    //                 title: res.err,
+    //               })
+    //             } else {
+    //               // console.log(res.data)
+    //               this.form = res.data
+    //             }
+    //           })
     //       },
-    //       (err) => {
+    //       err => {
     //         console.log(err)
     //         this.fb_id = ''
     //       },
     //     )
-    //   } else {
-    //     fetch(
-    //       'https://bot-production.letsmovienow.com/api/webview/getMateData',
-    //       {
-    //         // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //         },
-    //         method: 'POST',
-    //         body: JSON.stringify({ fb_id: this.fb_id }),
-    //       },
-    //     )
-    //       .then((res) => {
-    //         return res.json()
-    //       })
-    //       .then((res) => {
-    //         if (res.err) {
-    //           // const h = this.$createElement
-    //           this.$notify({
-    //             title: res.err,
-    //           })
-    //         } else {
-    //           // console.log(res.data)
-    //           this.form = res.data
-    //         }
-    //       })
     //   }
     // }, 2000)
-    // }
+
     // setTimeout(() => {
     //   clearInterval(this.interval)
     // }, 1000 * 30)
