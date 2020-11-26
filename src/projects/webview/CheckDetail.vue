@@ -229,23 +229,24 @@ export default {
   },
 
   mounted() {
-    window.extAsyncInit = () => {
-      // the Messenger Extensions JS SDK is done loading
-      setTimeout(() => {
-        this.me = MessengerExtensions
-        MessengerExtensions.getContext(
-          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          '1405269929631051', // Let's Movie 電影約會 BOT ID
-          thread_context => {
-            // success
-            this.form.fb_id = thread_context.psid
-          },
-          err => {
-            this.fb_id = err
-          },
-        )
-      }, 800)
-    }
+    this.form.fb_id = this.$route.query.id
+    // window.extAsyncInit = () => {
+    //   // the Messenger Extensions JS SDK is done loading
+    //   setTimeout(() => {
+    //     this.me = MessengerExtensions
+    //     MessengerExtensions.getContext(
+    //       // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+    //       '1405269929631051', // Let's Movie 電影約會 BOT ID
+    //       thread_context => {
+    //         // success
+    //         this.form.fb_id = thread_context.psid
+    //       },
+    //       err => {
+    //         this.fb_id = err
+    //       },
+    //     )
+    //   }, 800)
+    // }
   },
 
   methods: {
