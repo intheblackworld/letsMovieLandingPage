@@ -3,23 +3,44 @@
     <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">敲定約會細節</div>
       <el-select v-model="city" placeholder="你的地區？">
-        <el-option v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']" :key="item" :label="item" :value="item"></el-option>
+        <el-option
+          v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']"
+          :key="item"
+          :label="item"
+          :value="item"
+        ></el-option>
       </el-select>
       <el-form-item class="form-item" prop="theater">
-        <el-select v-model="form.theater" filterable placeholder="你們要去的電影院是？" no-data-text="沒有對應的電影院">
+        <el-select
+          v-model="form.theater"
+          filterable
+          placeholder="你們要去的電影院是？"
+          no-data-text="沒有對應的電影院"
+        >
           <el-option v-for="item in theaters[city]" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item class="form-item" prop="date">
-        <el-date-picker v-model="form.date" placeholder="你們要碰面的日期是？" format="yyyy年MM月dd日" :editable="false" :picker-options="pickerOptions"></el-date-picker>
+        <el-date-picker
+          v-model="form.date"
+          placeholder="你們要碰面的日期是？"
+          format="yyyy年MM月dd日"
+          :editable="false"
+          :picker-options="pickerOptions"
+        ></el-date-picker>
       </el-form-item>
       <el-form-item class="form-item" prop="time">
-        <el-time-select v-model="form.time" :editable="false" :picker-options="{
+        <el-time-select
+          v-model="form.time"
+          :editable="false"
+          :picker-options="{
             start: '12:00',
             step: '00:10',
             end: '22:00',
             minTime,
-          }" placeholder="你們要碰面的時間？不可選則重選日期"></el-time-select>
+          }"
+          placeholder="你們要碰面的時間？不可選則重選日期"
+        ></el-time-select>
         <div class="hint">此為24小時制，有分白天晚上時間</div>
       </el-form-item>
       <div class="form-item">
@@ -184,8 +205,11 @@ export default {
       pickerOptions: {
         disabledDate(time) {
           return (
-            moment(time).isAfter(moment().clone().add(14, 'd')) ||
-            moment(time).isBefore(moment().subtract(1, 'd'))
+            moment(time).isAfter(
+              moment()
+                .clone()
+                .add(14, 'd'),
+            ) || moment(time).isBefore(moment().subtract(1, 'd'))
           )
         },
       },
@@ -195,49 +219,38 @@ export default {
   computed: {
     minTime() {
       return moment(this.form.date).isSame(moment(), 'day')
-        ? moment().add(3, 'h').format('HH:mm')
-        : moment().startOf('day').format('HH:mm')
+        ? moment()
+            .add(3, 'h')
+            .format('HH:mm')
+        : moment()
+            .startOf('day')
+            .format('HH:mm')
     },
   },
 
   mounted() {
-    // window.extAsyncInit = () => {
-    //   // the Messenger Extensions JS SDK is done loading
-    //   setTimeout(() => {
-    //     this.me = MessengerExtensions
-    //     MessengerExtensions.getContext(
-    //       // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-    //       '1405269929631051', // Let's Movie 電影約會 BOT ID
-    //       thread_context => {
-    //         // success
-    //         this.form.fb_id = thread_context.psid
-    //       },
-    //       err => {
-    //         this.fb_id = err
-    //       },
-    //     )
-    //   }, 1800)
-    // }
-
-    setTimeout(() => {
-      this.me = MessengerExtensions
-      MessengerExtensions.getContext(
-        // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-        '1405269929631051', // Let's Movie 電影約會 BOT ID
-        (thread_context) => {
-          // success
-          this.form.fb_id = thread_context.psid
-        },
-        (err) => {
-          this.fb_id = err
-        },
-      )
-    }, 1800)
+    window.extAsyncInit = () => {
+      // the Messenger Extensions JS SDK is done loading
+      setTimeout(() => {
+        this.me = MessengerExtensions
+        MessengerExtensions.getContext(
+          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+          '1405269929631051', // Let's Movie 電影約會 BOT ID
+          thread_context => {
+            // success
+            this.form.fb_id = thread_context.psid
+          },
+          err => {
+            this.fb_id = err
+          },
+        )
+      }, 800)
+    }
   },
 
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate((valid) => {
+      this.$refs[formName].validate(valid => {
         // 如果選擇的日期是當天
         if (valid) {
           const meet_time =
@@ -263,10 +276,10 @@ export default {
               body: JSON.stringify(this.form),
             },
           )
-            .then((res) => {
+            .then(res => {
               return res.json()
             })
-            .then((res) => {
+            .then(res => {
               if (res.err) {
                 // const h = this.$createElement
                 this.$notify({
