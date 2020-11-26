@@ -290,7 +290,7 @@ export default {
   },
 
   mounted() {
-    window.extAsyncInit = () => {
+    // window.extAsyncInit = () => {
       this.interval = setInterval(() => {
         if (!this.fb_id) {
           // the Messenger Extensions JS SDK is done loading
@@ -361,7 +361,7 @@ export default {
             })
         }
       }, 2000)
-    }
+    // }
     // setTimeout(() => {
     //   clearInterval(this.interval)
     // }, 1000 * 30)
