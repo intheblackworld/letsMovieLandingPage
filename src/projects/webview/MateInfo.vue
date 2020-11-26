@@ -286,11 +286,11 @@ export default {
 
   computed: {},
   destroyed() {
-    clearInterval(this.interval)
+    // clearInterval(this.interval)
   },
 
   mounted() {
-    this.fb_id = this.$router.query.id
+    this.fb_id = this.$route.query.id
     // More code to follow
     fetch('https://bot-production.letsmovienow.com/api/webview/getMateData', {
       // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {

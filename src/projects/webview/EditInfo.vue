@@ -549,6 +549,9 @@ export default {
                 this.loading = false
               } else {
                 this.loading = false
+                this.$notify({
+                  title: '修改成功請關閉視窗'
+                })
                 this.closeWebView()
               }
             })
