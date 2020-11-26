@@ -1,47 +1,23 @@
 <template>
   <div class="check-detail">
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
-    <el-form
-      class="form"
-      :model="form"
-      ref="form"
-    >
+    <el-form class="form" :model="form" ref="form">
       <div class="form-title">對方個人資訊</div>
-      <el-form-item
-        label="暱稱"
-        class="form-item"
-        prop="nickname"
-      >
+      <el-form-item label="暱稱" class="form-item" prop="nickname">
       </el-form-item>
       <div class="info">{{form.nickname}}</div>
-      <el-form-item
-        label="主要活動地區"
-        class="form-item"
-        prop="address"
-      >
+      <el-form-item label="主要活動地區" class="form-item" prop="address">
       </el-form-item>
       <div class="info">{{form.address}}</div>
 
-      <el-form-item
-        label="個人特質"
-        class="form-item"
-        prop="personality"
-      >
+      <el-form-item label="個人特質" class="form-item" prop="personality">
       </el-form-item>
       <div class="info">{{form.personality}}</div>
 
-      <el-form-item
-        label="興趣"
-        class="form-item"
-        prop="habbit"
-      >
+      <el-form-item label="興趣" class="form-item" prop="habbit">
       </el-form-item>
       <div class="info">{{form.habbit}}</div>
-      <el-form-item
-        label="職業"
-        class="form-item"
-        prop="job"
-      >
+      <el-form-item label="職業" class="form-item" prop="job">
       </el-form-item>
       <div class="info">{{form.job}}</div>
       <div class="flex-ac flex-jb mt-40 mb-20">
@@ -50,19 +26,13 @@
         </div>
       </div>
       <div v-if="fb_id">
-        <div
-        class="intro-content mb-20"
-        v-if="!form.intro"
-      >
-        <div v-html="defaultIntro"></div>
+        <div class="intro-content mb-20" v-if="!form.intro">
+          <div v-html="defaultIntro"></div>
 
-      </div>
-      <div
-        class="intro-content mb-20"
-        v-else
-      >
-        <div v-html="form.intro"></div>
-      </div>
+        </div>
+        <div class="intro-content mb-20" v-else>
+          <div v-html="form.intro"></div>
+        </div>
       </div>
       <strong class="hint">如果沒有資料請重開網頁</strong>
     </el-form>
@@ -320,52 +290,52 @@ export default {
   },
 
   mounted() {
-    // window.extAsyncInit = () => {
-    this.interval = setInterval(() => {
-      if (!this.fb_id) {
-        // the Messenger Extensions JS SDK is done loading
-        this.me = MessengerExtensions
-        MessengerExtensions.getContext(
-          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          '1405269929631051', // Let's Movie 電影約會 BOT ID
-          thread_context => {
-            // success
-            this.fb_id = thread_context.psid
-            // More code to follow
-            fetch(
-              'https://bot-production.letsmovienow.com/api/webview/getMateData',
-              {
-                // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
-                headers: {
-                  'Content-Type': 'application/json',
+    window.extAsyncInit = () => {
+      this.interval = setInterval(() => {
+        if (!this.fb_id) {
+          // the Messenger Extensions JS SDK is done loading
+          this.me = MessengerExtensions
+          MessengerExtensions.getContext(
+            // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+            '1405269929631051', // Let's Movie 電影約會 BOT ID
+            (thread_context) => {
+              // success
+              this.fb_id = thread_context.psid
+              // More code to follow
+              fetch(
+                'https://bot-production.letsmovienow.com/api/webview/getMateData',
+                {
+                  // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  method: 'POST',
+                  body: JSON.stringify({ fb_id: this.fb_id }),
                 },
-                method: 'POST',
-                body: JSON.stringify({ fb_id: this.fb_id }),
-              },
-            )
-              .then(res => {
-                return res.json()
-              })
-              .then(res => {
-                if (res.err) {
-                  // const h = this.$createElement
-                  this.$notify({
-                    title: res.err,
-                  })
-                } else {
-                  // console.log(res.data)
-                  this.form = res.data
-                }
-              })
-          },
-          err => {
-            console.log(err)
-            this.fb_id = ''
-          },
-        )
-      }
-    }, 2000)
-
+              )
+                .then((res) => {
+                  return res.json()
+                })
+                .then((res) => {
+                  if (res.err) {
+                    // const h = this.$createElement
+                    this.$notify({
+                      title: res.err,
+                    })
+                  } else {
+                    // console.log(res.data)
+                    this.form = res.data
+                  }
+                })
+            },
+            (err) => {
+              console.log(err)
+              this.fb_id = ''
+            },
+          )
+        }
+      }, 2000)
+    }
     setTimeout(() => {
       clearInterval(this.interval)
     }, 1000 * 30)
