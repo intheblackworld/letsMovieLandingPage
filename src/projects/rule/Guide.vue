@@ -3,35 +3,17 @@
     <div class="title">使用指南</div>
     <div class="subtitle">選單功能說明</div>
     <div class="message-btns">
-      <div
-        class="btn-row"
-        @click="setTab(0)"
-      >選單在哪?</div>
+      <div class="btn-row" @click="setTab(0)">選單在哪?</div>
       <div v-if="fb_id">
-        <div
-          class="btn-row"
-          @click="setTab(1)"
-        >想約會</div>
-        <div
-          class="btn-row"
-          @click="setTab(4)"
-        >敲定約會細節(別忘記了，超重要!!)</div>
-        <div
-          class="btn-row"
-          @click="setTab(2)"
-        >查看個人資訊</div>
-        <div
-          class="btn-row"
-          @click="setTab(3)"
-        >L幣會員商城</div>
+        <div class="btn-row" @click="setTab(1)">想約會</div>
+        <div class="btn-row" @click="setTab(4)">敲定約會細節(別忘記了，超重要!!)</div>
+        <div class="btn-row" @click="setTab(2)">查看個人資訊</div>
+        <div class="btn-row" @click="setTab(3)">L幣會員商城</div>
       </div>
     </div>
     <div v-if="tabIndex === 0">
       <div class="subtitle">選單在哪？</div>
-      <img
-        src="./guide/1.png"
-        alt=""
-      >
+      <img src="./guide/1.png" alt="">
       <div class="img-desc">輸入框右側有一個按鈕(上圖紅框處)</div>
     </div>
     <div v-if="tabIndex === 1">
@@ -41,20 +23,14 @@
           男生的電影邀約來時，可選擇同意或拒絕<br />
           同意會增加20點，拒絕會扣5點<br />
           （成功去一次可拒絕四次^^）</p>
-        <img
-          src="./guide/2.png"
-          alt=""
-        >
+        <img src="./guide/2.png" alt="">
         <div class="img-desc">1)如到前一天晚上沒有配對成功，會自動取消<br />
           2)在配對到前隨時可以按選單中取消約會，來取消登記</div>
       </div>
       <div v-if="gender === 0">
         <p>即時出現你所在的地區有發起的電影約會<br />
           發出邀約前請確定自己的時間是可行的</p>
-        <img
-          src="./guide/3.png"
-          alt=""
-        >
+        <img src="./guide/3.png" alt="">
         <div class="img-desc">
           1)這邊的約會是女生即時發起的電影約會（她們想看的時間和地點）<br />
           可等到自己有想約的再約，會即時變動<br /><br />
@@ -66,19 +42,13 @@
     <div v-if="tabIndex === 2">
       <div class="subtitle">查看個人資訊功能說明</div>
       <div v-if="gender === 1">
-        <img
-          src="./guide/4.png"
-          alt=""
-        >
+        <img src="./guide/4.png" alt="">
         <p>主要有四個功能：<br />
            1)可修改個人資料或約會地區：<br />
           修改約會地區後按想約會就會跑出不同地區的電影約會<br />
           （但請別按之前地區跑出的電影約會，不然會去到原先地區的電影約會）<br /><br />
         </p>
-        <img
-          src="./guide/5.png"
-          alt=""
-        >
+        <img src="./guide/5.png" alt="">
         <p>
           2)可查看評價<br />
           在約會過後，可從個人資訊中看到自己過去約會，對方給自己的總評價平均<br />
@@ -92,19 +62,13 @@
         </p>
       </div>
       <div v-if="gender === 0">
-        <img
-          src="./guide/4.png"
-          alt=""
-        >
+        <img src="./guide/4.png" alt="">
         <p>主要有四個功能：<br />
            1)可修改個人資料或約會地區：<br />
           修改約會地區後按想約會就會跑出不同地區的電影約會<br />
           （但請別按之前地區跑出的電影約會，不然會去到原先地區的電影約會）<br /><br />
         </p>
-        <img
-          src="./guide/5.png"
-          alt=""
-        >
+        <img src="./guide/5.png" alt="">
         <p>
           2)可查看評價<br />
           在約會過後，可從個人資訊中看到自己過去約會，對方給自己的總評價平均<br />
@@ -135,22 +99,11 @@
     <div v-if="tabIndex === 4">
       <div class="subtitle">敲定約會細節功能說明</div>
       <p>配對成功會開通男女雙方的對話！這個時候就可以傳訊息對話了</p>
-      <img
-        src="./guide/hello.gif"
-        alt=""
-      >
+      <img src="./guide/hello.gif" alt="">
       <div class="img-desc red">請在24小時內確定碰面時間地點</div>
-      <img
-        src="./guide/6.png"
-        alt=""
-        class=""
-      >
+      <img src="./guide/6.png" alt="" class="">
       <p>敲定約會細節，是<span class="red">告訴系統你們已經討論完畢</span>了</p>
-      <img
-        src="./guide/7.png"
-        alt=""
-        class=""
-      >
+      <img src="./guide/7.png" alt="" class="">
       <p>
         <span class="red">如果24小時內沒有敲定</span><br />
         將會以最後一句話是誰回的，另外一方判定為未回應而被扣點
@@ -348,55 +301,80 @@ export default {
   },
 
   mounted() {
+    this.fb_id = this.$route.query.id
+    // More code to follow
+
+    fetch('https://bot-production.letsmovienow.com/api/webview/getUserData', {
+      // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({ fb_id: this.fb_id }),
+    })
+      .then((res) => {
+        return res.json()
+      })
+      .then((res) => {
+        if (res.err) {
+          // const h = this.$createElement
+          this.$notify({
+            title: res.err,
+          })
+        } else {
+          // console.log(res.data)
+          this.gender = res.data.gender
+        }
+      })
     // window.extAsyncInit = () => {
-    this.interval = setInterval(() => {
-      if (!this.fb_id) {
-        // the Messenger Extensions JS SDK is done loading
-        MessengerExtensions.getContext(
-          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          '1405269929631051', // Let's Movie 電影約會 BOT ID
-          thread_context => {
-            // success
-            this.fb_id = thread_context.psid
-            // More code to follow
+    // this.interval = setInterval(() => {
+    //   if (!this.fb_id) {
+    //     // the Messenger Extensions JS SDK is done loading
+    //     MessengerExtensions.getContext(
+    //       // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+    //       '1405269929631051', // Let's Movie 電影約會 BOT ID
+    //       thread_context => {
+    //         // success
+    //         this.fb_id = thread_context.psid
+    //         // More code to follow
 
-            fetch(
-              'https://bot-production.letsmovienow.com/api/webview/getUserData',
-              {
-                // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
-                headers: {
-                  'Content-Type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify({ fb_id: this.fb_id }),
-              },
-            )
-              .then(res => {
-                return res.json()
-              })
-              .then(res => {
-                if (res.err) {
-                  // const h = this.$createElement
-                  this.$notify({
-                    title: res.err,
-                  })
-                } else {
-                  // console.log(res.data)
-                  this.gender = res.data.gender
-                }
-              })
-          },
-          err => {
-            console.log(err)
-            this.fb_id = ''
-          },
-        )
-      }
-    }, 2000)
+    //         fetch(
+    //           'https://bot-production.letsmovienow.com/api/webview/getUserData',
+    //           {
+    //             // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+    //             headers: {
+    //               'Content-Type': 'application/json',
+    //             },
+    //             method: 'POST',
+    //             body: JSON.stringify({ fb_id: this.fb_id }),
+    //           },
+    //         )
+    //           .then(res => {
+    //             return res.json()
+    //           })
+    //           .then(res => {
+    //             if (res.err) {
+    //               // const h = this.$createElement
+    //               this.$notify({
+    //                 title: res.err,
+    //               })
+    //             } else {
+    //               // console.log(res.data)
+    //               this.gender = res.data.gender
+    //             }
+    //           })
+    //       },
+    //       err => {
+    //         console.log(err)
+    //         this.fb_id = ''
+    //       },
+    //     )
+    //   }
+    // }, 2000)
 
-    setTimeout(() => {
-      clearInterval(this.interval)
-    }, 1000 * 30)
+    // setTimeout(() => {
+    //   clearInterval(this.interval)
+    // }, 1000 * 30)
   },
 }
 </script>
