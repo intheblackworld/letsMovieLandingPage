@@ -2,79 +2,29 @@
 <template>
   <div class="check-detail">
     <!-- <input type="submit" value="Submit" id="submitButton" @click="closeWebView" /> -->
-    <el-form
-      class="form"
-      :model="form"
-      :rules="rules"
-      ref="form"
-    >
+    <el-form class="form" :model="form" :rules="rules" ref="form">
       <div class="form-title">修改個人資訊</div>
-      <el-form-item
-        label="暱稱"
-        class="form-item"
-        prop="nickname"
-      >
-        <el-input
-          v-model="form.nickname"
-          placeholder="請輸入暱稱"
-        ></el-input>
+      <el-form-item label="暱稱" class="form-item" prop="nickname">
+        <el-input v-model="form.nickname" placeholder="請輸入暱稱"></el-input>
       </el-form-item>
 
-      <el-form-item
-        label="主要活動地區"
-        class="form-item"
-        prop="address"
-      >
-        <el-select
-          v-model="form.address"
-          placeholder="你的地區"
-        >
-          <el-option
-            v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']"
-            :key="item"
-            :label="item"
-            :value="item"
-          ></el-option>
+      <el-form-item label="主要活動地區" class="form-item" prop="address">
+        <el-select v-model="form.address" placeholder="你的地區">
+          <el-option v-for="item in ['台北', '桃園', '新竹', '台中', '台南', '高雄']" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       </el-form-item>
 
-      <el-form-item
-        label="個人特質"
-        class="form-item"
-        prop="personality"
-      >
-        <el-select
-          v-model="form.personality"
-          placeholder="你的個人特質"
-        >
-          <el-option
-            v-for="item in personalityList"
-            :key="item"
-            :label="item"
-            :value="item"
-          ></el-option>
+      <el-form-item label="個人特質" class="form-item" prop="personality">
+        <el-select v-model="form.personality" placeholder="你的個人特質">
+          <el-option v-for="item in personalityList" :key="item" :label="item" :value="item"></el-option>
         </el-select>
       </el-form-item>
 
-      <el-form-item
-        label="興趣 - 限十個字"
-        class="form-item"
-        prop="habbit"
-      >
-        <el-input
-          v-model="form.habbit"
-          placeholder="你的興趣 - 限十個字"
-        ></el-input>
+      <el-form-item label="興趣 - 限十個字" class="form-item" prop="habbit">
+        <el-input v-model="form.habbit" placeholder="你的興趣 - 限十個字"></el-input>
       </el-form-item>
-      <el-form-item
-        label="職業 - 限十個字"
-        class="form-item"
-        prop="job"
-      >
-        <el-input
-          v-model="form.job"
-          placeholder="你的職業 - 限十個字"
-        ></el-input>
+      <el-form-item label="職業 - 限十個字" class="form-item" prop="job">
+        <el-input v-model="form.job" placeholder="你的職業 - 限十個字"></el-input>
       </el-form-item>
       <div v-show="form.gender != '1'">
         <div class="flex-ac flex-jb mt-40 mb-20">
@@ -82,32 +32,20 @@
             關於你
           </div>
 
-          <div
-            class="intro-link"
-            @click="isIntroDialog = true"
-          >
+          <div class="intro-link" @click="isIntroDialog = true">
             編輯自介
           </div>
         </div>
-        <div
-          class="intro-content mb-20"
-          v-if="!form.intro"
-        >
+        <div class="intro-content mb-20" v-if="!form.intro">
           <span class="label">預設自介</span><br />
           <div v-html="defaultIntro"></div>
         </div>
-        <div
-          class="intro-content mb-20"
-          v-else
-        >
+        <div class="intro-content mb-20" v-else>
           <div v-html="form.intro"></div>
         </div>
       </div>
       <strong class="hint">如果沒有舊資料請重開網頁</strong>
-      <div
-        class="dialog"
-        v-if="isIntroDialog"
-      >
+      <div class="dialog" v-if="isIntroDialog">
         <div class="form">
           <div class="dialog-title">想問幾個關於你的問題</div>
           <div class="dialog-subtitle">你的自介會在作答完之後自動產生</div>
@@ -117,18 +55,9 @@
           <!-- 1 -->
           <div class="intro-s">
             <div class="intro-select-btns">
-              <div
-                :class="`intro-btn flex-c ${introForm.q1 === 0 ? 'active' : ''}`"
-                @click="introForm.q1 = 0"
-              >與人交談</div>
-              <div
-                :class="`intro-btn flex-c ${introForm.q1 === 1 ? 'active' : ''}`"
-                @click="introForm.q1 = 1"
-              >樂於傾聽</div>
-              <div
-                :class="`intro-btn flex-c ${introForm.q1 === 2 ? 'active' : ''}`"
-                @click="introForm.q1 = 2"
-              >兩者皆是</div>
+              <div :class="`intro-btn flex-c ${introForm.q1 === 0 ? 'active' : ''}`" @click="introForm.q1 = 0">與人交談</div>
+              <div :class="`intro-btn flex-c ${introForm.q1 === 1 ? 'active' : ''}`" @click="introForm.q1 = 1">樂於傾聽</div>
+              <div :class="`intro-btn flex-c ${introForm.q1 === 2 ? 'active' : ''}`" @click="introForm.q1 = 2">兩者皆是</div>
             </div>
           </div>
           <!-- 2 -->
@@ -137,14 +66,8 @@
           </div>
           <div class="intro-s">
             <div class="intro-select-btns">
-              <div
-                :class="`intro-btn flex-c ${introForm.q2 === 0 ? 'active' : ''}`"
-                @click="introForm.q2 = 0"
-              >熱情、堅強、外向</div>
-              <div
-                :class="`intro-btn flex-c ${introForm.q2 === 1 ? 'active' : ''}`"
-                @click="introForm.q2 = 1"
-              >沈穩、細心、內向</div>
+              <div :class="`intro-btn flex-c ${introForm.q2 === 0 ? 'active' : ''}`" @click="introForm.q2 = 0">熱情、堅強、外向</div>
+              <div :class="`intro-btn flex-c ${introForm.q2 === 1 ? 'active' : ''}`" @click="introForm.q2 = 1">沈穩、細心、內向</div>
             </div>
           </div>
           <!-- 3 -->
@@ -152,48 +75,21 @@
             從下列項目中選擇一項你最想實現的事
           </div>
           <div class="intro-s">
-            <el-radio
-              v-model="introForm.q3"
-              :label="0"
-            >和你的伴侶在冰天雪地中看著極光</el-radio>
-            <el-radio
-              v-model="introForm.q3"
-              :label="1"
-            >說走就走，背一個背包，環遊世界</el-radio>
-            <el-radio
-              v-model="introForm.q3"
-              :label="2"
-            >擁有一棟房子，房子裡住著我愛的人跟愛我的人</el-radio>
-            <el-radio
-              v-model="introForm.q3"
-              :label="3"
-            >成為某個領域中的專家，受人尊重，很多人都知道你，喜歡你，需要你的意見</el-radio>
+            <el-radio v-model="introForm.q3" :label="0">和你的伴侶在冰天雪地中看著極光</el-radio>
+            <el-radio v-model="introForm.q3" :label="1">說走就走，背一個背包，環遊世界</el-radio>
+            <el-radio v-model="introForm.q3" :label="2">擁有一棟房子，房子裡住著我愛的人跟愛我的人</el-radio>
+            <el-radio v-model="introForm.q3" :label="3">成為某個領域中的專家，受人尊重，很多人都知道你，喜歡你，需要你的意見</el-radio>
           </div>
           <!-- 4 -->
           <div class="intro-q">
             下面五句話，你對哪一句最有感？
           </div>
           <div class="intro-s">
-            <el-radio
-              v-model="introForm.q4"
-              :label="0"
-            >關心自己的靈魂，從來不早，也不會晚</el-radio>
-            <el-radio
-              v-model="introForm.q4"
-              :label="1"
-            >再煩，也別忘微笑；再急，也要注意語氣；再苦，也別忘堅持；再累，也要愛自己</el-radio>
-            <el-radio
-              v-model="introForm.q4"
-              :label="2"
-            >每一天都沒把握，所以我只能把握好每一天</el-radio>
-            <el-radio
-              v-model="introForm.q4"
-              :label="3"
-            >生活不一定是一直美好的，但是那些掙扎可以讓你變得更堅強</el-radio>
-            <el-radio
-              v-model="introForm.q4"
-              :label="4"
-            >凡是挫折都是禮物，唯有正確價值觀才能打開</el-radio>
+            <el-radio v-model="introForm.q4" :label="0">關心自己的靈魂，從來不早，也不會晚</el-radio>
+            <el-radio v-model="introForm.q4" :label="1">再煩，也別忘微笑；再急，也要注意語氣；再苦，也別忘堅持；再累，也要愛自己</el-radio>
+            <el-radio v-model="introForm.q4" :label="2">每一天都沒把握，所以我只能把握好每一天</el-radio>
+            <el-radio v-model="introForm.q4" :label="3">生活不一定是一直美好的，但是那些掙扎可以讓你變得更堅強</el-radio>
+            <el-radio v-model="introForm.q4" :label="4">凡是挫折都是禮物，唯有正確價值觀才能打開</el-radio>
           </div>
 
           <!-- 5 -->
@@ -201,10 +97,7 @@
             選擇一個最能代表你的動物
           </div>
           <div class="intro-s">
-            <el-radio-group
-              v-model="introForm.q5"
-              size="mini"
-            >
+            <el-radio-group v-model="introForm.q5" size="mini">
               <el-radio-button :label="0">狗</el-radio-button>
               <el-radio-button :label="1">貓</el-radio-button>
               <el-radio-button :label="2">老鷹</el-radio-button>
@@ -214,22 +107,11 @@
             </el-radio-group>
           </div>
 
-          <el-button
-            type="primary"
-            round
-            @click="generateIntro"
-            class="submit"
-          >產生自介</el-button>
+          <el-button type="primary" round @click="generateIntro" class="submit">產生自介</el-button>
         </div>
       </div>
       <div class="form-item">
-        <el-button
-          type="primary"
-          round
-          @click="submitForm('form')"
-          :loading="loading"
-          class="submit"
-        >確認</el-button>
+        <el-button type="primary" round @click="submitForm('form')" :loading="loading" class="submit">確認</el-button>
       </div>
     </el-form>
     <!-- <div class="box">
@@ -552,16 +434,53 @@ export default {
 
   mounted() {
     // window.extAsyncInit = () => {
-    this.interval = setInterval(() => {
-      if (!this.fb_id) {
-        // the Messenger Extensions JS SDK is done loading
-        this.me = MessengerExtensions
-        MessengerExtensions.getContext(
-          // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
-          '1405269929631051', // Let's Movie 電影約會 BOT ID
-          thread_context => {
-            // success
-            this.fb_id = thread_context.psid
+    // this.interval = setInterval(() => {
+    //   if (!this.fb_id) {
+    //     // the Messenger Extensions JS SDK is done loading
+    //     this.me = MessengerExtensions
+    //     MessengerExtensions.getContext(
+    //       // '902252186774664', // Let's Movie 電影約會內部測試 BOT ID
+    //       '1405269929631051', // Let's Movie 電影約會 BOT ID
+    //       thread_context => {
+    //         // success
+    //         this.fb_id = thread_context.psid
+    //         // More code to follow
+    //         fetch(
+    //           'https://bot-production.letsmovienow.com/api/webview/getUserData',
+    //           {
+    //             // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
+    //             headers: {
+    //               'Content-Type': 'application/json',
+    //             },
+    //             method: 'POST',
+    //             body: JSON.stringify({ fb_id: this.fb_id }),
+    //           },
+    //         )
+    //           .then(res => {
+    //             return res.json()
+    //           })
+    //           .then(res => {
+    //             if (res.err) {
+    //               // const h = this.$createElement
+    //               this.$notify({
+    //                 title: res.err,
+    //               })
+    //             } else {
+    //               // console.log(res.data)
+    //               this.form = res.data
+    //             }
+    //           })
+    //       },
+    //       err => {
+    //         console.log(err)
+    //         this.fb_id = ''
+    //       },
+    //     )
+    //   }
+    // }, 2000)
+
+
+    this.fb_id = this.$route.query.id
             // More code to follow
             fetch(
               'https://bot-production.letsmovienow.com/api/webview/getUserData',
@@ -588,18 +507,9 @@ export default {
                   this.form = res.data
                 }
               })
-          },
-          err => {
-            console.log(err)
-            this.fb_id = ''
-          },
-        )
-      }
-    }, 2000)
-
-    setTimeout(() => {
-      clearInterval(this.interval)
-    }, 1000 * 30)
+    // setTimeout(() => {
+    //   clearInterval(this.interval)
+    // }, 1000 * 30)
   },
 
   methods: {
