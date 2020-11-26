@@ -303,29 +303,32 @@ export default {
   mounted() {
     this.fb_id = this.$route.query.id
     // More code to follow
-
-    fetch('https://bot-production.letsmovienow.com/api/webview/getUserData', {
-      // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify({ fb_id: this.fb_id }),
-    })
-      .then((res) => {
-        return res.json()
+    if (!this.fb_id) {
+      this.gender = 0
+    } else {
+      fetch('https://bot-production.letsmovienow.com/api/webview/getUserData', {
+        // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({ fb_id: this.fb_id }),
       })
-      .then((res) => {
-        if (res.err) {
-          // const h = this.$createElement
-          this.$notify({
-            title: res.err,
-          })
-        } else {
-          // console.log(res.data)
-          this.gender = res.data.gender
-        }
-      })
+        .then((res) => {
+          return res.json()
+        })
+        .then((res) => {
+          if (res.err) {
+            // const h = this.$createElement
+            this.$notify({
+              title: res.err,
+            })
+          } else {
+            // console.log(res.data)
+            this.gender = res.data.gender
+          }
+        })
+    }
     // window.extAsyncInit = () => {
     // this.interval = setInterval(() => {
     //   if (!this.fb_id) {
