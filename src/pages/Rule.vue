@@ -61,7 +61,7 @@ export default {
   },
 
   data: function() {
-    return { load: true, isFBReady: false }
+    return { load: true, isFBReady: false, }
   },
   created() {
     window.addEventListener('load', event => {
@@ -71,6 +71,7 @@ export default {
   mounted: function() {
     this.isFBReady = Vue.FB !== undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
+    window.FB.CustomerChat.hide()
   },
   beforeDestroy: function() {
     window.removeEventListener('fb-sdk-ready', this.onFBReady)

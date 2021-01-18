@@ -69,6 +69,7 @@ export default {
     window.addEventListener('load', event => {
       this.load = false
     })
+    window.FB.CustomerChat.hide()
   },
 
   methods: {

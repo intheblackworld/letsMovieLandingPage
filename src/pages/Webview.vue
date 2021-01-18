@@ -72,6 +72,7 @@ export default {
   mounted: function() {
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
+    window.FB.CustomerChat.hide()
   },
   beforeDestroy: function() {
     window.removeEventListener('fb-sdk-ready', this.onFBReady)
