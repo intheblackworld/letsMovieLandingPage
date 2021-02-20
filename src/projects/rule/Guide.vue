@@ -7,7 +7,7 @@
       <div v-if="fb_id">
         <div class="btn-row" @click="setTab(1)">想約會</div>
         <div class="btn-row" @click="setTab(4)">敲定約會細節(別忘記了，超重要!!)</div>
-        <div class="btn-row" @click="setTab(2)">查看個人資訊</div>
+        <div class="btn-row" @click="setTab(2)">個人資訊相關</div>
         <div class="btn-row" @click="setTab(3)">L幣會員商城</div>
       </div>
     </div>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div v-if="tabIndex === 2">
-      <div class="subtitle">查看個人資訊功能說明</div>
+      <div class="subtitle">個人資訊相關功能說明</div>
       <div v-if="gender === 1">
         <img src="./guide/4.png" alt="">
         <p>主要有四個功能：<br />

@@ -10,18 +10,18 @@
       <!-- div.mask.fullscr -->
       <div class="container flex-c">
         <div class="content">
-          <p
+          <h1
             data-aos="fade-up"
             data-aos-delay="0"
             data-aos-duration="500"
             class="title"
-          >男生請女生看電影</p>
-          <p
+          >男生請女生看電影</h1>
+          <h1
             data-aos="fade-up"
             data-aos-delay="300"
             data-aos-duration="500"
             class="sub-title"
-          >找一個跟你在電影院裡會心一笑的人</p>
+          >找一個頻率相近的人，來一場浪漫的電影約會吧</h1>
           <a
             class="flex-c"
             id="cta-1"
