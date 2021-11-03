@@ -292,7 +292,7 @@ export default {
   mounted() {
     this.fb_id = this.$route.query.id
     // More code to follow
-    fetch('https://bot-production.letsmovienow.com/api/webview/getMateData', {
+    fetch('https://bot-production.letsmovienow.com/api/webview/getUserData', {
       // fetch(`https://009e367078af.ngrok.io/api/webview/getUserData`, {
       headers: {
         'Content-Type': 'application/json',
