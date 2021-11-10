@@ -83,6 +83,10 @@ export default new Router({
           path: 'datings',
           component: () => import(/* webpackChunkName: "webview" */ './projects/webview/Datings.vue')
         },
+        {
+          path: 'userinfo',
+          component: () => import(/* webpackChunkName: "webview" */ './projects/webview/UserInfo.vue')
+        },
       ]
     },
   ]
