@@ -136,7 +136,7 @@ export default {
 
   computed: {
     level() {
-      if (this.starts <= 5) {
+      if (this.stars <= 5) {
         return 1
       } else if (this.stars <= 10) {
         return 2
@@ -200,7 +200,7 @@ export default {
           })
         } else {
           // console.log(res.data)
-          this.datings = res.data.dating_list
+          this.datings = res.data.dating_list.filter(date => !date)
           this.stars = res.data.stars
         }
       })
