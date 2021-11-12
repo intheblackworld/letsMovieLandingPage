@@ -17,8 +17,8 @@
           <img :src="date.img_url" alt="">
           <div class="dating-content">
             你在 <b>{{date.meet_time}}</b> 的時候跟 <b>{{date.mate_name}}</b> 一起看了 <b>{{date.movie_name}}</b><br />
-            <div v-if="date.content">你跟對方說：<b>{{date.content}}</b></div>
-            <div v-if="date.mate_content">對方跟你說：<b>{{date.mate_content}}</b></div>
+            <div v-if="date.content && date.content !== '無'">你跟對方說：<b>{{date.content}}</b></div>
+            <div v-if="date.mate_content && date.mate_content !== '無'">對方跟你說：<b>{{date.mate_content}}</b></div>
             你給了對方<span>{{date.scores}}</span>顆星🌟<br />
             對方給了你<span>{{date.mate_scores}}</span>顆星🌟
           </div>
@@ -124,6 +124,7 @@
   .dating-item {
     width: 100%;
     padding: 0;
+    margin-bottom: 25px;
   }
 
   .dating-item .dating-content {
