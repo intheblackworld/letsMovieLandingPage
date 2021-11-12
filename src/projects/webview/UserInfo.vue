@@ -11,7 +11,8 @@
       過去約會記錄
     </div>
 
-    <div class="dating-item" v-for="date in datings" :key="date.name + date.mate_name + date.movie_name + date.theater">
+    <div class="dating-list" v-if="datings.length> 0">
+      <div class="dating-item" v-for="date in datings" :key="date.name + date.mate_name + date.movie_name + date.theater">
       <div class="dating-inner">
         <img :src="date.img_url" alt="">
         <div class="dating-content">
@@ -22,6 +23,7 @@
           對方給了你{{date.scores}}顆星
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -199,7 +201,7 @@ export default {
         } else {
           // console.log(res.data)
           this.datings = res.data.dating_list
-          this.starts = res.data.stars
+          this.stars = res.data.stars
         }
       })
   },
