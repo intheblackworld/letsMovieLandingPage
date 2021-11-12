@@ -2,16 +2,9 @@
   <div class="datings relative">
     <div class="title">最新成功約會</div>
     <div class="animate-slide">
-      <div
-        v-for="(date, index) in datings"
-        :key="date.girl_name + date.boy_name + date.movie_name + date.theater + index"
-        class="dating-item"
-      >
+      <div v-for="(date, index) in datings" :key="date.girl_name + date.boy_name + date.movie_name + date.theater + index" class="dating-item">
         <div class="dating-inner">
-          <img
-            :src="date.img_url"
-            alt=""
-          >
+          <img :src="date.img_url" alt="">
           <div class="dating-content">
             <p>
               恭喜
@@ -23,27 +16,21 @@
           </div>
         </div>
       </div>
-      <div
-        v-for="(date, index) in datings"
-        :key="date.girl_name + date.boy_name + date.movie_name + date.theater + index"
-        class="dating-item"
-      >
-        <img
-          :src="date.img_url"
-          alt=""
-        >
-        <div class="dating-content">
-          <p>
-            恭喜
-            <span class="red"> {{date.girl_name}} </span>與<span class="blue"> {{date.boy_name}} </span><br />
-            在<span class="hot"> {{date.meet_time}} </span>成功出去約會<br />
-            🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟<br />
-            他們觀看的電影是: <span class="hot">{{date.movie_name}}</span><br />
-          </p>
+      <div v-for="(date, index) in datings" :key="date.girl_name + date.boy_name + date.movie_name + date.theater + index" class="dating-item">
+        <div class="dating-inner">
+          <img :src="date.img_url" alt="">
+          <div class="dating-content">
+            <p>
+              恭喜
+              <span class="red"> {{date.girl_name}} </span>與<span class="blue"> {{date.boy_name}} </span><br />
+              在<span class="hot"> {{date.meet_time}} </span>成功出去約會<br />
+              🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟<br />
+              他們觀看的電影是: <span class="hot">{{date.movie_name}}</span><br />
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </template>
 <style lang="scss" scoped>
 .datings {
@@ -220,16 +207,16 @@ export default {
       method: 'POST',
       body: JSON.stringify({ fb_id: this.fb_id, needImg: true }),
     })
-      .then(res => {
+      .then((res) => {
         return res.json()
       })
-      .then(res => {
+      .then((res) => {
         if (res.err) {
           this.$notify({
             title: res.err,
           })
         } else {
-          this.datings = res.data.filter(date => !!date)
+          this.datings = res.data.filter((date) => !!date)
           console.log(this.datings)
         }
       })
