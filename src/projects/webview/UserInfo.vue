@@ -20,7 +20,7 @@
             <div v-if="date.content">你跟對方說：<b>{{date.content}}</b></div>
             <div v-if="date.mate_content">對方跟你說：<b>{{date.mate_content}}</b></div>
             你給了對方<span>{{date.scores}}</span>顆星🌟<br />
-            對方給了你<span>{{date.scores}}</span>顆星🌟
+            對方給了你<span>{{date.mate_scores}}</span>顆星🌟
           </div>
         </div>
       </div>
@@ -51,6 +51,7 @@
 
 .item-title {
   text-align: left;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
@@ -81,6 +82,10 @@
   }
   .dating-content {
     padding: 20px 15px 15px 20px;
+
+    b, span {
+      font-weight: bold !important;
+    }
   }
 
   img {
@@ -223,11 +228,8 @@ export default {
             title: res.err,
           })
         } else {
-          console.log(res.data, 'res.data')
           this.stars = res.data.stars
           this.datings = res.data.dating_list.filter((date) => !!date)
-          console.log(this.stars, 'this.stars')
-          console.log(this.datings, 'this.datings')
         }
       })
   },
