@@ -1,47 +1,28 @@
 <template>
   <div class="datings">
     <div class="title">個人約會資訊</div>
-    <div
-      class="dating-item"
-      v-for="date in datings"
-      :key="date.girl_name + date.boy_name + date.movie_name + date.theater"
-    >
-      <p>
-        恭喜
-        <span class="red"> {{date.girl_name}} </span>與<span class="blue"> {{date.boy_name}} </span><br />
-        在<span class="hot"> {{date.meet_time}} </span>成功出去約會<br />
-        🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟<br />
-        他們觀看的電影是: <span class="hot">{{date.movie_name}}</span><br />
-      </p>
-      <!-- <div class="row">
-        <div class="label">觀看電影</div>
-        <div class="value">{{date.movie_nae}}</div>
-      </div>
-      <div class="row">
-        <div class="label">男生評價</div>
-        <div class="value">{{date.boy_scores}}</div>
-      </div>
-      <div class="row">
-        <div class="label">女生評價</div>
-        <div class="value">{{date.girl_scores}}</div>
-      </div>
-      <div class="row">
-        <div class="label">觀看電影</div>
-        <div class="value">{{date.movie_nae}}</div>
-      </div>
-      "movie_name": "非常母親",
-      "theater": "信義威秀影城",
-      "meet_time": "2020-06-22",
-      "girl_scores": "5",
-      "boy_scores": "4",
-      "girl_name": "魯*******",
-      "boy_name": "林*******" -->
+    <div class="item-title">
+      個人等級: <span class="level">Level{{level}}</span>
     </div>
-    <!-- <div class="box">
-      <div class="wave -one"></div>
-      <div class="wave -two"></div>
-      <div class="wave -three"></div>
-    </div> -->
+    <div class="level-desc">
+      累積星等: {{stars}} 距離下一個等級還差幾顆星：{{restStars}}
+    </div>
+    <div class="item-title">
+      過去約會記錄
+    </div>
+
+    <div class="dating-item" v-for="date in datings" :key="date.name + date.mate_name + date.movie_name + date.theater">
+      <div class="dating-inner">
+        <img :src="date.img_url" alt="">
+        <div class="dating-content">
+          你在 {{date.meet_time}} 的時候跟 {{date.mate_name}} 一起看了 {{date.movie_name}}<br />
+          你跟對方說：{{date.content}}<br />
+          對方跟你說：{{date.mate_content}}<br />
+          你給了對方{{date.scores}}顆星<br />
+          對方給了你{{date.scores}}顆星
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <style lang="scss">
@@ -65,14 +46,29 @@
   font-size: 30px;
   margin-bottom: 25px;
 }
+
 .dating-item {
-  width: 100%;
-  margin: 25px auto;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px 15px 15px 50px;
-  border-radius: 10px;
+  width: 25vw;
+  padding: 25px;
   position: relative;
   z-index: 10;
+  .dating-inner {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #1d1c26;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.8);
+  }
+  .dating-content {
+    padding: 20px 15px 15px 20px;
+  }
+
+  img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    object-position: center;
+    background-color: #1d1c26;
+  }
 
   p {
     line-height: 1.8 !important;
@@ -92,52 +88,6 @@
     color: rgb(240, 198, 119);
   }
 }
-
-.box {
-  position: fixed;
-  top: 40vh;
-  transform: rotate(80deg);
-  left: 30vw;
-}
-.wave {
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.4;
-  position: absolute;
-  top: 3%;
-  left: 10%;
-  background: linear-gradient(to left, #c31432, #240b36);
-  width: 1500px;
-  height: 1300px;
-  transform-origin: 50% 48%;
-  border-radius: 43%;
-  animation: drift 7000ms infinite linear;
-
-  // &.-two {
-  //   background: #af0404;
-  //   opacity: 0.1;
-  //   width: 300vw;
-  //   height: 180vw;
-  //   animation: drift 10000ms infinite linear;
-  // }
-
-  // &.-three {
-  //   background: #ff0000;
-  //   opacity: 0.05;
-  //   width: 1000px;
-  //   height: 700px;
-  //   animation: drift 13000ms infinite linear;
-  // }
-}
-@keyframes drift {
-  from {
-    transform: rotate(180deg);
-  }
-  from {
-    transform: rotate(360deg);
-  }
-}
 /* 螢幕尺寸標準 */
 /* 平板尺寸 */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -145,6 +95,9 @@
 
 /* 手機尺寸 */
 @media only screen and (max-width: 767px) {
+  .dating-item {
+    width: 100vw;
+  }
 }
 
 // 避免內容電腦過渡平板時，設計未考量的調整
@@ -174,28 +127,70 @@ export default {
       fb_id: '',
       datings: [],
       interval: '',
+      stars: 0,
+      needStars: [5, 10, 20, 30, 50, 70, 100, 150, 200],
     }
   },
 
-  computed: {},
+  computed: {
+    level() {
+      if (this.starts <= 5) {
+        return 1
+      } else if (this.stars <= 10) {
+        return 2
+      } else if (this.stars <= 20) {
+        return 3
+      } else if (this.stars <= 30) {
+        return 4
+      } else if (this.stars <= 50) {
+        return 5
+      } else if (this.stars <= 70) {
+        return 6
+      } else if (this.stars <= 100) {
+        return 7
+      } else if (this.stars <= 150) {
+        return 8
+      } else if (this.stars <= 200) {
+        return 9
+      } else if (this.stars > 200) {
+        return 10
+      }
+    },
+    // 1-5 LV1
+    // 5-10 LV2
+    // 10-20 LV3
+    // 20-30 LV4
+    // 30-50 LV5
+    // 50-70 LV6
+    // 70-100 LV7
+    // 100-150 LV8
+    // 150-200 LV9
+    // 200以上 LV10
+    restStars() {
+      return this.needStars[this.level - 1] - this.stars
+    },
+  },
   destroyed() {
     clearInterval(this.interval)
   },
 
   mounted() {
     this.fb_id = this.$route.query.id
-    fetch('https://bot-production.letsmovienow.com/api/webview/getUserDatingData', {
-      // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
-      headers: {
-        'Content-Type': 'application/json',
+    fetch(
+      'https://bot-production.letsmovienow.com/api/webview/getUserDatingData',
+      {
+        // fetch('https://165d54a196b7.ngrok.io/api/webview/getUserData', {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({ fb_id: this.fb_id }),
       },
-      method: 'POST',
-      body: JSON.stringify({ fb_id: this.fb_id }),
-    })
-      .then(res => {
+    )
+      .then((res) => {
         return res.json()
       })
-      .then(res => {
+      .then((res) => {
         if (res.err) {
           // const h = this.$createElement
           this.$notify({
@@ -204,6 +199,7 @@ export default {
         } else {
           // console.log(res.data)
           this.datings = res.data.dating_list
+          this.starts = res.data.stars
         }
       })
   },
