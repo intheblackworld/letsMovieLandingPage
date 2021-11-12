@@ -252,12 +252,8 @@ self.__precacheManifest = [
     "url": "/img/9.4862fc87.png"
   },
   {
-    "revision": "2ee8d5f54a40183af99b82b6a72d0f5a",
+    "revision": "00f8326b888589974bf627d7c4675b24",
     "url": "/index.html"
-  },
-  {
-    "revision": "5f3e1a8f9c170c0afae05d89d0e4b124",
-    "url": "/google92c90ee68901db70.html"
   },
   {
     "revision": "d69ac0837e15d42eece273327a000c96",
@@ -266,6 +262,10 @@ self.__precacheManifest = [
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/robots.txt"
+  },
+  {
+    "revision": "5f3e1a8f9c170c0afae05d89d0e4b124",
+    "url": "/google92c90ee68901db70.html"
   },
   {
     "revision": "8aba56d72a37d7da68a441c62f6de51a",
