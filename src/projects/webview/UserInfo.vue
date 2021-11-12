@@ -199,9 +199,11 @@ export default {
             title: res.err,
           })
         } else {
-          // console.log(res.data)
+          console.log(res.data, 'res.data')
           this.stars = res.data.stars
-          this.datings = res.data.dating_list.filter(date => !date)
+          this.datings = res.data.dating_list.filter(date => !!date)
+          console.log(this.stars, 'this.stars')
+          console.log(this.datings, 'this.datings')
         }
       })
   },
