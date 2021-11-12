@@ -2,10 +2,10 @@
   <div class="datings">
     <div class="title">個人約會資訊</div>
     <div class="item-title">
-      個人等級: <span class="level">Level{{level}}</span>
+      目前等級: <span class="level">Lv.{{level}}</span>
     </div>
     <div class="level-desc">
-      累積星等: {{stars}} 距離下一個等級還差幾顆星：{{restStars}}
+      累積星等: <span>{{stars}}🌟</span> <br />距離下一個等級還差 <span>{{restStars}}🌟</span>顆星：
     </div>
     <div class="item-title">
       過去約會記錄
@@ -13,17 +13,17 @@
 
     <div class="dating-list" v-if="datings.length> 0">
       <div class="dating-item" v-for="date in datings">
-      <div class="dating-inner">
-        <img :src="date.img_url" alt="">
-        <div class="dating-content">
-          你在 {{date.meet_time}} 的時候跟 {{date.mate_name}} 一起看了 {{date.movie_name}}<br />
-          你跟對方說：{{date.content}}<br />
-          對方跟你說：{{date.mate_content}}<br />
-          你給了對方{{date.scores}}顆星<br />
-          對方給了你{{date.scores}}顆星
+        <div class="dating-inner">
+          <img :src="date.img_url" alt="">
+          <div class="dating-content">
+            你在 <b>{{date.meet_time}}</b> 的時候跟 <b>{{date.mate_name}}</b> 一起看了 <b>{{date.movie_name}}</b><br />
+            <div v-if="date.content">你跟對方說：<b>{{date.content}}</b></div>
+            <div v-if="date.mate_content">對方跟你說：<b>{{date.mate_content}}</b></div>
+            你給了對方<span>{{date.scores}}</span>顆星🌟<br />
+            對方給了你<span>{{date.scores}}</span>顆星🌟
+          </div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </template>
@@ -47,6 +47,25 @@
   padding-left: 15px;
   font-size: 30px;
   margin-bottom: 25px;
+}
+
+.item-title {
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.level {
+  background: orange;
+  border-radius: 8px;
+  padding: 0 10px;
+  font-weight: bold !important;
+  font-size: 1.2rem;
+  margin-left: 0.3rem;
+}
+
+.level-desc {
+  text-align: left;
 }
 
 .dating-item {
@@ -98,7 +117,12 @@
 /* 手機尺寸 */
 @media only screen and (max-width: 767px) {
   .dating-item {
-    width: 100vw;
+    width: 100%;
+    padding: 0;
+  }
+
+  .dating-item .dating-content {
+    text-align: left;
   }
 }
 
@@ -201,7 +225,7 @@ export default {
         } else {
           console.log(res.data, 'res.data')
           this.stars = res.data.stars
-          this.datings = res.data.dating_list.filter(date => !!date)
+          this.datings = res.data.dating_list.filter((date) => !!date)
           console.log(this.stars, 'this.stars')
           console.log(this.datings, 'this.datings')
         }
