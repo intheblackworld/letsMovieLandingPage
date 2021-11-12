@@ -12,7 +12,7 @@
     </div>
 
     <div class="dating-list" v-if="datings.length> 0">
-      <div class="dating-item" v-for="date in datings" :key="date.name + date.mate_name + date.movie_name + date.theater">
+      <div class="dating-item" v-for="date in datings">
       <div class="dating-inner">
         <img :src="date.img_url" alt="">
         <div class="dating-content">
@@ -200,8 +200,8 @@ export default {
           })
         } else {
           // console.log(res.data)
-          this.datings = res.data.dating_list.filter(date => !date)
           this.stars = res.data.stars
+          this.datings = res.data.dating_list.filter(date => !date)
         }
       })
   },
