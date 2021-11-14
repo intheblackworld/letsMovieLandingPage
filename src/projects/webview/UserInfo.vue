@@ -5,7 +5,7 @@
       目前等級: <span class="level">{{name}}</span>
     </div>
     <div class="level-desc">
-      累積星等: <span>{{stars}}🌟</span> <br />距離下一個等級還差 <span>{{restStars}}🌟</span>顆星：
+      累積星等: <span>{{stars}}🌟</span> <br />距離下一個等級 <b>{{nextname}}</b> 還差 <span>{{restStars}}🌟</span>顆星
     </div>
     <div class="item-title">
       過去約會記錄
@@ -67,6 +67,10 @@
 
 .level-desc {
   text-align: left;
+
+  b {
+    font-weight: bold;
+  }
 }
 
 .dating-item {
@@ -254,6 +258,13 @@ export default {
         return this.boy_names[this.level - 1] ? this.boy_names[this.level - 1] : '無資料'
       } else {
         return this.girl_names[this.level - 1] ? this.girl_names[this.level - 1] : '無資料'
+      }
+    },
+    nextname() {
+      if (this.gender == 0) {
+        return this.boy_names[this.level] ? this.boy_names[this.level] : '無資料'
+      } else {
+        return this.girl_names[this.level] ? this.girl_names[this.level] : '無資料'
       }
     },
   },
