@@ -2,6 +2,7 @@
   <div>
     <div class="footer">
       <p @click="showPolicyDialog">隱私權條款</p>
+      <p>統一編號：50902932</p>
     </div>
     <PolicyDialog :policyVisible="policyVisible" />
   </div>
@@ -26,7 +27,6 @@
     margin-right: 15px;
     margin-bottom: 0;
     cursor: pointer;
-    text-decoration: underline;
   }
 
   a {
